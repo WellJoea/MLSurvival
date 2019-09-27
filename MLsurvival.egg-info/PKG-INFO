@@ -1,0 +1,45 @@
+Metadata-Version: 1.2
+Name: MLsurvival
+Version: 0.0.1
+Summary: 
+***********************************************************
+* Author : Zhou Wei                                       *
+* Date   : Wed Jul 10 16:57:43 2019                       *
+* E-mail : welljoea@gmail.com                             *
+* You are using the program scripted by Zhou Wei.         *
+* The MLsurvival is used for survival analysis based on   *
+* lifelines and scikit-survival.                          *
+* You can implement standardization, feature selection,   *
+* Fitting and Prediction.                                 *
+* If you find some bugs, please send emails to me.        *
+* Please let me know and acknowledge in your publication. *
+* Thank you!                                              *
+* Best wishes!                                            *
+***********************************************************
+
+Home-page: https://github.com/WellJoea/MLsurvival
+Author: Wei Zhou
+Author-email: welljoea@gmail.com
+Maintainer: Wei Zhou
+License: UNKNOWN
+Description: UNKNOWN
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Classifier: Topic :: Scientific/Engineering :: Visualization

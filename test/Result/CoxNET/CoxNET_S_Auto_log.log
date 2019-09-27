@@ -1,0 +1,1316 @@
+***********************************************************
+* Author : Zhou Wei                                       *
+* Date   : Tue Sep 17 11:15:26 2019                       *
+* E-mail : welljoea@gmail.com                             *
+* You are using MLkit scripted by Zhou Wei.               *
+* If you find some bugs, please email to me.              *
+* Please let me know and acknowledge in your publication. *
+* Sincerely                                               *
+* Best wishes!                                            *
+***********************************************************
+***********The argument you have set as follows:***********
+**01|commands     : Auto
+**02|input        : /lustre/rde/user/zhouw/00software/MLSurvivalv0.01/test/CRC.133.traintest.txt
+**03|group        : /lustre/rde/user/zhouw/00software/MLSurvivalv0.01/test/CRC.188.group.txt
+**04|outdir       : /lustre/rde/user/zhouw/00software/MLSurvivalv0.01/test/Result/CoxNET/
+**05|model        : CoxNET
+**06|pool         : 20
+**07|SearchCV     : GSCV
+**08|n_iter       : 2500
+**09|MissRow      : 0.8
+**10|MissCol      : 0.8
+**11|MissValue    : median
+**12|FillValue    : None
+**13|PairPlot     : False
+**14|n_job        : -1
+**15|CVmodel      : SSS
+**16|CVfit        : SSA
+**17|scaler       : ['S']
+**18|QuantileRange: [10, 90]
+**19|pcathreshold : 0.95
+**20|ScorePoint   : [10, 90]
+**21|SelectB      : ['ANVF', 'MI', 'RS', 'MWU', 'TTI', 'PEAS', 'SPM', 'KDT', 'LR']
+**22|SelectK      : 0.8
+**23|SelectR      : 0.15
+**24|RFECV        : True
+**25|SFSCV        : False
+**26|specifM      : []
+**27|set          : parallel
+**28|SelectCV_rep : 1
+**29|RFE_rate     : 20
+**30|SFS_rate     : 0.3
+**31|k_features   : ['best']
+**32|testS        : 0.25
+**33|crossV       : 10
+**34|pca          : False
+**35|LRmode       : LRCV
+**36|predict      : /lustre/rde/user/zhouw/00software/MLSurvivalv0.01/test/CRC.55.validation.txt
+**37|predicthead  : None
+**38|pipeline     : None
+**39|MODEL        : ['Standard']
+**40|header       : /CoxNET_S_
+**41|output       : /lustre/rde/user/zhouw/00software/MLSurvivalv0.01/test/Result/CoxNET//CoxNET_S_
+***********************************************************
+[2019-09-17 11:15:26] [INFO]: *************Feature Engineering*************
+[2019-09-17 11:15:26] [INFO]: -----------Group Variable Category-----------
+[2019-09-17 11:15:26] [INFO]: The features numbers : 132
+[2019-09-17 11:15:26] [INFO]: The survival labels  : 
+             T          S
+S_1  OS_Months  OS_Status
+[2019-09-17 11:15:26] [INFO]: ---------------------------------------------
+[2019-09-17 11:15:26] [INFO]: ----------Missing Values Processing----------
+[2019-09-17 11:15:26] [INFO]: Primary Samples and Feauters numbers: 133 , 132
+[2019-09-17 11:15:26] [INFO]: Final   Samples and Feauters numbers: 133 , 132
+[2019-09-17 11:15:26] [INFO]: The Removed Samples : []
+[2019-09-17 11:15:26] [INFO]: The Removed Features: []
+SimpleImputer paramaters:
+SimpleImputer(add_indicator=False, copy=True, fill_value=None,
+              missing_values=nan, strategy='median', verbose=0)
+[2019-09-17 11:15:26] [INFO]: ---------------------------------------------
+[2019-09-17 11:15:26] [INFO]: ----------Standardization Pocessing----------
+Scale paramaters:
+DataFrameMapper(default=False, df_out=False,
+                features=[(['ST_CD8', 'ST_PDL1_1', 'ST_CD45RO', 'ST_PD1',
+                            'ST_CD3', 'ST_CD3+CD8+', 'ST_CD3+CD45RO+',
+                            'ST_CD8+CD45RO+', 'ST_CD3+PD1+', 'ST_CD8+PD1+',
+                            'ST_CD3+CD45RO+PD1+', 'ST_CD8+CD45RO+PD1+',
+                            'ST_FOXP3', 'ST_CD163', 'ST_CD68', 'ST_CD4',
+                            'ST_PDL1_2', 'ST_CD57', 'ST_CD68+CD163-',
+                            'ST_CD68+CD163+', 'ST_PDL1+CD68+', 'ST_PDL1+CD68-',
+                            'ST_CD4+FOXP3+', 'ST_CD68+CD163+PDL1+',
+                            'ST_CD68+CD163+PDL1-', 'ST_PDL1_A', 'TU_CD8',
+                            'TU_PDL1_1', 'TU_CD45RO', 'TU_PD1', ...],
+                           [StandardScaler(copy=True, with_mean=True,
+                                           with_std=True)])],
+                input_df=False, sparse=False)
+[2019-09-17 11:15:26] [INFO]: ---------------------------------------------
+[2019-09-17 11:15:57] [INFO]: ---------------------PCA---------------------
+[2019-09-17 11:15:57] [INFO]: PCA features length: 123
+[2019-09-17 11:15:57] [INFO]: PCA variance ratio : [1.73023724e-01 1.01242431e-01 7.34105283e-02 6.61644805e-02
+ 4.10708533e-02 3.36067344e-02 3.13856968e-02 2.69396751e-02
+ 2.47432843e-02 2.32439154e-02 2.04418166e-02 1.97220424e-02
+ 1.82583991e-02 1.72321496e-02 1.64490135e-02 1.59401095e-02
+ 1.53019335e-02 1.47784063e-02 1.40353249e-02 1.26382905e-02
+ 1.21084617e-02 1.12255762e-02 1.07816342e-02 1.02848885e-02
+ 9.99664416e-03 9.69799206e-03 9.21877129e-03 9.00200866e-03
+ 8.47305709e-03 8.26128018e-03 7.94066288e-03 7.43849095e-03
+ 7.29597808e-03 6.90313260e-03 6.26817518e-03 6.12814444e-03
+ 5.61195599e-03 5.47772303e-03 5.26832036e-03 5.18664143e-03
+ 4.84975956e-03 4.77319449e-03 4.55598696e-03 3.99590269e-03
+ 3.91612735e-03 3.72226380e-03 3.22951061e-03 3.06545313e-03
+ 2.98007923e-03 2.86580701e-03 2.68013340e-03 2.50632283e-03
+ 2.43118224e-03 2.36789317e-03 2.05375462e-03 2.01819011e-03
+ 1.90299757e-03 1.81956711e-03 1.75744358e-03 1.62364640e-03
+ 1.55547380e-03 1.42680969e-03 1.32861128e-03 1.16966788e-03
+ 1.10606138e-03 1.08554455e-03 1.01242272e-03 8.62252839e-04
+ 7.96508898e-04 7.64053509e-04 7.01779486e-04 6.57878512e-04
+ 5.93173325e-04 5.72405154e-04 5.42222696e-04 4.79430287e-04
+ 4.50961372e-04 3.96987417e-04 3.43793397e-04 3.21675585e-04
+ 3.02231035e-04 2.75597614e-04 2.52930493e-04 2.11270850e-04
+ 2.02450002e-04 1.76009738e-04 1.57789472e-04 1.29672140e-04
+ 1.04995082e-04 1.02045164e-04 8.86965753e-05 7.37018962e-05
+ 6.72498324e-05 6.21811041e-05 4.52519824e-05 4.14001498e-05
+ 3.61258465e-05 3.17913181e-05 2.67824484e-05 2.31545558e-05
+ 2.07550717e-05 1.80961552e-05 1.40835390e-05 1.18057790e-05
+ 1.07160596e-05 7.31917749e-06 5.62479498e-06 4.30138523e-06
+ 3.33340541e-06 2.65608416e-06 2.21348951e-06 1.78316207e-06
+ 1.29443464e-06 1.13054715e-06 6.48975898e-07 5.94552574e-07
+ 3.51265600e-07 2.49351041e-07 1.59084916e-07 1.34367693e-07
+ 6.87732149e-08 4.53508446e-08 3.06570755e-08]
+[2019-09-17 11:15:57] [INFO]: ---------------------------------------------
+[2019-09-17 11:16:18] [INFO]: **********Feature Engineering Finish*********
+[2019-09-17 11:16:18] [INFO]: *********OS_Months: Feature Selecting********
+[2019-09-17 11:16:19] [INFO]: -----------OS_Months: SelectKBest_R----------
+[2019-09-17 11:16:19] [INFO]: Raw   Feature: 132
+[2019-09-17 11:16:19] [INFO]: drop  Feature: 6
+['ST_CD8+CD45RO+PD1+', 'ST_PD1', 'ST_CD3+CD8+', 'ST_CD8+PD1+', 'ST_CD8', 'ST_CD3+PD1+']
+[2019-09-17 11:16:19] [INFO]: final Feature: ['ST_PDL1_1', 'ST_CD45RO', 'ST_CD3', 'ST_CD3+CD45RO+', 'ST_CD8+CD45RO+', 'ST_CD3+CD45RO+PD1+', 'ST_FOXP3', 'ST_CD163', 'ST_CD68', 'ST_CD4', 'ST_PDL1_2', 'ST_CD57', 'ST_CD68+CD163-', 'ST_CD68+CD163+', 'ST_PDL1+CD68+', 'ST_PDL1+CD68-', 'ST_CD4+FOXP3+', 'ST_CD68+CD163+PDL1+', 'ST_CD68+CD163+PDL1-', 'ST_PDL1_A', 'TU_CD8', 'TU_PDL1_1', 'TU_CD45RO', 'TU_PD1', 'TU_CD3', 'TU_CD3+CD8+', 'TU_CD3+CD45RO+', 'TU_CD8+CD45RO+', 'TU_CD3+PD1+', 'TU_CD8+PD1+', 'TU_CD3+CD45RO+PD1+', 'TU_CD8+CD45RO+PD1+', 'TU_FOXP3', 'TU_CD163', 'TU_CD68', 'TU_CD4', 'TU_PDL1_2', 'TU_CD57', 'TU_CD68+CD163-', 'TU_CD68+CD163+', 'TU_PDL1+CD68+', 'TU_PDL1+CD68-', 'TU_CD4+FOXP3+', 'TU_CD68+CD163+PDL1+', 'TU_CD68+CD163+PDL1-', 'TU_PDL1_A', 'TO_CD8', 'TO_PDL1_1', 'TO_CD45RO', 'TO_PD1', 'TO_CD3', 'TO_CD3+CD8+', 'TO_CD3+CD45RO+', 'TO_CD8+CD45RO+', 'TO_CD3+PD1+', 'TO_CD8+PD1+', 'TO_CD3+CD45RO+PD1+', 'TO_CD8+CD45RO+PD1+', 'TO_FOXP3', 'TO_CD163', 'TO_CD68', 'TO_CD4', 'TO_PDL1_2', 'TO_CD57', 'TO_CD68+CD163-', 'TO_CD68+CD163+', 'TO_PDL1+CD68+', 'TO_PDL1+CD68-', 'TO_CD4+FOXP3+', 'TO_CD68+CD163+PDL1+', 'TO_CD68+CD163+PDL1-', 'TO_PDL1_A', 'Gender', 'Age_65', 'Clinical_diagnosis', 'Tumor_site', 'Histological_type', 'Differentiation', 'T_stage', 'Vascular_invasion', 'Perineural_invasion', 'Histologic_grade', 'Clinical_risk', 'CEA', 'Radiotherapy', 'Chemotherapy', 'Metastasis_status', 'MSI_status', 'PIK3CA', 'PTEN', 'TP53', 'KRAS', 'NRAS', 'BRAF', 'MSH6', 'MUTYH', 'EPCAM', 'MET', 'ERBB2', 'APC', 'POLE', 'POLEEDM', 'POLD1', 'POLD1EDM', 'BRCA1', 'GALNT12', 'ATM', 'KIT', 'CDH1', 'PMS1', 'BRCA2', 'BMPR1A', 'STK11', 'MLH1', 'PTCH1', 'EGFR', 'SMAD4', 'PDGFRA', 'SDHD', 'BLM', 'AKT1', 'HRAS', 'MSH2', 'CHEK2', 'PMS2', 'SDHB']
+Feature bools:
+                      ANVF     MI   PEAS    SPM    KDT     LR  True_ratio
+ST_CD8               False  False  False  False  False  False    0.000000
+ST_PDL1_1            False   True  False  False  False  False    0.166667
+ST_CD45RO            False   True  False   True   True  False    0.500000
+ST_PD1               False  False  False  False  False  False    0.000000
+ST_CD3               False   True  False   True   True  False    0.500000
+ST_CD3+CD8+          False  False  False  False  False  False    0.000000
+ST_CD3+CD45RO+        True   True   True   True   True   True    1.000000
+ST_CD8+CD45RO+       False   True  False   True   True  False    0.500000
+ST_CD3+PD1+          False  False  False  False  False  False    0.000000
+ST_CD8+PD1+          False  False  False  False  False  False    0.000000
+ST_CD3+CD45RO+PD1+    True  False   True   True   True   True    0.833333
+ST_CD8+CD45RO+PD1+   False  False  False  False  False  False    0.000000
+ST_FOXP3              True   True   True   True   True   True    1.000000
+ST_CD163              True  False   True   True   True   True    0.833333
+ST_CD68               True   True   True   True   True   True    1.000000
+ST_CD4                True  False   True  False  False   True    0.500000
+ST_PDL1_2             True  False   True   True   True   True    0.833333
+ST_CD57              False   True  False   True   True  False    0.500000
+ST_CD68+CD163-        True   True   True   True   True   True    1.000000
+ST_CD68+CD163+        True   True   True   True   True   True    1.000000
+ST_PDL1+CD68+         True   True   True   True  False   True    0.833333
+ST_PDL1+CD68-         True  False   True   True   True   True    0.833333
+ST_CD4+FOXP3+         True   True   True   True   True   True    1.000000
+ST_CD68+CD163+PDL1+   True   True   True   True   True   True    1.000000
+ST_CD68+CD163+PDL1-   True   True   True   True   True   True    1.000000
+ST_PDL1_A             True   True   True  False  False   True    0.666667
+TU_CD8                True  False   True   True   True   True    0.833333
+TU_PDL1_1             True  False   True   True   True   True    0.833333
+TU_CD45RO            False   True  False  False   True  False    0.333333
+TU_PD1                True  False   True   True   True   True    0.833333
+TU_CD3                True   True   True   True   True   True    1.000000
+TU_CD3+CD8+          False   True  False   True   True  False    0.500000
+TU_CD3+CD45RO+       False   True  False   True  False  False    0.333333
+TU_CD8+CD45RO+        True   True   True   True   True   True    1.000000
+TU_CD3+PD1+           True   True   True   True   True   True    1.000000
+TU_CD8+PD1+           True  False   True   True   True   True    0.833333
+TU_CD3+CD45RO+PD1+    True   True   True  False  False   True    0.666667
+TU_CD8+CD45RO+PD1+    True   True   True   True   True   True    1.000000
+TU_FOXP3              True   True   True   True   True   True    1.000000
+TU_CD163              True   True   True   True   True   True    1.000000
+TU_CD68               True   True   True  False  False   True    0.666667
+TU_CD4                True  False   True   True   True   True    0.833333
+TU_PDL1_2             True   True   True   True   True   True    1.000000
+TU_CD57               True   True   True   True   True   True    1.000000
+TU_CD68+CD163-        True   True   True   True   True   True    1.000000
+TU_CD68+CD163+        True   True   True   True   True   True    1.000000
+TU_PDL1+CD68+         True   True   True   True   True   True    1.000000
+TU_PDL1+CD68-         True   True   True   True   True   True    1.000000
+TU_CD4+FOXP3+         True   True   True   True   True   True    1.000000
+TU_CD68+CD163+PDL1+  False   True  False   True   True  False    0.500000
+TU_CD68+CD163+PDL1-   True   True   True   True   True   True    1.000000
+TU_PDL1_A             True  False   True   True   True   True    0.833333
+TO_CD8               False  False  False   True   True  False    0.333333
+TO_PDL1_1             True  False   True  False  False   True    0.500000
+TO_CD45RO            False   True  False  False  False  False    0.166667
+TO_PD1                True  False   True  False  False   True    0.500000
+TO_CD3                True  False   True   True   True   True    0.833333
+TO_CD3+CD8+          False   True  False   True   True  False    0.500000
+TO_CD3+CD45RO+       False   True  False   True   True  False    0.500000
+TO_CD8+CD45RO+       False   True  False  False  False  False    0.166667
+TO_CD3+PD1+           True   True   True  False  False   True    0.666667
+TO_CD8+PD1+           True   True   True   True   True   True    1.000000
+TO_CD3+CD45RO+PD1+    True  False   True   True   True   True    0.833333
+TO_CD8+CD45RO+PD1+   False   True  False  False  False  False    0.166667
+TO_FOXP3              True   True   True   True   True   True    1.000000
+TO_CD163              True  False   True   True   True   True    0.833333
+TO_CD68               True  False   True   True   True   True    0.833333
+TO_CD4                True  False   True   True   True   True    0.833333
+TO_PDL1_2             True  False   True   True   True   True    0.833333
+TO_CD57               True   True   True   True   True   True    1.000000
+TO_CD68+CD163-        True   True   True   True   True   True    1.000000
+TO_CD68+CD163+        True   True   True   True   True   True    1.000000
+TO_PDL1+CD68+         True   True   True  False  False   True    0.666667
+TO_PDL1+CD68-         True   True   True   True   True   True    1.000000
+TO_CD4+FOXP3+         True   True   True   True   True   True    1.000000
+TO_CD68+CD163+PDL1+   True   True   True   True   True   True    1.000000
+TO_CD68+CD163+PDL1-   True   True   True   True   True   True    1.000000
+TO_PDL1_A             True   True   True   True   True   True    1.000000
+Gender                True   True   True   True   True   True    1.000000
+Age_65                True   True   True   True   True   True    1.000000
+Clinical_diagnosis    True   True   True   True   True   True    1.000000
+Tumor_site            True   True   True   True   True   True    1.000000
+Histological_type     True   True   True   True   True   True    1.000000
+Differentiation       True   True   True   True   True   True    1.000000
+T_stage               True   True   True   True   True   True    1.000000
+Vascular_invasion     True   True   True   True   True   True    1.000000
+Perineural_invasion   True   True   True   True   True   True    1.000000
+Histologic_grade      True   True   True   True   True   True    1.000000
+Clinical_risk        False   True  False  False  False  False    0.166667
+CEA                   True   True   True   True   True   True    1.000000
+Radiotherapy          True   True   True   True   True   True    1.000000
+Chemotherapy          True   True   True   True   True   True    1.000000
+Metastasis_status     True   True   True   True   True   True    1.000000
+MSI_status            True   True   True   True   True   True    1.000000
+PIK3CA                True   True   True   True   True   True    1.000000
+PTEN                  True   True   True   True   True   True    1.000000
+TP53                  True   True   True   True   True   True    1.000000
+KRAS                  True   True   True   True   True   True    1.000000
+NRAS                  True   True   True   True   True   True    1.000000
+BRAF                  True   True   True   True   True   True    1.000000
+MSH6                  True   True   True   True   True   True    1.000000
+MUTYH                 True   True   True   True   True   True    1.000000
+EPCAM                False   True  False  False  False  False    0.166667
+MET                  False   True  False  False  False  False    0.166667
+ERBB2                 True   True   True   True   True   True    1.000000
+APC                   True   True   True  False   True   True    0.833333
+POLE                  True   True   True   True   True   True    1.000000
+POLEEDM               True   True   True   True   True   True    1.000000
+POLD1                 True   True   True   True   True   True    1.000000
+POLD1EDM              True   True   True   True   True   True    1.000000
+BRCA1                 True   True   True   True   True   True    1.000000
+GALNT12               True   True   True   True   True   True    1.000000
+ATM                   True   True   True  False  False   True    0.666667
+KIT                   True   True   True   True   True   True    1.000000
+CDH1                  True   True   True   True   True   True    1.000000
+PMS1                  True   True   True   True   True   True    1.000000
+BRCA2                 True   True   True   True   True   True    1.000000
+BMPR1A                True   True   True   True   True   True    1.000000
+STK11                 True   True   True   True   True   True    1.000000
+MLH1                  True   True   True   True   True   True    1.000000
+PTCH1                 True   True   True  False  False   True    0.666667
+EGFR                 False   True  False  False  False  False    0.166667
+SMAD4                 True   True   True   True   True   True    1.000000
+PDGFRA                True   True   True   True   True   True    1.000000
+SDHD                  True   True   True   True   True   True    1.000000
+BLM                   True   True   True   True   True   True    1.000000
+AKT1                  True   True   True   True   True   True    1.000000
+HRAS                  True   True   True   True   True   True    1.000000
+MSH2                 False   True  False   True   True  False    0.500000
+CHEK2                 True   True   True   True   True   True    1.000000
+PMS2                  True   True   True   True   True   True    1.000000
+SDHB                  True   True   True   True   True   True    1.000000
+[2019-09-17 11:16:19] [INFO]: ---------------------------------------------
+[2019-09-17 11:16:24] [INFO]: ------------OS_Months: UnivarCoxPH-----------
+Feature values:
+                         coef  exp(coef)  se(coef)  coef lower 95%  coef upper 95%  exp(coef) lower 95%  exp(coef) upper 95%         z             p   -log2(p)  CI_score
+TU_CD8              -1.264478   0.282387  0.675158       -2.587763        0.058808             0.075188             1.060571 -1.872862  6.108743e-02   4.032981  0.595932
+TU_CD45RO           -0.499154   0.607044  0.302311       -1.091673        0.093366             0.335654             1.097864 -1.651123  9.871338e-02   3.340611  0.620997
+TU_CD3              -0.538132   0.583838  0.315319       -1.156145        0.079881             0.314697             1.083158 -1.706630  8.789079e-02   3.508144  0.627953
+TU_CD3+PD1+         -0.659985   0.516859  0.371099       -1.387326        0.067356             0.249742             1.069676 -1.778460  7.532835e-02   3.730663  0.564173
+TU_CD163            -1.018451   0.361154  0.430216       -1.861659       -0.175244             0.155415             0.839252 -2.367304  1.791821e-02   5.802430  0.666273
+TU_CD4              -1.128540   0.323505  0.553594       -2.213565       -0.043516             0.109310             0.957418 -2.038570  4.149300e-02   4.590988  0.604199
+TU_CD68+CD163+      -2.319970   0.098277  1.258050       -4.785702        0.145763             0.008348             1.156922 -1.844100  6.516858e-02   3.939680  0.587270
+TU_CD4+FOXP3+       -1.013742   0.362859  0.488906       -1.971980       -0.055503             0.139181             0.946009 -2.073490  3.812674e-02   4.713053  0.606299
+TU_CD68+CD163+PDL1- -1.460224   0.232184  0.800521       -3.029217        0.108769             0.048353             1.114905 -1.824091  6.813828e-02   3.875391  0.574803
+TO_PDL1+CD68+       -2.070774   0.126088  1.142956       -4.310926        0.169378             0.013421             1.184568 -1.811771  7.002155e-02   3.836057  0.555512
+TO_CD68+CD163+PDL1+ -3.441157   0.032028  1.849734       -7.066569        0.184255             0.000853             1.202323 -1.860352  6.283570e-02   3.992272  0.594094
+Age_65               0.808305   2.244102  0.180797        0.453950        1.162661             1.574519             3.198434  4.470789  7.793158e-06  16.969361  0.706955
+Differentiation     -0.553025   0.575207  0.155673       -0.858139       -0.247911             0.423950             0.780430 -3.552471  3.816318e-04  11.355531  0.618373
+T_stage              0.307251   1.359682  0.168258       -0.022528        0.637030             0.977724             1.890858  1.826074  6.783914e-02   3.881738  0.581102
+Vascular_invasion   -0.384258   0.680955  0.227676       -0.830494        0.061978             0.435834             1.063938 -1.687745  9.146010e-02   3.450714  0.556168
+Perineural_invasion -0.317350   0.728076  0.187776       -0.685385        0.050684             0.503896             1.051990 -1.690048  9.101878e-02   3.457692  0.579003
+Histologic_grade     0.419408   1.521060  0.148095        0.129147        0.709668             1.137858             2.033316  2.832024  4.625442e-03   7.756193  0.597769
+CEA                  0.157357   1.170413  0.092167       -0.023287        0.338001             0.976982             1.402143  1.707300  8.776627e-02   3.510190  0.668241
+Metastasis_status    1.266884   3.549773  0.212104        0.851168        1.682599             2.342381             5.379521  5.972945  2.330087e-09  28.676969  0.784646
+POLE                -0.622232   0.536745  0.338460       -1.285602        0.041138             0.276484             1.041995 -1.838421  6.600044e-02   3.921381  0.555906
+POLD1                0.338961   1.403489  0.123774        0.096368        0.581554             1.101165             1.788817  2.738547  6.171134e-03   7.340249  0.560236
+POLD1EDM             0.280447   1.323721  0.104326        0.075971        0.484922             1.078932             1.624048  2.688174  7.184398e-03   7.120917  0.531102
+[2019-09-17 11:16:24] [INFO]: ---------------------------------------------
+[2019-09-17 11:16:24] [INFO]: the CoxNET model use the CoxNET estimator for RFECV_S.
+[2019-09-17 11:16:29] [INFO]: RFECV: CoxNET -> CoxNET , split 0.15 
+[2019-09-17 11:16:33] [INFO]: RFECV: CoxNET -> CoxNET , split 0.16 
+[2019-09-17 11:16:36] [INFO]: RFECV: CoxNET -> CoxNET , split 0.17 
+[2019-09-17 11:16:40] [INFO]: RFECV: CoxNET -> CoxNET , split 0.18 
+[2019-09-17 11:16:43] [INFO]: RFECV: CoxNET -> CoxNET , split 0.19 
+[2019-09-17 11:16:47] [INFO]: RFECV: CoxNET -> CoxNET , split 0.20 
+[2019-09-17 11:16:49] [INFO]: RFECV: CoxNET -> CoxNET , split 0.21 
+[2019-09-17 11:16:51] [INFO]: RFECV: CoxNET -> CoxNET , split 0.22 
+[2019-09-17 11:16:54] [INFO]: RFECV: CoxNET -> CoxNET , split 0.23 
+[2019-09-17 11:16:56] [INFO]: RFECV: CoxNET -> CoxNET , split 0.24 
+[2019-09-17 11:16:58] [INFO]: RFECV: CoxNET -> CoxNET , split 0.25 
+[2019-09-17 11:17:00] [INFO]: RFECV: CoxNET -> CoxNET , split 0.26 
+[2019-09-17 11:17:03] [INFO]: RFECV: CoxNET -> CoxNET , split 0.27 
+[2019-09-17 11:17:05] [INFO]: RFECV: CoxNET -> CoxNET , split 0.28 
+[2019-09-17 11:17:07] [INFO]: RFECV: CoxNET -> CoxNET , split 0.29 
+[2019-09-17 11:17:10] [INFO]: RFECV: CoxNET -> CoxNET , split 0.30 
+[2019-09-17 11:17:12] [INFO]: RFECV: CoxNET -> CoxNET , split 0.31 
+[2019-09-17 11:17:14] [INFO]: RFECV: CoxNET -> CoxNET , split 0.32 
+[2019-09-17 11:17:17] [INFO]: RFECV: CoxNET -> CoxNET , split 0.33 
+[2019-09-17 11:17:20] [INFO]: RFECV: CoxNET -> CoxNET , split 0.34 
+[2019-09-17 11:17:20] [INFO]: ----------OS_Months: SelectUseModel----------
+[2019-09-17 11:17:20] [INFO]: RFECV_S drop 1 Features: ['TU_CD8']
+[2019-09-17 11:17:20] [INFO]: RFECV_S keep 21 Features: ['Perineural_invasion', 'Histologic_grade', 'CEA', 'Metastasis_status', 'POLE', 'POLD1', 'POLD1EDM', 'Vascular_invasion', 'T_stage', 'Differentiation', 'Age_65', 'TO_CD68+CD163+PDL1+', 'TO_PDL1+CD68+', 'TU_CD68+CD163+PDL1-', 'TU_CD4+FOXP3+', 'TU_CD68+CD163+', 'TU_CD4', 'TU_CD163', 'TU_CD3+PD1+', 'TU_CD3', 'TU_CD45RO']
+Features Selected: 
+                     CoxNET_0  CoxNET_1  CoxNET_2  CoxNET_3  CoxNET_4  CoxNET_5  CoxNET_6  CoxNET_7  CoxNET_8  CoxNET_9  CoxNET_10  CoxNET_11  CoxNET_12  CoxNET_13  CoxNET_14  CoxNET_15  CoxNET_16  CoxNET_17  CoxNET_18  CoxNET_19  SUM_Rank  SUM_Bool
+Perineural_invasion         1         1         1         1         1         1         1         1         1         1          1          1          1          1          1          1          1          1          1          1        20        20
+Histologic_grade            1         1         1         1         1         1         1         1         1         1          1          1          1          1          1          1          1          1          1          1        20        20
+CEA                         1         1         1         1         1         1         1         1         1         1          1          1          1          1          1          1          1          1          1          1        20        20
+Metastasis_status           1         1         1         1         1         1         1         1         1         1          1          1          1          1          1          1          1          1          1          1        20        20
+POLE                        1         1         1         1         1         1         1         1         1         1          1          1          1          1          1          1          1          1          1          1        20        20
+POLD1                       1         1         1         1         1         1         1         1         1         1          1          1          1          1          1          1          1          1          1          1        20        20
+POLD1EDM                    1         1         1         1         1         1         1         1         1         1          1          1          1          1          1          1          1          1          1          1        20        20
+Vascular_invasion           1         1         1         1         1         1         1         1         1         1          1          1          1          1          1          2          1          1          2          1        22        18
+T_stage                     1         1         1         1         1         1         1         1         1         1          1          1          1          1          1          3          1          1          3          1        24        18
+Differentiation             1         1         1         1         1         1         1         1         1         1          1          1          1          1          1          4          1          1          4          1        26        18
+Age_65                      1         1         1         1         1         1         1         1         1         1          1          1          1          1          1          5          1          1          5          1        28        18
+TO_CD68+CD163+PDL1+         1         1         2         2         2         1         1         1         2         2          1          2          2          2          1          6          1          2          6          2        40         8
+TO_PDL1+CD68+               1         1         3         3         3         2         1         1         3         3          2          3          3          3          1          7          1          3          7          3        54         6
+TU_CD68+CD163+PDL1-         1         1         4         4         4         3         1         1         4         4          3          4          4          4          1          8          1          4          8          4        68         6
+TU_CD4+FOXP3+               1         1         5         5         5         4         2         1         5         5          4          5          5          5          1          9          1          5          9          5        83         5
+TU_CD68+CD163+              2         2         6         6         6         5         3         1         6         6          5          6          6          6          2         10          1          6         10          6       101         2
+TU_CD4                      3         3         7         7         7         6         4         1         7         7          6          7          7          7          3         11          1          7         11          7       119         2
+TU_CD163                    4         4         8         8         8         7         5         1         8         8          7          8          8          8          4         12          1          8         12          8       137         2
+TU_CD3+PD1+                 5         5         9         9         9         8         6         1         9         9          8          9          9          9          5         13          2          9         13          9       156         1
+TU_CD3                      6         6        10        10        10         9         7         1        10        10          9         10         10         10          6         14          3         10         14         10       175         1
+TU_CD45RO                   7         7        11        11        11        10         8         1        11        11         10         11         11         11          7         15          4         11         15         11       194         1
+[2019-09-17 11:17:20] [INFO]: ---------------------------------------------
+[2019-09-17 11:17:26] [INFO]: ---------------------PCA---------------------
+[2019-09-17 11:17:26] [INFO]: PCA features length: 20
+[2019-09-17 11:17:26] [INFO]: PCA variance ratio : [0.21939571 0.1063209  0.09258045 0.08200056 0.07087124 0.05729892
+ 0.05426378 0.04865779 0.03973041 0.03798315 0.03329115 0.02893783
+ 0.02856623 0.02445193 0.02318288 0.01803134 0.01374989 0.01087307
+ 0.00860519 0.00110898]
+[2019-09-17 11:17:26] [INFO]: ---------------------------------------------
+[2019-09-17 11:17:30] [INFO]: *****OS_Months: Feature Selecting Finish*****
+[2019-09-17 11:17:30] [INFO]: ********OS_Months: Supervised MODELing*******
+OS_Months Status Counts:
+0    95
+1    38
+[2019-09-17 11:18:30] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:18:30] [INFO]: CoxNET best parameters: 
+{'alpha_min_ratio': 0.0001, 'alphas': None, 'copy_X': True, 'fit_baseline_model': True, 'l1_ratio': 0.001, 'max_iter': 200000, 'n_alphas': 100, 'normalize': False, 'penalty_factor': None, 'tol': 1e-07, 'verbose': False}
+[2019-09-17 11:18:30] [INFO]: CoxNET best score: 0.863637864479955
+[2019-09-17 11:18:30] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.091212   2.977880
+Age_65               0.474449   1.607128
+CEA                  0.309262   1.362420
+POLD1                0.304809   1.356366
+T_stage              0.247953   1.281400
+Histologic_grade     0.135530   1.145144
+TO_PDL1+CD68+        0.048008   1.049179
+Vascular_invasion    0.039122   1.039897
+TO_CD68+CD163+PDL1+  0.038961   1.039729
+TU_CD45RO            0.004527   1.004538
+TU_CD68+CD163+      -0.072826   0.929763
+POLD1EDM            -0.083606   0.919793
+TU_CD4+FOXP3+       -0.102376   0.902690
+TU_CD68+CD163+PDL1- -0.120255   0.886694
+TU_CD3              -0.147386   0.862961
+TU_CD4              -0.249147   0.779466
+Differentiation     -0.337078   0.713853
+Perineural_invasion -0.355369   0.700915
+TU_CD3+PD1+         -0.398389   0.671401
+POLE                -0.429619   0.650757
+TU_CD163            -0.462406   0.629767
+[2019-09-17 11:18:30] [INFO]: CoxNET train mean   AUC: 0.9517643482623449
+[2019-09-17 11:18:30] [INFO]: CoxNET train CI_H score: 0.9188790560471977
+[2019-09-17 11:18:30] [INFO]: CoxNET train CI_U score: 0.9292528006618085
+[2019-09-17 11:18:30] [INFO]: CoxNET test  mean   AUC: 0.8846529949553694
+[2019-09-17 11:18:30] [INFO]: CoxNET test  CI_H score: 0.8827838827838828
+[2019-09-17 11:18:30] [INFO]: CoxNET test  CI_U score: 0.888659522696929
+[2019-09-17 11:18:30] [INFO]: ---------------------------------------------
+[2019-09-17 11:19:20] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:19:20] [INFO]: CoxNET best parameters: 
+{'alpha_min_ratio': 0.0001, 'alphas': None, 'copy_X': True, 'fit_baseline_model': True, 'l1_ratio': 0.001, 'max_iter': 200000, 'n_alphas': 100, 'normalize': False, 'penalty_factor': None, 'tol': 1e-07, 'verbose': False}
+[2019-09-17 11:19:20] [INFO]: CoxNET best score: 0.8493358284423076
+[2019-09-17 11:19:20] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.813154   2.255010
+Age_65               0.524800   1.690121
+POLD1                0.401646   1.494283
+T_stage              0.295432   1.343706
+CEA                  0.262263   1.299869
+Histologic_grade     0.228247   1.256396
+TO_PDL1+CD68+        0.009076   1.009117
+TO_CD68+CD163+PDL1+ -0.001555   0.998447
+TU_CD4+FOXP3+       -0.030117   0.970332
+TU_CD45RO           -0.062119   0.939771
+TU_CD68+CD163+      -0.109920   0.895906
+TU_CD3              -0.127181   0.880574
+POLD1EDM            -0.129460   0.878569
+TU_CD4              -0.137005   0.871966
+Vascular_invasion   -0.163916   0.848813
+TU_CD68+CD163+PDL1- -0.171383   0.842499
+Differentiation     -0.223214   0.799944
+Perineural_invasion -0.330594   0.718497
+TU_CD163            -0.422347   0.655507
+TU_CD3+PD1+         -0.430326   0.650297
+POLE                -0.434150   0.647815
+[2019-09-17 11:19:20] [INFO]: CoxNET train mean   AUC: 0.9161517053070007
+[2019-09-17 11:19:20] [INFO]: CoxNET train CI_H score: 0.9003291020216267
+[2019-09-17 11:19:20] [INFO]: CoxNET train CI_U score: 0.9097599022244829
+[2019-09-17 11:19:20] [INFO]: CoxNET test  mean   AUC: 0.8761283393642219
+[2019-09-17 11:19:20] [INFO]: CoxNET test  CI_H score: 0.8536585365853658
+[2019-09-17 11:19:20] [INFO]: CoxNET test  CI_U score: 0.9007280874594127
+[2019-09-17 11:19:20] [INFO]: ---------------------------------------------
+[2019-09-17 11:20:08] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:20:08] [INFO]: CoxNET best parameters: 
+{'alpha_min_ratio': 0.0001, 'alphas': None, 'copy_X': True, 'fit_baseline_model': True, 'l1_ratio': 0.001, 'max_iter': 200000, 'n_alphas': 100, 'normalize': False, 'penalty_factor': None, 'tol': 1e-07, 'verbose': False}
+[2019-09-17 11:20:08] [INFO]: CoxNET best score: 0.8645545833620645
+[2019-09-17 11:20:08] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.953808   2.595574
+Age_65               0.612197   1.844480
+CEA                  0.380017   1.462309
+POLD1                0.347111   1.414973
+TU_CD45RO            0.193958   1.214046
+T_stage              0.182102   1.199737
+Histologic_grade     0.147446   1.158871
+TO_CD68+CD163+PDL1+ -0.057564   0.944062
+TO_PDL1+CD68+       -0.057925   0.943721
+TU_CD3              -0.108978   0.896751
+TU_CD3+PD1+         -0.121697   0.885416
+Vascular_invasion   -0.124806   0.882668
+TU_CD68+CD163+      -0.125934   0.881673
+POLE                -0.126217   0.881424
+POLD1EDM            -0.150451   0.860320
+TU_CD68+CD163+PDL1- -0.195362   0.822537
+TU_CD4              -0.231138   0.793630
+Differentiation     -0.294352   0.745014
+TU_CD4+FOXP3+       -0.315891   0.729139
+Perineural_invasion -0.590923   0.553816
+TU_CD163            -0.631979   0.531539
+[2019-09-17 11:20:08] [INFO]: CoxNET train mean   AUC: 0.934825606812208
+[2019-09-17 11:20:08] [INFO]: CoxNET train CI_H score: 0.9199803632793323
+[2019-09-17 11:20:08] [INFO]: CoxNET train CI_U score: 0.9385602226797223
+[2019-09-17 11:20:08] [INFO]: CoxNET test  mean   AUC: 0.8730202257234569
+[2019-09-17 11:20:08] [INFO]: CoxNET test  CI_H score: 0.850187265917603
+[2019-09-17 11:20:08] [INFO]: CoxNET test  CI_U score: 0.8595117981213206
+[2019-09-17 11:20:08] [INFO]: ---------------------------------------------
+[2019-09-17 11:20:56] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:20:56] [INFO]: CoxNET best parameters: 
+{'alpha_min_ratio': 0.0001, 'alphas': None, 'copy_X': True, 'fit_baseline_model': True, 'l1_ratio': 0.001, 'max_iter': 200000, 'n_alphas': 100, 'normalize': False, 'penalty_factor': None, 'tol': 1e-07, 'verbose': False}
+[2019-09-17 11:20:56] [INFO]: CoxNET best score: 0.8563493752675125
+[2019-09-17 11:20:56] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.853260   2.347288
+Age_65               0.629601   1.876861
+CEA                  0.347139   1.415013
+POLD1                0.315429   1.370847
+Histologic_grade     0.241120   1.272674
+T_stage              0.207614   1.230738
+TU_CD45RO            0.179368   1.196460
+Vascular_invasion    0.049048   1.050271
+TO_PDL1+CD68+        0.036594   1.037271
+TO_CD68+CD163+PDL1+  0.020022   1.020223
+TU_CD4+FOXP3+       -0.090420   0.913547
+Differentiation     -0.106699   0.898796
+POLD1EDM            -0.114653   0.891675
+TU_CD68+CD163+      -0.123535   0.883790
+TU_CD68+CD163+PDL1- -0.173933   0.840353
+TU_CD3              -0.184330   0.831661
+TU_CD4              -0.251546   0.777598
+Perineural_invasion -0.297493   0.742678
+TU_CD163            -0.374201   0.687839
+TU_CD3+PD1+         -0.429022   0.651145
+POLE                -0.503767   0.604250
+[2019-09-17 11:20:56] [INFO]: CoxNET train mean   AUC: 0.902338172588858
+[2019-09-17 11:20:56] [INFO]: CoxNET train CI_H score: 0.8924939467312348
+[2019-09-17 11:20:56] [INFO]: CoxNET train CI_U score: 0.9081126554366536
+[2019-09-17 11:20:56] [INFO]: CoxNET test  mean   AUC: 0.9320094969116658
+[2019-09-17 11:20:56] [INFO]: CoxNET test  CI_H score: 0.908745247148289
+[2019-09-17 11:20:56] [INFO]: CoxNET test  CI_U score: 0.9241348121931391
+[2019-09-17 11:20:56] [INFO]: ---------------------------------------------
+[2019-09-17 11:21:42] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:21:42] [INFO]: CoxNET best parameters: 
+{'alpha_min_ratio': 0.0001, 'alphas': None, 'copy_X': True, 'fit_baseline_model': True, 'l1_ratio': 0.001, 'max_iter': 200000, 'n_alphas': 100, 'normalize': False, 'penalty_factor': None, 'tol': 1e-07, 'verbose': False}
+[2019-09-17 11:21:42] [INFO]: CoxNET best score: 0.8660439235903141
+[2019-09-17 11:21:42] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.886193   2.425878
+Age_65               0.649309   1.914218
+POLD1                0.570651   1.769419
+CEA                  0.297008   1.345827
+T_stage              0.289929   1.336333
+POLD1EDM             0.094751   1.099386
+Histologic_grade     0.027428   1.027808
+TO_PDL1+CD68+       -0.000422   0.999578
+TU_CD45RO           -0.002469   0.997534
+TO_CD68+CD163+PDL1+ -0.010823   0.989235
+TU_CD68+CD163+      -0.064738   0.937313
+TU_CD68+CD163+PDL1- -0.066268   0.935880
+TU_CD4+FOXP3+       -0.139973   0.869382
+TU_CD4              -0.171950   0.842021
+TU_CD3              -0.187647   0.828907
+Vascular_invasion   -0.270907   0.762688
+POLE                -0.311334   0.732469
+TU_CD3+PD1+         -0.346475   0.707177
+Perineural_invasion -0.356358   0.700222
+Differentiation     -0.385145   0.680352
+TU_CD163            -0.495262   0.609411
+[2019-09-17 11:21:42] [INFO]: CoxNET train mean   AUC: 0.9283936408951201
+[2019-09-17 11:21:42] [INFO]: CoxNET train CI_H score: 0.9031311154598826
+[2019-09-17 11:21:42] [INFO]: CoxNET train CI_U score: 0.9114148157306755
+[2019-09-17 11:21:42] [INFO]: CoxNET test  mean   AUC: 0.9344307495718623
+[2019-09-17 11:21:42] [INFO]: CoxNET test  CI_H score: 0.9117647058823529
+[2019-09-17 11:21:42] [INFO]: CoxNET test  CI_U score: 0.929204145632282
+[2019-09-17 11:21:42] [INFO]: ---------------------------------------------
+[2019-09-17 11:22:35] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:22:35] [INFO]: CoxNET best parameters: 
+{'alpha_min_ratio': 0.0001, 'alphas': None, 'copy_X': True, 'fit_baseline_model': True, 'l1_ratio': 0.001, 'max_iter': 200000, 'n_alphas': 100, 'normalize': False, 'penalty_factor': None, 'tol': 1e-07, 'verbose': False}
+[2019-09-17 11:22:35] [INFO]: CoxNET best score: 0.878770750203752
+[2019-09-17 11:22:35] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.906150   2.474776
+Age_65               0.710950   2.035925
+POLD1                0.492788   1.636874
+CEA                  0.421672   1.524508
+POLD1EDM             0.240507   1.271894
+Histologic_grade     0.197011   1.217757
+Vascular_invasion    0.033067   1.033620
+T_stage              0.028852   1.029272
+TU_CD45RO            0.004878   1.004890
+TO_CD68+CD163+PDL1+ -0.089272   0.914597
+TO_PDL1+CD68+       -0.100109   0.904738
+TU_CD68+CD163+      -0.162608   0.849925
+Differentiation     -0.218115   0.804033
+TU_CD4              -0.240850   0.785960
+TU_CD68+CD163+PDL1- -0.246462   0.781561
+POLE                -0.248018   0.780346
+TU_CD3              -0.296922   0.743102
+TU_CD4+FOXP3+       -0.348125   0.706011
+TU_CD163            -0.367441   0.692504
+Perineural_invasion -0.468648   0.625848
+TU_CD3+PD1+         -0.536761   0.584639
+[2019-09-17 11:22:35] [INFO]: CoxNET train mean   AUC: 0.9467848991951985
+[2019-09-17 11:22:35] [INFO]: CoxNET train CI_H score: 0.9271461716937355
+[2019-09-17 11:22:35] [INFO]: CoxNET train CI_U score: 0.9386094621577473
+[2019-09-17 11:22:35] [INFO]: CoxNET test  mean   AUC: 0.8610298983292615
+[2019-09-17 11:22:35] [INFO]: CoxNET test  CI_H score: 0.834061135371179
+[2019-09-17 11:22:35] [INFO]: CoxNET test  CI_U score: 0.8361155817472271
+[2019-09-17 11:22:35] [INFO]: ---------------------------------------------
+[2019-09-17 11:23:25] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:23:25] [INFO]: CoxNET best parameters: 
+{'alpha_min_ratio': 0.0001, 'alphas': None, 'copy_X': True, 'fit_baseline_model': True, 'l1_ratio': 0.001, 'max_iter': 200000, 'n_alphas': 100, 'normalize': False, 'penalty_factor': None, 'tol': 1e-07, 'verbose': False}
+[2019-09-17 11:23:25] [INFO]: CoxNET best score: 0.8360236654123884
+[2019-09-17 11:23:25] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.780634   2.182856
+Age_65               0.512560   1.669560
+POLD1                0.485050   1.624257
+CEA                  0.326385   1.385948
+Histologic_grade     0.323182   1.381516
+T_stage              0.246881   1.280027
+TO_PDL1+CD68+        0.008723   1.008761
+TO_CD68+CD163+PDL1+ -0.007035   0.992990
+TU_CD45RO           -0.026373   0.973972
+Differentiation     -0.066404   0.935753
+TU_CD4+FOXP3+       -0.130497   0.877659
+POLD1EDM            -0.134188   0.874426
+TU_CD68+CD163+      -0.136320   0.872563
+TU_CD3              -0.181489   0.834027
+POLE                -0.217722   0.804349
+TU_CD68+CD163+PDL1- -0.231671   0.793207
+TU_CD4              -0.250297   0.778570
+Vascular_invasion   -0.321932   0.724748
+Perineural_invasion -0.345115   0.708139
+TU_CD163            -0.390968   0.676401
+TU_CD3+PD1+         -0.421494   0.656066
+[2019-09-17 11:23:25] [INFO]: CoxNET train mean   AUC: 0.9144790841392673
+[2019-09-17 11:23:25] [INFO]: CoxNET train CI_H score: 0.891415313225058
+[2019-09-17 11:23:25] [INFO]: CoxNET train CI_U score: 0.9019933934516697
+[2019-09-17 11:23:25] [INFO]: CoxNET test  mean   AUC: 0.9596003287221878
+[2019-09-17 11:23:25] [INFO]: CoxNET test  CI_H score: 0.9333333333333333
+[2019-09-17 11:23:25] [INFO]: CoxNET test  CI_U score: 0.944472340901221
+[2019-09-17 11:23:25] [INFO]: ---------------------------------------------
+[2019-09-17 11:24:19] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:24:19] [INFO]: CoxNET best parameters: 
+{'alpha_min_ratio': 0.0001, 'alphas': None, 'copy_X': True, 'fit_baseline_model': True, 'l1_ratio': 0.001, 'max_iter': 200000, 'n_alphas': 100, 'normalize': False, 'penalty_factor': None, 'tol': 1e-07, 'verbose': False}
+[2019-09-17 11:24:19] [INFO]: CoxNET best score: 0.8669286637891859
+[2019-09-17 11:24:19] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Age_65               0.924471   2.520535
+Metastasis_status    0.794227   2.212731
+POLD1EDM             0.554591   1.741229
+CEA                  0.348118   1.416399
+POLD1                0.314182   1.369139
+T_stage              0.292887   1.340292
+Histologic_grade     0.175758   1.192149
+TU_CD45RO            0.032400   1.032930
+TO_PDL1+CD68+       -0.030252   0.970201
+TO_CD68+CD163+PDL1+ -0.058066   0.943588
+TU_CD3              -0.082613   0.920707
+TU_CD68+CD163+      -0.094318   0.909994
+TU_CD68+CD163+PDL1- -0.123322   0.883979
+Vascular_invasion   -0.192283   0.825073
+POLE                -0.197555   0.820735
+TU_CD4              -0.242100   0.784977
+TU_CD3+PD1+         -0.359239   0.698207
+TU_CD4+FOXP3+       -0.426446   0.652825
+TU_CD163            -0.481373   0.617934
+Differentiation     -0.512370   0.599074
+Perineural_invasion -0.559810   0.571317
+[2019-09-17 11:24:19] [INFO]: CoxNET train mean   AUC: 0.938274801308004
+[2019-09-17 11:24:19] [INFO]: CoxNET train CI_H score: 0.9273356401384083
+[2019-09-17 11:24:19] [INFO]: CoxNET train CI_U score: 0.9305490210928479
+[2019-09-17 11:24:19] [INFO]: CoxNET test  mean   AUC: 0.8622155830053215
+[2019-09-17 11:24:19] [INFO]: CoxNET test  CI_H score: 0.8489208633093526
+[2019-09-17 11:24:19] [INFO]: CoxNET test  CI_U score: 0.8594022208726416
+[2019-09-17 11:24:19] [INFO]: ---------------------------------------------
+[2019-09-17 11:25:11] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:25:11] [INFO]: CoxNET best parameters: 
+{'alpha_min_ratio': 0.0001, 'alphas': None, 'copy_X': True, 'fit_baseline_model': True, 'l1_ratio': 0.001, 'max_iter': 200000, 'n_alphas': 100, 'normalize': False, 'penalty_factor': None, 'tol': 1e-07, 'verbose': False}
+[2019-09-17 11:25:11] [INFO]: CoxNET best score: 0.8857174243119252
+[2019-09-17 11:25:11] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.065437   2.902108
+Age_65               0.628089   1.874026
+CEA                  0.371586   1.450033
+POLD1                0.298957   1.348451
+T_stage              0.277596   1.319952
+Histologic_grade     0.234605   1.264409
+TU_CD163             0.034320   1.034916
+Vascular_invasion    0.016877   1.017020
+TU_CD4+FOXP3+        0.007952   1.007983
+POLD1EDM            -0.003366   0.996640
+TO_PDL1+CD68+       -0.007075   0.992950
+TU_CD3              -0.011078   0.988983
+TO_CD68+CD163+PDL1+ -0.031374   0.969113
+POLE                -0.103720   0.901478
+TU_CD68+CD163+      -0.129416   0.878609
+TU_CD45RO           -0.163687   0.849008
+TU_CD68+CD163+PDL1- -0.180966   0.834464
+TU_CD4              -0.252191   0.777097
+Differentiation     -0.282354   0.754007
+Perineural_invasion -0.410644   0.663223
+TU_CD3+PD1+         -0.414683   0.660550
+[2019-09-17 11:25:11] [INFO]: CoxNET train mean   AUC: 0.9475693844448986
+[2019-09-17 11:25:11] [INFO]: CoxNET train CI_H score: 0.9183673469387755
+[2019-09-17 11:25:11] [INFO]: CoxNET train CI_U score: 0.9314739800697949
+[2019-09-17 11:25:11] [INFO]: CoxNET test  mean   AUC: 0.8447519978541653
+[2019-09-17 11:25:11] [INFO]: CoxNET test  CI_H score: 0.8326848249027238
+[2019-09-17 11:25:11] [INFO]: CoxNET test  CI_U score: 0.8443908480716086
+[2019-09-17 11:25:11] [INFO]: ---------------------------------------------
+[2019-09-17 11:26:07] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:26:07] [INFO]: CoxNET best parameters: 
+{'alpha_min_ratio': 0.0001, 'alphas': None, 'copy_X': True, 'fit_baseline_model': True, 'l1_ratio': 0.001, 'max_iter': 200000, 'n_alphas': 100, 'normalize': False, 'penalty_factor': None, 'tol': 1e-07, 'verbose': False}
+[2019-09-17 11:26:07] [INFO]: CoxNET best score: 0.8781101365170101
+[2019-09-17 11:26:07] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.040496   2.830620
+Age_65               0.571969   1.771753
+CEA                  0.459156   1.582737
+POLD1                0.360290   1.433745
+Histologic_grade     0.160266   1.173823
+T_stage              0.102430   1.107860
+POLE                 0.043355   1.044308
+TU_CD45RO            0.027639   1.028024
+TO_PDL1+CD68+       -0.005746   0.994270
+TO_CD68+CD163+PDL1+ -0.035674   0.964955
+TU_CD68+CD163+      -0.046821   0.954259
+TU_CD68+CD163+PDL1- -0.048899   0.952277
+POLD1EDM            -0.167407   0.845855
+Differentiation     -0.214347   0.807069
+TU_CD4+FOXP3+       -0.241027   0.785821
+TU_CD163            -0.289807   0.748408
+TU_CD3+PD1+         -0.335031   0.715316
+TU_CD3              -0.390372   0.676805
+TU_CD4              -0.396759   0.672496
+Vascular_invasion   -0.500932   0.605966
+Perineural_invasion -0.559942   0.571242
+[2019-09-17 11:26:07] [INFO]: CoxNET train mean   AUC: 0.9575444576589084
+[2019-09-17 11:26:07] [INFO]: CoxNET train CI_H score: 0.9250493096646942
+[2019-09-17 11:26:07] [INFO]: CoxNET train CI_U score: 0.9370629748309715
+[2019-09-17 11:26:07] [INFO]: CoxNET test  mean   AUC: 0.8217229639706156
+[2019-09-17 11:26:07] [INFO]: CoxNET test  CI_H score: 0.8215613382899628
+[2019-09-17 11:26:07] [INFO]: CoxNET test  CI_U score: 0.8119812753987835
+[2019-09-17 11:26:07] [INFO]: ---------------------------------------------
+[2019-09-17 11:27:00] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:27:00] [INFO]: CoxNET best parameters: 
+{'alpha_min_ratio': 0.0001, 'alphas': None, 'copy_X': True, 'fit_baseline_model': True, 'l1_ratio': 0.001, 'max_iter': 200000, 'n_alphas': 100, 'normalize': False, 'penalty_factor': None, 'tol': 1e-07, 'verbose': False}
+[2019-09-17 11:27:00] [INFO]: CoxNET best score: 0.8474911133771396
+[2019-09-17 11:27:00] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.993853   2.701625
+Age_65               0.618073   1.855349
+CEA                  0.372147   1.450846
+T_stage              0.262560   1.300255
+TU_CD45RO            0.139695   1.149923
+POLD1                0.088803   1.092865
+Histologic_grade     0.063816   1.065896
+POLD1EDM             0.052348   1.053742
+TO_PDL1+CD68+        0.028157   1.028557
+TO_CD68+CD163+PDL1+  0.000000   1.000000
+TU_CD68+CD163+      -0.077459   0.925465
+TU_CD4+FOXP3+       -0.081785   0.921470
+TU_CD68+CD163+PDL1- -0.094408   0.909911
+Vascular_invasion   -0.162069   0.850382
+TU_CD3              -0.205516   0.814227
+TU_CD4              -0.233465   0.791786
+TU_CD3+PD1+         -0.255645   0.774417
+Perineural_invasion -0.292314   0.746534
+TU_CD163            -0.298642   0.741825
+Differentiation     -0.304560   0.737448
+POLE                -0.361158   0.696869
+[2019-09-17 11:27:00] [INFO]: CoxNET train mean   AUC: 0.920023202895662
+[2019-09-17 11:27:00] [INFO]: CoxNET train CI_H score: 0.8988203266787659
+[2019-09-17 11:27:00] [INFO]: CoxNET train CI_U score: 0.9120739901862666
+[2019-09-17 11:27:00] [INFO]: CoxNET test  mean   AUC: 0.8803996999453436
+[2019-09-17 11:27:00] [INFO]: CoxNET test  CI_H score: 0.8932384341637011
+[2019-09-17 11:27:00] [INFO]: CoxNET test  CI_U score: 0.8932384341637011
+[2019-09-17 11:27:00] [INFO]: ---------------------------------------------
+[2019-09-17 11:27:49] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:27:49] [INFO]: CoxNET best parameters: 
+{'alpha_min_ratio': 0.0001, 'alphas': None, 'copy_X': True, 'fit_baseline_model': True, 'l1_ratio': 0.001, 'max_iter': 200000, 'n_alphas': 100, 'normalize': False, 'penalty_factor': None, 'tol': 1e-07, 'verbose': False}
+[2019-09-17 11:27:49] [INFO]: CoxNET best score: 0.8803859944635017
+[2019-09-17 11:27:49] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.827709   2.288071
+Age_65               0.698790   2.011318
+POLD1                0.503329   1.654219
+CEA                  0.354659   1.425694
+T_stage              0.229087   1.257451
+TU_CD45RO            0.137961   1.147931
+Histologic_grade     0.048158   1.049337
+Vascular_invasion   -0.028419   0.971981
+TO_PDL1+CD68+       -0.038596   0.962140
+TO_CD68+CD163+PDL1+ -0.067799   0.934448
+TU_CD3              -0.070120   0.932282
+POLE                -0.082043   0.921232
+POLD1EDM            -0.199419   0.819207
+TU_CD68+CD163+      -0.203872   0.815567
+TU_CD4              -0.228006   0.796120
+TU_CD68+CD163+PDL1- -0.328026   0.720344
+Perineural_invasion -0.396632   0.672581
+Differentiation     -0.420465   0.656741
+TU_CD3+PD1+         -0.422884   0.655155
+TU_CD163            -0.427642   0.652045
+TU_CD4+FOXP3+       -0.496977   0.608367
+[2019-09-17 11:27:49] [INFO]: CoxNET train mean   AUC: 0.9321212453311156
+[2019-09-17 11:27:49] [INFO]: CoxNET train CI_H score: 0.9146825396825397
+[2019-09-17 11:27:49] [INFO]: CoxNET train CI_U score: 0.9247913035618274
+[2019-09-17 11:27:49] [INFO]: CoxNET test  mean   AUC: 0.8880617201757228
+[2019-09-17 11:27:49] [INFO]: CoxNET test  CI_H score: 0.8631578947368421
+[2019-09-17 11:27:49] [INFO]: CoxNET test  CI_U score: 0.863948231757923
+[2019-09-17 11:27:49] [INFO]: ---------------------------------------------
+[2019-09-17 11:28:41] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:28:41] [INFO]: CoxNET best parameters: 
+{'alpha_min_ratio': 0.0001, 'alphas': None, 'copy_X': True, 'fit_baseline_model': True, 'l1_ratio': 0.001, 'max_iter': 200000, 'n_alphas': 100, 'normalize': False, 'penalty_factor': None, 'tol': 1e-07, 'verbose': False}
+[2019-09-17 11:28:41] [INFO]: CoxNET best score: 0.8596959291848949
+[2019-09-17 11:28:41] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.100206   3.004785
+Age_65               0.576527   1.779846
+POLD1                0.398081   1.488965
+CEA                  0.334335   1.397011
+T_stage              0.283488   1.327752
+Histologic_grade     0.246965   1.280135
+TO_CD68+CD163+PDL1+  0.042268   1.043174
+TO_PDL1+CD68+        0.037861   1.038587
+TU_CD45RO           -0.018273   0.981893
+POLD1EDM            -0.078095   0.924877
+TU_CD68+CD163+      -0.112706   0.893413
+TU_CD4              -0.118983   0.887823
+TU_CD3              -0.147589   0.862786
+Differentiation     -0.161451   0.850908
+POLE                -0.164414   0.848391
+TU_CD4+FOXP3+       -0.206484   0.813439
+Vascular_invasion   -0.219443   0.802966
+TU_CD68+CD163+PDL1- -0.236606   0.789302
+TU_CD3+PD1+         -0.245524   0.782294
+Perineural_invasion -0.294531   0.744881
+TU_CD163            -0.408428   0.664695
+[2019-09-17 11:28:41] [INFO]: CoxNET train mean   AUC: 0.9287991898491095
+[2019-09-17 11:28:41] [INFO]: CoxNET train CI_H score: 0.9110898661567878
+[2019-09-17 11:28:41] [INFO]: CoxNET train CI_U score: 0.9324119264169595
+[2019-09-17 11:28:41] [INFO]: CoxNET test  mean   AUC: 0.9425268319236092
+[2019-09-17 11:28:41] [INFO]: CoxNET test  CI_H score: 0.9047619047619048
+[2019-09-17 11:28:41] [INFO]: CoxNET test  CI_U score: 0.9041566706344067
+[2019-09-17 11:28:41] [INFO]: ---------------------------------------------
+[2019-09-17 11:29:31] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:29:31] [INFO]: CoxNET best parameters: 
+{'alpha_min_ratio': 0.0001, 'alphas': None, 'copy_X': True, 'fit_baseline_model': True, 'l1_ratio': 0.001, 'max_iter': 200000, 'n_alphas': 100, 'normalize': False, 'penalty_factor': None, 'tol': 1e-07, 'verbose': False}
+[2019-09-17 11:29:31] [INFO]: CoxNET best score: 0.8848361024168121
+[2019-09-17 11:29:31] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.761317   2.141095
+Age_65               0.533382   1.704687
+POLD1                0.525041   1.690528
+Histologic_grade     0.430251   1.537643
+CEA                  0.357970   1.430422
+POLD1EDM             0.269337   1.309096
+T_stage              0.156822   1.169788
+Differentiation      0.038471   1.039220
+TU_CD68+CD163+PDL1-  0.003628   1.003635
+TU_CD68+CD163+      -0.011333   0.988731
+Vascular_invasion   -0.016248   0.983883
+TU_CD4+FOXP3+       -0.065173   0.936905
+TO_CD68+CD163+PDL1+ -0.068050   0.934214
+TO_PDL1+CD68+       -0.085542   0.918014
+TU_CD4              -0.138083   0.871026
+POLE                -0.217214   0.804758
+TU_CD45RO           -0.238309   0.787959
+TU_CD3              -0.439338   0.644463
+Perineural_invasion -0.572792   0.563948
+TU_CD3+PD1+         -0.578289   0.560857
+TU_CD163            -0.614830   0.540733
+[2019-09-17 11:29:31] [INFO]: CoxNET train mean   AUC: 0.9219121628795078
+[2019-09-17 11:29:31] [INFO]: CoxNET train CI_H score: 0.9176867876741241
+[2019-09-17 11:29:31] [INFO]: CoxNET train CI_U score: 0.9190260182122865
+[2019-09-17 11:29:31] [INFO]: CoxNET test  mean   AUC: 0.742867312724186
+[2019-09-17 11:29:31] [INFO]: CoxNET test  CI_H score: 0.7777777777777778
+[2019-09-17 11:29:31] [INFO]: CoxNET test  CI_U score: 0.7420387487767566
+[2019-09-17 11:29:31] [INFO]: ---------------------------------------------
+[2019-09-17 11:29:40] [INFO]: ****OS_Months: Supervised MODELing Finish****
+[2019-09-17 11:29:40] [INFO]: ************Supervisor Predicting************
+[2019-09-17 11:29:40] [INFO]: ----------Missing Values Processing----------
+[2019-09-17 11:29:40] [INFO]: Primary Samples and Feauters numbers: 133 , 132
+SimpleImputer paramaters:
+SimpleImputer(add_indicator=False, copy=True, fill_value=None,
+              missing_values=nan, strategy='median', verbose=0)
+[2019-09-17 11:29:40] [INFO]: ---------------------------------------------
+[2019-09-17 11:29:40] [INFO]: ----------Standardization Pocessing----------
+Scale paramaters:
+DataFrameMapper(default=False, df_out=False,
+                features=[(['ST_CD8', 'ST_PDL1_1', 'ST_CD45RO', 'ST_PD1',
+                            'ST_CD3', 'ST_CD3+CD8+', 'ST_CD3+CD45RO+',
+                            'ST_CD8+CD45RO+', 'ST_CD3+PD1+', 'ST_CD8+PD1+',
+                            'ST_CD3+CD45RO+PD1+', 'ST_CD8+CD45RO+PD1+',
+                            'ST_FOXP3', 'ST_CD163', 'ST_CD68', 'ST_CD4',
+                            'ST_PDL1_2', 'ST_CD57', 'ST_CD68+CD163-',
+                            'ST_CD68+CD163+', 'ST_PDL1+CD68+', 'ST_PDL1+CD68-',
+                            'ST_CD4+FOXP3+', 'ST_CD68+CD163+PDL1+',
+                            'ST_CD68+CD163+PDL1-', 'ST_PDL1_A', 'TU_CD8',
+                            'TU_PDL1_1', 'TU_CD45RO', 'TU_PD1', ...],
+                           [StandardScaler(copy=True, with_mean=True,
+                                           with_std=True)])],
+                input_df=False, sparse=False)
+[2019-09-17 11:29:40] [INFO]: ---------------------------------------------
+[2019-09-17 11:29:50] [INFO]: *******OS_Months: Supervised Predicting******
+[2019-09-17 11:29:51] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:29:51] [INFO]: CoxNET best parameters: 
+CoxnetSurvivalAnalysis_(alpha_min_ratio=0.0001, alphas=None, copy_X=True,
+                        fit_baseline_model=True, l1_ratio=0.001,
+                        max_iter=200000, n_alphas=100, normalize=False,
+                        penalty_factor=None, tol=1e-07, verbose=False)
+[2019-09-17 11:29:51] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.091212   2.977880
+Age_65               0.474449   1.607128
+CEA                  0.309262   1.362420
+POLD1                0.304809   1.356366
+T_stage              0.247953   1.281400
+Histologic_grade     0.135530   1.145144
+TO_PDL1+CD68+        0.048008   1.049179
+Vascular_invasion    0.039122   1.039897
+TO_CD68+CD163+PDL1+  0.038961   1.039729
+TU_CD45RO            0.004527   1.004538
+TU_CD68+CD163+      -0.072826   0.929763
+POLD1EDM            -0.083606   0.919793
+TU_CD4+FOXP3+       -0.102376   0.902690
+TU_CD68+CD163+PDL1- -0.120255   0.886694
+TU_CD3              -0.147386   0.862961
+TU_CD4              -0.249147   0.779466
+Differentiation     -0.337078   0.713853
+Perineural_invasion -0.355369   0.700915
+TU_CD3+PD1+         -0.398389   0.671401
+POLE                -0.429619   0.650757
+TU_CD163            -0.462406   0.629767
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  mean   AUC: 0.754938253167053
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_H score: 0.7419354838709677
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_U score: 0.7445909275996129
+[2019-09-17 11:29:51] [INFO]: ---------------------------------------------
+[2019-09-17 11:29:51] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:29:51] [INFO]: CoxNET best parameters: 
+CoxnetSurvivalAnalysis_(alpha_min_ratio=0.0001, alphas=None, copy_X=True,
+                        fit_baseline_model=True, l1_ratio=0.001,
+                        max_iter=200000, n_alphas=100, normalize=False,
+                        penalty_factor=None, tol=1e-07, verbose=False)
+[2019-09-17 11:29:51] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.813154   2.255010
+Age_65               0.524800   1.690121
+POLD1                0.401646   1.494283
+T_stage              0.295432   1.343706
+CEA                  0.262263   1.299869
+Histologic_grade     0.228247   1.256396
+TO_PDL1+CD68+        0.009076   1.009117
+TO_CD68+CD163+PDL1+ -0.001555   0.998447
+TU_CD4+FOXP3+       -0.030117   0.970332
+TU_CD45RO           -0.062119   0.939771
+TU_CD68+CD163+      -0.109920   0.895906
+TU_CD3              -0.127181   0.880574
+POLD1EDM            -0.129460   0.878569
+TU_CD4              -0.137005   0.871966
+Vascular_invasion   -0.163916   0.848813
+TU_CD68+CD163+PDL1- -0.171383   0.842499
+Differentiation     -0.223214   0.799944
+Perineural_invasion -0.330594   0.718497
+TU_CD163            -0.422347   0.655507
+TU_CD3+PD1+         -0.430326   0.650297
+POLE                -0.434150   0.647815
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  mean   AUC: 0.6950218822079403
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_H score: 0.6629032258064517
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_U score: 0.6739576452161593
+[2019-09-17 11:29:51] [INFO]: ---------------------------------------------
+[2019-09-17 11:29:51] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:29:51] [INFO]: CoxNET best parameters: 
+CoxnetSurvivalAnalysis_(alpha_min_ratio=0.0001, alphas=None, copy_X=True,
+                        fit_baseline_model=True, l1_ratio=0.001,
+                        max_iter=200000, n_alphas=100, normalize=False,
+                        penalty_factor=None, tol=1e-07, verbose=False)
+[2019-09-17 11:29:51] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.953808   2.595574
+Age_65               0.612197   1.844480
+CEA                  0.380017   1.462309
+POLD1                0.347111   1.414973
+TU_CD45RO            0.193958   1.214046
+T_stage              0.182102   1.199737
+Histologic_grade     0.147446   1.158871
+TO_CD68+CD163+PDL1+ -0.057564   0.944062
+TO_PDL1+CD68+       -0.057925   0.943721
+TU_CD3              -0.108978   0.896751
+TU_CD3+PD1+         -0.121697   0.885416
+Vascular_invasion   -0.124806   0.882668
+TU_CD68+CD163+      -0.125934   0.881673
+POLE                -0.126217   0.881424
+POLD1EDM            -0.150451   0.860320
+TU_CD68+CD163+PDL1- -0.195362   0.822537
+TU_CD4              -0.231138   0.793630
+Differentiation     -0.294352   0.745014
+TU_CD4+FOXP3+       -0.315891   0.729139
+Perineural_invasion -0.590923   0.553816
+TU_CD163            -0.631979   0.531539
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  mean   AUC: 0.714149663712505
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_H score: 0.6661290322580645
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_U score: 0.6567147985498573
+[2019-09-17 11:29:51] [INFO]: ---------------------------------------------
+[2019-09-17 11:29:51] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:29:51] [INFO]: CoxNET best parameters: 
+CoxnetSurvivalAnalysis_(alpha_min_ratio=0.0001, alphas=None, copy_X=True,
+                        fit_baseline_model=True, l1_ratio=0.001,
+                        max_iter=200000, n_alphas=100, normalize=False,
+                        penalty_factor=None, tol=1e-07, verbose=False)
+[2019-09-17 11:29:51] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.853260   2.347288
+Age_65               0.629601   1.876861
+CEA                  0.347139   1.415013
+POLD1                0.315429   1.370847
+Histologic_grade     0.241120   1.272674
+T_stage              0.207614   1.230738
+TU_CD45RO            0.179368   1.196460
+Vascular_invasion    0.049048   1.050271
+TO_PDL1+CD68+        0.036594   1.037271
+TO_CD68+CD163+PDL1+  0.020022   1.020223
+TU_CD4+FOXP3+       -0.090420   0.913547
+Differentiation     -0.106699   0.898796
+POLD1EDM            -0.114653   0.891675
+TU_CD68+CD163+      -0.123535   0.883790
+TU_CD68+CD163+PDL1- -0.173933   0.840353
+TU_CD3              -0.184330   0.831661
+TU_CD4              -0.251546   0.777598
+Perineural_invasion -0.297493   0.742678
+TU_CD163            -0.374201   0.687839
+TU_CD3+PD1+         -0.429022   0.651145
+POLE                -0.503767   0.604250
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  mean   AUC: 0.7736352205970921
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_H score: 0.7290322580645161
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_U score: 0.7296648007901906
+[2019-09-17 11:29:51] [INFO]: ---------------------------------------------
+[2019-09-17 11:29:51] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:29:51] [INFO]: CoxNET best parameters: 
+CoxnetSurvivalAnalysis_(alpha_min_ratio=0.0001, alphas=None, copy_X=True,
+                        fit_baseline_model=True, l1_ratio=0.001,
+                        max_iter=200000, n_alphas=100, normalize=False,
+                        penalty_factor=None, tol=1e-07, verbose=False)
+[2019-09-17 11:29:51] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.886193   2.425878
+Age_65               0.649309   1.914218
+POLD1                0.570651   1.769419
+CEA                  0.297008   1.345827
+T_stage              0.289929   1.336333
+POLD1EDM             0.094751   1.099386
+Histologic_grade     0.027428   1.027808
+TO_PDL1+CD68+       -0.000422   0.999578
+TU_CD45RO           -0.002469   0.997534
+TO_CD68+CD163+PDL1+ -0.010823   0.989235
+TU_CD68+CD163+      -0.064738   0.937313
+TU_CD68+CD163+PDL1- -0.066268   0.935880
+TU_CD4+FOXP3+       -0.139973   0.869382
+TU_CD4              -0.171950   0.842021
+TU_CD3              -0.187647   0.828907
+Vascular_invasion   -0.270907   0.762688
+POLE                -0.311334   0.732469
+TU_CD3+PD1+         -0.346475   0.707177
+Perineural_invasion -0.356358   0.700222
+Differentiation     -0.385145   0.680352
+TU_CD163            -0.495262   0.609411
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  mean   AUC: 0.7178350590764464
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_H score: 0.6758064516129032
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_U score: 0.6457683347430089
+[2019-09-17 11:29:51] [INFO]: ---------------------------------------------
+[2019-09-17 11:29:51] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:29:51] [INFO]: CoxNET best parameters: 
+CoxnetSurvivalAnalysis_(alpha_min_ratio=0.0001, alphas=None, copy_X=True,
+                        fit_baseline_model=True, l1_ratio=0.001,
+                        max_iter=200000, n_alphas=100, normalize=False,
+                        penalty_factor=None, tol=1e-07, verbose=False)
+[2019-09-17 11:29:51] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.906150   2.474776
+Age_65               0.710950   2.035925
+POLD1                0.492788   1.636874
+CEA                  0.421672   1.524508
+POLD1EDM             0.240507   1.271894
+Histologic_grade     0.197011   1.217757
+Vascular_invasion    0.033067   1.033620
+T_stage              0.028852   1.029272
+TU_CD45RO            0.004878   1.004890
+TO_CD68+CD163+PDL1+ -0.089272   0.914597
+TO_PDL1+CD68+       -0.100109   0.904738
+TU_CD68+CD163+      -0.162608   0.849925
+Differentiation     -0.218115   0.804033
+TU_CD4              -0.240850   0.785960
+TU_CD68+CD163+PDL1- -0.246462   0.781561
+POLE                -0.248018   0.780346
+TU_CD3              -0.296922   0.743102
+TU_CD4+FOXP3+       -0.348125   0.706011
+TU_CD163            -0.367441   0.692504
+Perineural_invasion -0.468648   0.625848
+TU_CD3+PD1+         -0.536761   0.584639
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  mean   AUC: 0.7406039417369507
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_H score: 0.6967741935483871
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_U score: 0.7141317278272044
+[2019-09-17 11:29:51] [INFO]: ---------------------------------------------
+[2019-09-17 11:29:51] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:29:51] [INFO]: CoxNET best parameters: 
+CoxnetSurvivalAnalysis_(alpha_min_ratio=0.0001, alphas=None, copy_X=True,
+                        fit_baseline_model=True, l1_ratio=0.001,
+                        max_iter=200000, n_alphas=100, normalize=False,
+                        penalty_factor=None, tol=1e-07, verbose=False)
+[2019-09-17 11:29:51] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.780634   2.182856
+Age_65               0.512560   1.669560
+POLD1                0.485050   1.624257
+CEA                  0.326385   1.385948
+Histologic_grade     0.323182   1.381516
+T_stage              0.246881   1.280027
+TO_PDL1+CD68+        0.008723   1.008761
+TO_CD68+CD163+PDL1+ -0.007035   0.992990
+TU_CD45RO           -0.026373   0.973972
+Differentiation     -0.066404   0.935753
+TU_CD4+FOXP3+       -0.130497   0.877659
+POLD1EDM            -0.134188   0.874426
+TU_CD68+CD163+      -0.136320   0.872563
+TU_CD3              -0.181489   0.834027
+POLE                -0.217722   0.804349
+TU_CD68+CD163+PDL1- -0.231671   0.793207
+TU_CD4              -0.250297   0.778570
+Vascular_invasion   -0.321932   0.724748
+Perineural_invasion -0.345115   0.708139
+TU_CD163            -0.390968   0.676401
+TU_CD3+PD1+         -0.421494   0.656066
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  mean   AUC: 0.6710344434246519
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_H score: 0.6306451612903226
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_U score: 0.6320397086980558
+[2019-09-17 11:29:51] [INFO]: ---------------------------------------------
+[2019-09-17 11:29:51] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:29:51] [INFO]: CoxNET best parameters: 
+CoxnetSurvivalAnalysis_(alpha_min_ratio=0.0001, alphas=None, copy_X=True,
+                        fit_baseline_model=True, l1_ratio=0.001,
+                        max_iter=200000, n_alphas=100, normalize=False,
+                        penalty_factor=None, tol=1e-07, verbose=False)
+[2019-09-17 11:29:51] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Age_65               0.924471   2.520535
+Metastasis_status    0.794227   2.212731
+POLD1EDM             0.554591   1.741229
+CEA                  0.348118   1.416399
+POLD1                0.314182   1.369139
+T_stage              0.292887   1.340292
+Histologic_grade     0.175758   1.192149
+TU_CD45RO            0.032400   1.032930
+TO_PDL1+CD68+       -0.030252   0.970201
+TO_CD68+CD163+PDL1+ -0.058066   0.943588
+TU_CD3              -0.082613   0.920707
+TU_CD68+CD163+      -0.094318   0.909994
+TU_CD68+CD163+PDL1- -0.123322   0.883979
+Vascular_invasion   -0.192283   0.825073
+POLE                -0.197555   0.820735
+TU_CD4              -0.242100   0.784977
+TU_CD3+PD1+         -0.359239   0.698207
+TU_CD4+FOXP3+       -0.426446   0.652825
+TU_CD163            -0.481373   0.617934
+Differentiation     -0.512370   0.599074
+Perineural_invasion -0.559810   0.571317
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  mean   AUC: 0.7151687885187019
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_H score: 0.6709677419354839
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_U score: 0.6481830890963627
+[2019-09-17 11:29:51] [INFO]: ---------------------------------------------
+[2019-09-17 11:29:51] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:29:51] [INFO]: CoxNET best parameters: 
+CoxnetSurvivalAnalysis_(alpha_min_ratio=0.0001, alphas=None, copy_X=True,
+                        fit_baseline_model=True, l1_ratio=0.001,
+                        max_iter=200000, n_alphas=100, normalize=False,
+                        penalty_factor=None, tol=1e-07, verbose=False)
+[2019-09-17 11:29:51] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.065437   2.902108
+Age_65               0.628089   1.874026
+CEA                  0.371586   1.450033
+POLD1                0.298957   1.348451
+T_stage              0.277596   1.319952
+Histologic_grade     0.234605   1.264409
+TU_CD163             0.034320   1.034916
+Vascular_invasion    0.016877   1.017020
+TU_CD4+FOXP3+        0.007952   1.007983
+POLD1EDM            -0.003366   0.996640
+TO_PDL1+CD68+       -0.007075   0.992950
+TU_CD3              -0.011078   0.988983
+TO_CD68+CD163+PDL1+ -0.031374   0.969113
+POLE                -0.103720   0.901478
+TU_CD68+CD163+      -0.129416   0.878609
+TU_CD45RO           -0.163687   0.849008
+TU_CD68+CD163+PDL1- -0.180966   0.834464
+TU_CD4              -0.252191   0.777097
+Differentiation     -0.282354   0.754007
+Perineural_invasion -0.410644   0.663223
+TU_CD3+PD1+         -0.414683   0.660550
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  mean   AUC: 0.747105075914317
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_H score: 0.7161290322580646
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_U score: 0.7316843411572203
+[2019-09-17 11:29:51] [INFO]: ---------------------------------------------
+[2019-09-17 11:29:51] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:29:51] [INFO]: CoxNET best parameters: 
+CoxnetSurvivalAnalysis_(alpha_min_ratio=0.0001, alphas=None, copy_X=True,
+                        fit_baseline_model=True, l1_ratio=0.001,
+                        max_iter=200000, n_alphas=100, normalize=False,
+                        penalty_factor=None, tol=1e-07, verbose=False)
+[2019-09-17 11:29:51] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.040496   2.830620
+Age_65               0.571969   1.771753
+CEA                  0.459156   1.582737
+POLD1                0.360290   1.433745
+Histologic_grade     0.160266   1.173823
+T_stage              0.102430   1.107860
+POLE                 0.043355   1.044308
+TU_CD45RO            0.027639   1.028024
+TO_PDL1+CD68+       -0.005746   0.994270
+TO_CD68+CD163+PDL1+ -0.035674   0.964955
+TU_CD68+CD163+      -0.046821   0.954259
+TU_CD68+CD163+PDL1- -0.048899   0.952277
+POLD1EDM            -0.167407   0.845855
+Differentiation     -0.214347   0.807069
+TU_CD4+FOXP3+       -0.241027   0.785821
+TU_CD163            -0.289807   0.748408
+TU_CD3+PD1+         -0.335031   0.715316
+TU_CD3              -0.390372   0.676805
+TU_CD4              -0.396759   0.672496
+Vascular_invasion   -0.500932   0.605966
+Perineural_invasion -0.559942   0.571242
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  mean   AUC: 0.7019904278739055
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_H score: 0.6758064516129032
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_U score: 0.6521428637145622
+[2019-09-17 11:29:51] [INFO]: ---------------------------------------------
+[2019-09-17 11:29:51] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:29:51] [INFO]: CoxNET best parameters: 
+CoxnetSurvivalAnalysis_(alpha_min_ratio=0.0001, alphas=None, copy_X=True,
+                        fit_baseline_model=True, l1_ratio=0.001,
+                        max_iter=200000, n_alphas=100, normalize=False,
+                        penalty_factor=None, tol=1e-07, verbose=False)
+[2019-09-17 11:29:51] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.993853   2.701625
+Age_65               0.618073   1.855349
+CEA                  0.372147   1.450846
+T_stage              0.262560   1.300255
+TU_CD45RO            0.139695   1.149923
+POLD1                0.088803   1.092865
+Histologic_grade     0.063816   1.065896
+POLD1EDM             0.052348   1.053742
+TO_PDL1+CD68+        0.028157   1.028557
+TO_CD68+CD163+PDL1+  0.000000   1.000000
+TU_CD68+CD163+      -0.077459   0.925465
+TU_CD4+FOXP3+       -0.081785   0.921470
+TU_CD68+CD163+PDL1- -0.094408   0.909911
+Vascular_invasion   -0.162069   0.850382
+TU_CD3              -0.205516   0.814227
+TU_CD4              -0.233465   0.791786
+TU_CD3+PD1+         -0.255645   0.774417
+Perineural_invasion -0.292314   0.746534
+TU_CD163            -0.298642   0.741825
+Differentiation     -0.304560   0.737448
+POLE                -0.361158   0.696869
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  mean   AUC: 0.7434643959282669
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_H score: 0.7080645161290322
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_U score: 0.7155082292598871
+[2019-09-17 11:29:51] [INFO]: ---------------------------------------------
+[2019-09-17 11:29:51] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:29:51] [INFO]: CoxNET best parameters: 
+CoxnetSurvivalAnalysis_(alpha_min_ratio=0.0001, alphas=None, copy_X=True,
+                        fit_baseline_model=True, l1_ratio=0.001,
+                        max_iter=200000, n_alphas=100, normalize=False,
+                        penalty_factor=None, tol=1e-07, verbose=False)
+[2019-09-17 11:29:51] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.827709   2.288071
+Age_65               0.698790   2.011318
+POLD1                0.503329   1.654219
+CEA                  0.354659   1.425694
+T_stage              0.229087   1.257451
+TU_CD45RO            0.137961   1.147931
+Histologic_grade     0.048158   1.049337
+Vascular_invasion   -0.028419   0.971981
+TO_PDL1+CD68+       -0.038596   0.962140
+TO_CD68+CD163+PDL1+ -0.067799   0.934448
+TU_CD3              -0.070120   0.932282
+POLE                -0.082043   0.921232
+POLD1EDM            -0.199419   0.819207
+TU_CD68+CD163+      -0.203872   0.815567
+TU_CD4              -0.228006   0.796120
+TU_CD68+CD163+PDL1- -0.328026   0.720344
+Perineural_invasion -0.396632   0.672581
+Differentiation     -0.420465   0.656741
+TU_CD3+PD1+         -0.422884   0.655155
+TU_CD163            -0.427642   0.652045
+TU_CD4+FOXP3+       -0.496977   0.608367
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  mean   AUC: 0.6982455935923914
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_H score: 0.6483870967741936
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_U score: 0.6730930101842266
+[2019-09-17 11:29:51] [INFO]: ---------------------------------------------
+[2019-09-17 11:29:51] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:29:51] [INFO]: CoxNET best parameters: 
+CoxnetSurvivalAnalysis_(alpha_min_ratio=0.0001, alphas=None, copy_X=True,
+                        fit_baseline_model=True, l1_ratio=0.001,
+                        max_iter=200000, n_alphas=100, normalize=False,
+                        penalty_factor=None, tol=1e-07, verbose=False)
+[2019-09-17 11:29:51] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.100206   3.004785
+Age_65               0.576527   1.779846
+POLD1                0.398081   1.488965
+CEA                  0.334335   1.397011
+T_stage              0.283488   1.327752
+Histologic_grade     0.246965   1.280135
+TO_CD68+CD163+PDL1+  0.042268   1.043174
+TO_PDL1+CD68+        0.037861   1.038587
+TU_CD45RO           -0.018273   0.981893
+POLD1EDM            -0.078095   0.924877
+TU_CD68+CD163+      -0.112706   0.893413
+TU_CD4              -0.118983   0.887823
+TU_CD3              -0.147589   0.862786
+Differentiation     -0.161451   0.850908
+POLE                -0.164414   0.848391
+TU_CD4+FOXP3+       -0.206484   0.813439
+Vascular_invasion   -0.219443   0.802966
+TU_CD68+CD163+PDL1- -0.236606   0.789302
+TU_CD3+PD1+         -0.245524   0.782294
+Perineural_invasion -0.294531   0.744881
+TU_CD163            -0.408428   0.664695
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  mean   AUC: 0.6871972593268825
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_H score: 0.6661290322580645
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_U score: 0.6895565144906239
+[2019-09-17 11:29:51] [INFO]: ---------------------------------------------
+[2019-09-17 11:29:51] [INFO]: OS_Months CoxNET Model Fitting and hyperparametering
+[2019-09-17 11:29:51] [INFO]: CoxNET best parameters: 
+CoxnetSurvivalAnalysis_(alpha_min_ratio=0.0001, alphas=None, copy_X=True,
+                        fit_baseline_model=True, l1_ratio=0.001,
+                        max_iter=200000, n_alphas=100, normalize=False,
+                        penalty_factor=None, tol=1e-07, verbose=False)
+[2019-09-17 11:29:51] [INFO]: CoxNET best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.761317   2.141095
+Age_65               0.533382   1.704687
+POLD1                0.525041   1.690528
+Histologic_grade     0.430251   1.537643
+CEA                  0.357970   1.430422
+POLD1EDM             0.269337   1.309096
+T_stage              0.156822   1.169788
+Differentiation      0.038471   1.039220
+TU_CD68+CD163+PDL1-  0.003628   1.003635
+TU_CD68+CD163+      -0.011333   0.988731
+Vascular_invasion   -0.016248   0.983883
+TU_CD4+FOXP3+       -0.065173   0.936905
+TO_CD68+CD163+PDL1+ -0.068050   0.934214
+TO_PDL1+CD68+       -0.085542   0.918014
+TU_CD4              -0.138083   0.871026
+POLE                -0.217214   0.804758
+TU_CD45RO           -0.238309   0.787959
+TU_CD3              -0.439338   0.644463
+Perineural_invasion -0.572792   0.563948
+TU_CD3+PD1+         -0.578289   0.560857
+TU_CD163            -0.614830   0.540733
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  mean   AUC: 0.7860795690977445
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_H score: 0.75
+[2019-09-17 11:29:51] [INFO]: CoxNET predict  CI_U score: 0.7266491854106897
+[2019-09-17 11:29:51] [INFO]: ---------------------------------------------
+[2019-09-17 11:29:58] [INFO]: ***OS_Months: Supervised Predicting Finish***
+[2019-09-17 11:29:58] [INFO]: *********Supervisor Predicting Finish********
+[2019-09-17 11:29:58] [INFO]: Success!!!
+[2019-09-17 11:29:58] [INFO]: You can check your progress in log file.
