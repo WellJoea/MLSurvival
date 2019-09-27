@@ -1,0 +1,473 @@
+***********************************************************
+* Author : Zhou Wei                                       *
+* Date   : Mon Sep 16 14:17:50 2019                       *
+* E-mail : welljoea@gmail.com                             *
+* You are using MLkit scripted by Zhou Wei.               *
+* If you find some bugs, please email to me.              *
+* Please let me know and acknowledge in your publication. *
+* Sincerely                                               *
+* Best wishes!                                            *
+***********************************************************
+***********The argument you have set as follows:***********
+**01|commands     : Predict
+**02|input        : /lustre/rde/user/zhouw/00software/MLSurvivalv0.01/test/CRC.133.traintest.txt
+**03|group        : /lustre/rde/user/zhouw/00software/MLSurvivalv0.01/test/CRC.188.group.txt
+**04|outdir       : /lustre/rde/user/zhouw/00software/MLSurvivalv0.01/test/Result/CoxPH/
+**05|model        : CoxPH
+**06|pool         : 20
+**07|SearchCV     : GSCV
+**08|n_iter       : 2500
+**09|MissRow      : 0.8
+**10|MissCol      : 0.8
+**11|MissValue    : median
+**12|FillValue    : None
+**13|PairPlot     : False
+**14|n_job        : -1
+**15|CVmodel      : SSS
+**16|CVfit        : SSA
+**17|scaler       : ['S']
+**18|QuantileRange: [10, 90]
+**19|pcathreshold : 0.95
+**20|ScorePoint   : [10, 90]
+**21|predict      : /lustre/rde/user/zhouw/00software/MLSurvivalv0.01/test/CRC.55.validation.txt
+**22|predicthead  : None
+**23|header       : /CoxPH_S_
+**24|output       : /lustre/rde/user/zhouw/00software/MLSurvivalv0.01/test/Result/CoxPH//CoxPH_S_
+***********************************************************
+[2019-09-16 14:17:50] [INFO]: ************Supervisor Predicting************
+[2019-09-16 14:17:50] [INFO]: ----------Missing Values Processing----------
+[2019-09-16 14:17:50] [INFO]: Primary Samples and Feauters numbers: 133 , 132
+SimpleImputer paramaters:
+SimpleImputer(add_indicator=False, copy=True, fill_value=None,
+              missing_values=nan, strategy='median', verbose=0)
+[2019-09-16 14:17:50] [INFO]: ---------------------------------------------
+[2019-09-16 14:17:50] [INFO]: ----------Standardization Pocessing----------
+Scale paramaters:
+DataFrameMapper(default=False, df_out=False,
+                features=[(['ST_CD8', 'ST_PDL1_1', 'ST_CD45RO', 'ST_PD1',
+                            'ST_CD3', 'ST_CD3+CD8+', 'ST_CD3+CD45RO+',
+                            'ST_CD8+CD45RO+', 'ST_CD3+PD1+', 'ST_CD8+PD1+',
+                            'ST_CD3+CD45RO+PD1+', 'ST_CD8+CD45RO+PD1+',
+                            'ST_FOXP3', 'ST_CD163', 'ST_CD68', 'ST_CD4',
+                            'ST_PDL1_2', 'ST_CD57', 'ST_CD68+CD163-',
+                            'ST_CD68+CD163+', 'ST_PDL1+CD68+', 'ST_PDL1+CD68-',
+                            'ST_CD4+FOXP3+', 'ST_CD68+CD163+PDL1+',
+                            'ST_CD68+CD163+PDL1-', 'ST_PDL1_A', 'TU_CD8',
+                            'TU_PDL1_1', 'TU_CD45RO', 'TU_PD1', ...],
+                           [StandardScaler(copy=True, with_mean=True,
+                                           with_std=True)])],
+                input_df=False, sparse=False)
+[2019-09-16 14:17:50] [INFO]: ---------------------------------------------
+[2019-09-16 14:18:03] [INFO]: *******OS_Months: Supervised Predicting******
+[2019-09-16 14:18:03] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 14:18:03] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 14:18:03] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.136841   3.116908
+Age_65               0.646966   1.909737
+POLD1                0.550062   1.733361
+CEA                  0.362129   1.436384
+TU_CD45RO            0.356493   1.428311
+TU_CD8               0.306397   1.358522
+TO_PDL1+CD68+        0.182877   1.200667
+T_stage              0.144616   1.155596
+TU_CD68+CD163+      -0.114823   0.891524
+POLE                -0.234200   0.791204
+TU_CD3              -0.246269   0.781712
+POLD1EDM            -0.260225   0.770878
+Histologic_grade    -0.261166   0.770153
+TU_CD68+CD163+PDL1- -0.287181   0.750376
+Perineural_invasion -0.357165   0.699657
+TU_CD4              -0.378457   0.684917
+TU_CD4+FOXP3+       -0.601820   0.547814
+TU_CD163            -0.615859   0.540177
+Differentiation     -0.682772   0.505215
+TU_CD3+PD1+         -0.768369   0.463769
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  mean   AUC: 0.7309259978281307
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_H score: 0.6967741935483871
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_U score: 0.700118308156006
+[2019-09-16 14:18:03] [INFO]: ---------------------------------------------
+[2019-09-16 14:18:03] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 14:18:03] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 14:18:03] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Age_65               1.005773   2.734020
+Metastasis_status    0.975339   2.652066
+POLD1                0.513432   1.671016
+T_stage              0.434025   1.543458
+TU_CD8               0.393235   1.481767
+CEA                  0.323873   1.382472
+Histologic_grade     0.264381   1.302624
+TO_PDL1+CD68+        0.122474   1.130290
+TU_CD68+CD163+      -0.066613   0.935557
+Perineural_invasion -0.077535   0.925394
+TU_CD68+CD163+PDL1- -0.080804   0.922374
+POLD1EDM            -0.203164   0.816145
+TU_CD45RO           -0.204381   0.815152
+Differentiation     -0.215878   0.805833
+TU_CD3              -0.243130   0.784170
+TU_CD4              -0.276563   0.758386
+TU_CD4+FOXP3+       -0.428989   0.651167
+TU_CD163            -0.528238   0.589643
+POLE                -0.602054   0.547686
+TU_CD3+PD1+         -0.845618   0.429292
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  mean   AUC: 0.7608842569200477
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_H score: 0.7338709677419355
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_U score: 0.7415505643372329
+[2019-09-16 14:18:03] [INFO]: ---------------------------------------------
+[2019-09-16 14:18:03] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 14:18:03] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 14:18:03] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.917742   2.503631
+Age_65               0.816542   2.262663
+Histologic_grade     0.463938   1.590325
+CEA                  0.355226   1.426503
+POLD1                0.292261   1.339453
+T_stage              0.282385   1.326289
+TU_CD45RO            0.248662   1.282309
+TU_CD8               0.148435   1.160017
+TO_PDL1+CD68+        0.139654   1.149875
+TU_CD68+CD163+      -0.076141   0.926686
+POLD1EDM            -0.099379   0.905399
+Differentiation     -0.140975   0.868511
+TU_CD68+CD163+PDL1- -0.151263   0.859621
+TU_CD4+FOXP3+       -0.290461   0.747919
+Perineural_invasion -0.324324   0.723016
+TU_CD3              -0.363355   0.695339
+TU_CD4              -0.389809   0.677186
+TU_CD163            -0.606754   0.545117
+TU_CD3+PD1+         -0.638226   0.528229
+POLE                -0.682208   0.505499
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  mean   AUC: 0.783180147848031
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_H score: 0.7338709677419355
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_U score: 0.743034442197042
+[2019-09-16 14:18:03] [INFO]: ---------------------------------------------
+[2019-09-16 14:18:03] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 14:18:03] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 14:18:03] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.140368   3.127920
+POLD1                1.019405   2.771546
+Age_65               0.957050   2.604002
+CEA                  0.594217   1.811611
+TU_CD45RO            0.502241   1.652419
+POLE                 0.220658   1.246897
+T_stage              0.144859   1.155877
+Histologic_grade     0.003050   1.003054
+TO_PDL1+CD68+       -0.050486   0.950768
+TU_CD68+CD163+      -0.108751   0.896954
+TU_CD8              -0.149932   0.860766
+TU_CD68+CD163+PDL1- -0.171906   0.842058
+TU_CD3              -0.264685   0.767448
+TU_CD3+PD1+         -0.438534   0.644981
+TU_CD4              -0.447286   0.639361
+Differentiation     -0.490512   0.612313
+POLD1EDM            -0.635336   0.529757
+Perineural_invasion -0.786757   0.455319
+TU_CD4+FOXP3+       -0.852678   0.426272
+TU_CD163            -0.934384   0.392828
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  mean   AUC: 0.7268357445294021
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_H score: 0.6838709677419355
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_U score: 0.6589792705800126
+[2019-09-16 14:18:03] [INFO]: ---------------------------------------------
+[2019-09-16 14:18:03] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 14:18:03] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 14:18:03] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.979316   2.662634
+Age_65               0.729288   2.073604
+POLD1EDM             0.671004   1.956201
+Histologic_grade     0.537930   1.712458
+POLD1                0.388839   1.475267
+CEA                  0.332537   1.394501
+TU_CD8               0.296106   1.344613
+TU_CD45RO            0.260393   1.297440
+T_stage              0.151527   1.163610
+TO_PDL1+CD68+        0.080721   1.084068
+TU_CD68+CD163+      -0.077004   0.925886
+Differentiation     -0.094908   0.909457
+TU_CD68+CD163+PDL1- -0.108906   0.896815
+TU_CD3              -0.188495   0.828205
+TU_CD4              -0.255549   0.774491
+TU_CD3+PD1+         -0.455286   0.634267
+POLE                -0.597709   0.550070
+Perineural_invasion -0.654714   0.519591
+TU_CD4+FOXP3+       -0.703786   0.494709
+TU_CD163            -1.071507   0.342492
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  mean   AUC: 0.7523828424172658
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_H score: 0.7048387096774194
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_U score: 0.7279588332525522
+[2019-09-16 14:18:03] [INFO]: ---------------------------------------------
+[2019-09-16 14:18:03] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 14:18:03] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 14:18:03] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.321579   3.749337
+POLD1                0.603126   1.827823
+CEA                  0.311358   1.365278
+Age_65               0.307740   1.360347
+Histologic_grade     0.254574   1.289912
+TU_CD8               0.089416   1.093536
+TU_CD3               0.066556   1.068821
+T_stage              0.042783   1.043711
+TO_PDL1+CD68+        0.035737   1.036383
+Differentiation     -0.029515   0.970917
+TU_CD68+CD163+      -0.164432   0.848376
+POLE                -0.210823   0.809918
+TU_CD68+CD163+PDL1- -0.285923   0.751320
+TU_CD4              -0.292000   0.746768
+TU_CD45RO           -0.334160   0.715939
+Perineural_invasion -0.442788   0.642244
+POLD1EDM            -0.465872   0.627588
+TU_CD4+FOXP3+       -0.663697   0.514944
+TU_CD3+PD1+         -0.737620   0.478251
+TU_CD163            -1.209163   0.298447
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  mean   AUC: 0.6958083459231066
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_H score: 0.6838709677419355
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_U score: 0.7089412665379936
+[2019-09-16 14:18:03] [INFO]: ---------------------------------------------
+[2019-09-16 14:18:03] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 14:18:03] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=0.8, n_iter=300, ties='breslow', tol=1e-09,
+                      verbose=0)
+[2019-09-16 14:18:03] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.143862   3.138866
+Age_65               0.610307   1.840996
+TU_CD8               0.503156   1.653933
+POLD1                0.502402   1.652687
+Histologic_grade     0.466924   1.595081
+T_stage              0.345056   1.412070
+CEA                  0.326251   1.385764
+TU_CD45RO            0.282733   1.326751
+TU_CD68+CD163+      -0.063238   0.938720
+TU_CD4              -0.090159   0.913786
+TU_CD68+CD163+PDL1- -0.110713   0.895195
+TU_CD3              -0.140956   0.868528
+POLD1EDM            -0.169872   0.843772
+Differentiation     -0.224461   0.798947
+TO_PDL1+CD68+       -0.227888   0.796214
+POLE                -0.264260   0.767774
+TU_CD4+FOXP3+       -0.314970   0.729811
+Perineural_invasion -0.672862   0.510246
+TU_CD3+PD1+         -0.681805   0.505703
+TU_CD163            -0.897744   0.407488
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  mean   AUC: 0.7163200100754182
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_H score: 0.6903225806451613
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_U score: 0.6929698366163928
+[2019-09-16 14:18:03] [INFO]: ---------------------------------------------
+[2019-09-16 14:18:03] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 14:18:03] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=0.8, n_iter=300, ties='breslow', tol=1e-09,
+                      verbose=0)
+[2019-09-16 14:18:03] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.058433   2.881852
+Age_65               0.828069   2.288895
+Histologic_grade     0.819149   2.268570
+POLD1                0.705626   2.025114
+POLD1EDM             0.474380   1.607018
+TU_CD8               0.339039   1.403598
+CEA                  0.310286   1.363815
+T_stage              0.296659   1.345356
+Differentiation      0.274011   1.315229
+TU_CD45RO            0.060060   1.061900
+TU_CD3              -0.011685   0.988383
+TO_PDL1+CD68+       -0.024009   0.976277
+TU_CD4              -0.203567   0.815815
+TU_CD68+CD163+      -0.208324   0.811944
+TU_CD68+CD163+PDL1- -0.363415   0.695298
+POLE                -0.441409   0.643129
+Perineural_invasion -0.590935   0.553809
+TU_CD3+PD1+         -0.759741   0.467788
+TU_CD163            -0.841996   0.430849
+TU_CD4+FOXP3+       -0.984386   0.373669
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  mean   AUC: 0.6833810682495011
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_H score: 0.6516129032258065
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_U score: 0.6855420464764392
+[2019-09-16 14:18:03] [INFO]: ---------------------------------------------
+[2019-09-16 14:18:03] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 14:18:03] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 14:18:03] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.949013   2.583158
+Age_65               0.660149   1.935081
+POLD1                0.520699   1.683203
+CEA                  0.340734   1.405979
+Histologic_grade     0.306975   1.359307
+TU_CD4+FOXP3+        0.240533   1.271927
+T_stage              0.239637   1.270788
+TU_CD45RO            0.237572   1.268166
+TO_PDL1+CD68+        0.094647   1.099270
+TU_CD8               0.018916   1.019096
+Differentiation     -0.021980   0.978259
+TU_CD68+CD163+      -0.033516   0.967039
+TU_CD68+CD163+PDL1- -0.126340   0.881315
+POLD1EDM            -0.265338   0.766947
+Perineural_invasion -0.302508   0.738963
+TU_CD4              -0.314624   0.730063
+TU_CD3              -0.329404   0.719352
+TU_CD163            -0.554748   0.574217
+TU_CD3+PD1+         -0.670844   0.511277
+POLE                -0.784595   0.456304
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  mean   AUC: 0.7801107689095891
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_H score: 0.7403225806451613
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_U score: 0.7375742367485529
+[2019-09-16 14:18:03] [INFO]: ---------------------------------------------
+[2019-09-16 14:18:03] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 14:18:03] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 14:18:03] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.170304   3.222971
+Age_65               0.864985   2.374971
+Histologic_grade     0.591827   1.807288
+POLD1                0.545152   1.724870
+TU_CD45RO            0.461244   1.586045
+T_stage              0.433937   1.543321
+CEA                  0.217904   1.243467
+TO_PDL1+CD68+        0.116346   1.123384
+TU_CD4+FOXP3+        0.081487   1.084899
+TU_CD8               0.020386   1.020595
+Differentiation     -0.075782   0.927018
+TU_CD68+CD163+      -0.102028   0.903004
+TU_CD4              -0.136554   0.872359
+TU_CD68+CD163+PDL1- -0.152270   0.858757
+POLD1EDM            -0.178408   0.836601
+TU_CD3              -0.349108   0.705317
+TU_CD163            -0.466014   0.627498
+Perineural_invasion -0.555501   0.573785
+POLE                -0.749549   0.472580
+TU_CD3+PD1+         -0.888426   0.411303
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  mean   AUC: 0.7048425448997814
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_H score: 0.6806451612903226
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_U score: 0.6905433755728881
+[2019-09-16 14:18:03] [INFO]: ---------------------------------------------
+[2019-09-16 14:18:03] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 14:18:03] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 14:18:03] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.192619   3.295700
+Age_65               0.749215   2.115339
+CEA                  0.454069   1.574706
+T_stage              0.297916   1.347049
+TU_CD45RO            0.273623   1.314719
+TO_PDL1+CD68+        0.176645   1.193207
+POLD1                0.113360   1.120035
+TU_CD8               0.109035   1.115201
+Histologic_grade     0.091737   1.096076
+POLD1EDM             0.033970   1.034554
+TU_CD68+CD163+PDL1- -0.043622   0.957316
+TU_CD4+FOXP3+       -0.054808   0.946667
+TU_CD68+CD163+      -0.100204   0.904653
+TU_CD3              -0.283130   0.753422
+TU_CD4              -0.344693   0.708438
+Differentiation     -0.348263   0.705913
+TU_CD3+PD1+         -0.368771   0.691583
+TU_CD163            -0.401119   0.669571
+Perineural_invasion -0.407750   0.665145
+POLE                -0.553898   0.574705
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  mean   AUC: 0.770173683439124
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_H score: 0.7370967741935484
+[2019-09-16 14:18:03] [INFO]: CoxPH predict  CI_U score: 0.7359975483456358
+[2019-09-16 14:18:03] [INFO]: ---------------------------------------------
+[2019-09-16 14:18:03] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 14:18:03] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 14:18:04] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.931741   2.538925
+Age_65               0.831761   2.297360
+POLD1                0.650010   1.915560
+CEA                  0.384452   1.468809
+TU_CD45RO            0.246203   1.279159
+T_stage              0.241589   1.273270
+TU_CD8               0.159242   1.172621
+POLE                -0.000231   0.999769
+Histologic_grade    -0.009398   0.990646
+TO_PDL1+CD68+       -0.067393   0.934827
+TU_CD3              -0.073554   0.929086
+TU_CD4              -0.218944   0.803367
+POLD1EDM            -0.319193   0.726735
+TU_CD68+CD163+      -0.379736   0.684042
+Perineural_invasion -0.508775   0.601231
+Differentiation     -0.563374   0.569285
+TU_CD163            -0.593612   0.552329
+TU_CD68+CD163+PDL1- -0.628808   0.533227
+TU_CD3+PD1+         -0.707162   0.493041
+TU_CD4+FOXP3+       -0.835081   0.433839
+[2019-09-16 14:18:04] [INFO]: CoxPH predict  mean   AUC: 0.6540512124451835
+[2019-09-16 14:18:04] [INFO]: CoxPH predict  CI_H score: 0.6016129032258064
+[2019-09-16 14:18:04] [INFO]: CoxPH predict  CI_U score: 0.621290348678888
+[2019-09-16 14:18:04] [INFO]: ---------------------------------------------
+[2019-09-16 14:18:04] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 14:18:04] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 14:18:04] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.447120   4.250854
+Age_65               0.758301   2.134647
+POLD1                0.495860   1.641909
+Histologic_grade     0.452167   1.571715
+TU_CD8               0.417259   1.517795
+CEA                  0.371242   1.449534
+T_stage              0.307391   1.359873
+TO_PDL1+CD68+        0.258615   1.295135
+Differentiation      0.007828   1.007859
+TU_CD45RO           -0.003916   0.996091
+POLE                -0.069059   0.933272
+TU_CD4              -0.112840   0.893294
+TU_CD68+CD163+      -0.126087   0.881538
+POLD1EDM            -0.157612   0.854181
+TU_CD3              -0.189180   0.827637
+TU_CD68+CD163+PDL1- -0.386749   0.679261
+Perineural_invasion -0.401186   0.669525
+TU_CD4+FOXP3+       -0.451521   0.636659
+TU_CD3+PD1+         -0.465158   0.628036
+TU_CD163            -0.504306   0.603924
+[2019-09-16 14:18:04] [INFO]: CoxPH predict  mean   AUC: 0.7119146811562512
+[2019-09-16 14:18:04] [INFO]: CoxPH predict  CI_H score: 0.6919354838709677
+[2019-09-16 14:18:04] [INFO]: CoxPH predict  CI_U score: 0.7040115055515441
+[2019-09-16 14:18:04] [INFO]: ---------------------------------------------
+[2019-09-16 14:18:04] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 14:18:04] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 14:18:04] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+POLD1                0.878926   2.408312
+Metastasis_status    0.863598   2.371679
+Histologic_grade     0.714181   2.042512
+Age_65               0.610246   1.840884
+CEA                  0.484892   1.624000
+TU_CD8               0.480944   1.617600
+Differentiation      0.268030   1.307386
+POLD1EDM             0.264593   1.302900
+T_stage              0.158320   1.171541
+TU_CD68+CD163+PDL1-  0.086947   1.090839
+TU_CD4+FOXP3+        0.061071   1.062975
+TU_CD68+CD163+       0.023662   1.023944
+TU_CD4              -0.125066   0.882438
+TO_PDL1+CD68+       -0.134924   0.873783
+TU_CD45RO           -0.234202   0.791202
+POLE                -0.463279   0.629217
+TU_CD3              -0.786868   0.455268
+Perineural_invasion -0.893297   0.409304
+TU_CD163            -0.921324   0.397992
+TU_CD3+PD1+         -1.143954   0.318557
+[2019-09-16 14:18:04] [INFO]: CoxPH predict  mean   AUC: 0.7777670173272594
+[2019-09-16 14:18:04] [INFO]: CoxPH predict  CI_H score: 0.7516129032258064
+[2019-09-16 14:18:04] [INFO]: CoxPH predict  CI_U score: 0.712321251739501
+[2019-09-16 14:18:04] [INFO]: ---------------------------------------------
+[2019-09-16 14:18:11] [INFO]: ***OS_Months: Supervised Predicting Finish***
+[2019-09-16 14:18:11] [INFO]: *********Supervisor Predicting Finish********
+[2019-09-16 14:18:11] [INFO]: Success!!!
+[2019-09-16 14:18:11] [INFO]: You can check your progress in log file.

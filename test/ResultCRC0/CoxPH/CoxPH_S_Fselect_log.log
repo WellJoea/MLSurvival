@@ -1,0 +1,219 @@
+***********************************************************
+* Author : Zhou Wei                                       *
+* Date   : Fri Sep 13 23:48:19 2019                       *
+* E-mail : welljoea@gmail.com                             *
+* You are using MLkit scripted by Zhou Wei.               *
+* If you find some bugs, please email to me.              *
+* Please let me know and acknowledge in your publication. *
+* Sincerely                                               *
+* Best wishes!                                            *
+***********************************************************
+***********The argument you have set as follows:***********
+**01|commands     : Fselect
+**02|input        : /Users/zhouwei/Documents/MLSurvivalv0.01/test/CRC.133.traintest.txt
+**03|group        : /Users/zhouwei/Documents/MLSurvivalv0.01/test/CRC.188.group.txt
+**04|outdir       : /Users/zhouwei/Documents/MLSurvivalv0.01/test/Result/CoxPH/
+**05|model        : CoxPH
+**06|pool         : 20
+**07|SearchCV     : GSCV
+**08|n_iter       : 2500
+**09|MissRow      : 0.8
+**10|MissCol      : 0.8
+**11|MissValue    : median
+**12|FillValue    : None
+**13|PairPlot     : False
+**14|n_job        : -1
+**15|CVmodel      : SSS
+**16|CVfit        : SSA
+**17|scaler       : ['S']
+**18|QuantileRange: [10, 90]
+**19|pcathreshold : 0.95
+**20|ScorePoint   : [10, 90]
+**21|SelectB      : ['ANVF', 'MI', 'RS', 'MWU', 'TTI', 'PEAS', 'SPM', 'KDT', 'LR']
+**22|SelectK      : 0.8
+**23|SelectR      : 0.15
+**24|RFECV        : True
+**25|SFSCV        : False
+**26|specifM      : []
+**27|set          : parallel
+**28|SelectCV_rep : 1
+**29|RFE_rate     : 20
+**30|SFS_rate     : 0.3
+**31|k_features   : ['best']
+**32|header       : /CoxPH_S_
+**33|output       : /Users/zhouwei/Documents/MLSurvivalv0.01/test/Result/CoxPH//CoxPH_S_
+***********************************************************
+[2019-09-13 23:48:19] [INFO]: *********OS_Months: Feature Selecting********
+[2019-09-13 23:48:20] [INFO]: -----------OS_Months: SelectKBest_R----------
+[2019-09-13 23:48:20] [INFO]: Raw   Feature: 132
+[2019-09-13 23:48:20] [INFO]: drop  Feature: 6
+['ST_CD3+PD1+', 'ST_PD1', 'ST_CD8+PD1+', 'ST_CD8', 'ST_CD8+CD45RO+PD1+', 'ST_CD3+CD8+']
+[2019-09-13 23:48:20] [INFO]: final Feature: ['ST_PDL1_1', 'ST_CD45RO', 'ST_CD3', 'ST_CD3+CD45RO+', 'ST_CD8+CD45RO+', 'ST_CD3+CD45RO+PD1+', 'ST_FOXP3', 'ST_CD163', 'ST_CD68', 'ST_CD4', 'ST_PDL1_2', 'ST_CD57', 'ST_CD68+CD163-', 'ST_CD68+CD163+', 'ST_PDL1+CD68+', 'ST_PDL1+CD68-', 'ST_CD4+FOXP3+', 'ST_CD68+CD163+PDL1+', 'ST_CD68+CD163+PDL1-', 'ST_PDL1_A', 'TU_CD8', 'TU_PDL1_1', 'TU_CD45RO', 'TU_PD1', 'TU_CD3', 'TU_CD3+CD8+', 'TU_CD3+CD45RO+', 'TU_CD8+CD45RO+', 'TU_CD3+PD1+', 'TU_CD8+PD1+', 'TU_CD3+CD45RO+PD1+', 'TU_CD8+CD45RO+PD1+', 'TU_FOXP3', 'TU_CD163', 'TU_CD68', 'TU_CD4', 'TU_PDL1_2', 'TU_CD57', 'TU_CD68+CD163-', 'TU_CD68+CD163+', 'TU_PDL1+CD68+', 'TU_PDL1+CD68-', 'TU_CD4+FOXP3+', 'TU_CD68+CD163+PDL1+', 'TU_CD68+CD163+PDL1-', 'TU_PDL1_A', 'TO_CD8', 'TO_PDL1_1', 'TO_CD45RO', 'TO_PD1', 'TO_CD3', 'TO_CD3+CD8+', 'TO_CD3+CD45RO+', 'TO_CD8+CD45RO+', 'TO_CD3+PD1+', 'TO_CD8+PD1+', 'TO_CD3+CD45RO+PD1+', 'TO_CD8+CD45RO+PD1+', 'TO_FOXP3', 'TO_CD163', 'TO_CD68', 'TO_CD4', 'TO_PDL1_2', 'TO_CD57', 'TO_CD68+CD163-', 'TO_CD68+CD163+', 'TO_PDL1+CD68+', 'TO_PDL1+CD68-', 'TO_CD4+FOXP3+', 'TO_CD68+CD163+PDL1+', 'TO_CD68+CD163+PDL1-', 'TO_PDL1_A', 'Gender', 'Age_65', 'Clinical_diagnosis', 'Tumor_site', 'Histological_type', 'Differentiation', 'T_stage', 'Vascular_invasion', 'Perineural_invasion', 'Histologic_grade', 'Clinical_risk', 'CEA', 'Radiotherapy', 'Chemotherapy', 'Metastasis_status', 'MSI_status', 'PIK3CA', 'PTEN', 'TP53', 'KRAS', 'NRAS', 'BRAF', 'MSH6', 'MUTYH', 'EPCAM', 'MET', 'ERBB2', 'APC', 'POLE', 'POLEEDM', 'POLD1', 'POLD1EDM', 'BRCA1', 'GALNT12', 'ATM', 'KIT', 'CDH1', 'PMS1', 'BRCA2', 'BMPR1A', 'STK11', 'MLH1', 'PTCH1', 'EGFR', 'SMAD4', 'PDGFRA', 'SDHD', 'BLM', 'AKT1', 'HRAS', 'MSH2', 'CHEK2', 'PMS2', 'SDHB']
+Feature bools:
+                      ANVF     MI   PEAS    SPM    KDT     LR  True_ratio
+ST_CD8               False  False  False  False  False  False    0.000000
+ST_PDL1_1            False   True  False  False  False  False    0.166667
+ST_CD45RO            False   True  False   True   True  False    0.500000
+ST_PD1               False  False  False  False  False  False    0.000000
+ST_CD3               False   True  False   True   True  False    0.500000
+ST_CD3+CD8+          False  False  False  False  False  False    0.000000
+ST_CD3+CD45RO+        True   True   True   True   True   True    1.000000
+ST_CD8+CD45RO+       False   True  False   True   True  False    0.500000
+ST_CD3+PD1+          False  False  False  False  False  False    0.000000
+ST_CD8+PD1+          False  False  False  False  False  False    0.000000
+ST_CD3+CD45RO+PD1+    True  False   True   True   True   True    0.833333
+ST_CD8+CD45RO+PD1+   False  False  False  False  False  False    0.000000
+ST_FOXP3              True   True   True   True   True   True    1.000000
+ST_CD163              True  False   True   True   True   True    0.833333
+ST_CD68               True   True   True   True   True   True    1.000000
+ST_CD4                True  False   True  False  False   True    0.500000
+ST_PDL1_2             True  False   True   True   True   True    0.833333
+ST_CD57              False   True  False   True   True  False    0.500000
+ST_CD68+CD163-        True   True   True   True   True   True    1.000000
+ST_CD68+CD163+        True   True   True   True   True   True    1.000000
+ST_PDL1+CD68+         True   True   True   True  False   True    0.833333
+ST_PDL1+CD68-         True  False   True   True   True   True    0.833333
+ST_CD4+FOXP3+         True   True   True   True   True   True    1.000000
+ST_CD68+CD163+PDL1+   True   True   True   True   True   True    1.000000
+ST_CD68+CD163+PDL1-   True   True   True   True   True   True    1.000000
+ST_PDL1_A             True   True   True  False  False   True    0.666667
+TU_CD8                True  False   True   True   True   True    0.833333
+TU_PDL1_1             True  False   True   True   True   True    0.833333
+TU_CD45RO            False   True  False  False   True  False    0.333333
+TU_PD1                True  False   True   True   True   True    0.833333
+TU_CD3                True   True   True   True   True   True    1.000000
+TU_CD3+CD8+          False   True  False   True   True  False    0.500000
+TU_CD3+CD45RO+       False   True  False   True  False  False    0.333333
+TU_CD8+CD45RO+        True   True   True   True   True   True    1.000000
+TU_CD3+PD1+           True   True   True   True   True   True    1.000000
+TU_CD8+PD1+           True  False   True   True   True   True    0.833333
+TU_CD3+CD45RO+PD1+    True   True   True  False  False   True    0.666667
+TU_CD8+CD45RO+PD1+    True   True   True   True   True   True    1.000000
+TU_FOXP3              True   True   True   True   True   True    1.000000
+TU_CD163              True   True   True   True   True   True    1.000000
+TU_CD68               True   True   True  False  False   True    0.666667
+TU_CD4                True  False   True   True   True   True    0.833333
+TU_PDL1_2             True   True   True   True   True   True    1.000000
+TU_CD57               True   True   True   True   True   True    1.000000
+TU_CD68+CD163-        True   True   True   True   True   True    1.000000
+TU_CD68+CD163+        True   True   True   True   True   True    1.000000
+TU_PDL1+CD68+         True   True   True   True   True   True    1.000000
+TU_PDL1+CD68-         True   True   True   True   True   True    1.000000
+TU_CD4+FOXP3+         True   True   True   True   True   True    1.000000
+TU_CD68+CD163+PDL1+  False   True  False   True   True  False    0.500000
+TU_CD68+CD163+PDL1-   True   True   True   True   True   True    1.000000
+TU_PDL1_A             True  False   True   True   True   True    0.833333
+TO_CD8               False  False  False   True   True  False    0.333333
+TO_PDL1_1             True  False   True  False  False   True    0.500000
+TO_CD45RO            False   True  False  False  False  False    0.166667
+TO_PD1                True  False   True  False  False   True    0.500000
+TO_CD3                True  False   True   True   True   True    0.833333
+TO_CD3+CD8+          False   True  False   True   True  False    0.500000
+TO_CD3+CD45RO+       False   True  False   True   True  False    0.500000
+TO_CD8+CD45RO+       False   True  False  False  False  False    0.166667
+TO_CD3+PD1+           True   True   True  False  False   True    0.666667
+TO_CD8+PD1+           True   True   True   True   True   True    1.000000
+TO_CD3+CD45RO+PD1+    True  False   True   True   True   True    0.833333
+TO_CD8+CD45RO+PD1+   False   True  False  False  False  False    0.166667
+TO_FOXP3              True   True   True   True   True   True    1.000000
+TO_CD163              True  False   True   True   True   True    0.833333
+TO_CD68               True  False   True   True   True   True    0.833333
+TO_CD4                True  False   True   True   True   True    0.833333
+TO_PDL1_2             True  False   True   True   True   True    0.833333
+TO_CD57               True   True   True   True   True   True    1.000000
+TO_CD68+CD163-        True   True   True   True   True   True    1.000000
+TO_CD68+CD163+        True   True   True   True   True   True    1.000000
+TO_PDL1+CD68+         True   True   True  False  False   True    0.666667
+TO_PDL1+CD68-         True   True   True   True   True   True    1.000000
+TO_CD4+FOXP3+         True   True   True   True   True   True    1.000000
+TO_CD68+CD163+PDL1+   True   True   True   True   True   True    1.000000
+TO_CD68+CD163+PDL1-   True   True   True   True   True   True    1.000000
+TO_PDL1_A             True   True   True   True   True   True    1.000000
+Gender                True   True   True   True   True   True    1.000000
+Age_65                True   True   True   True   True   True    1.000000
+Clinical_diagnosis    True   True   True   True   True   True    1.000000
+Tumor_site            True   True   True   True   True   True    1.000000
+Histological_type     True   True   True   True   True   True    1.000000
+Differentiation       True   True   True   True   True   True    1.000000
+T_stage               True   True   True   True   True   True    1.000000
+Vascular_invasion     True   True   True   True   True   True    1.000000
+Perineural_invasion   True   True   True   True   True   True    1.000000
+Histologic_grade      True   True   True   True   True   True    1.000000
+Clinical_risk        False   True  False  False  False  False    0.166667
+CEA                   True   True   True   True   True   True    1.000000
+Radiotherapy          True   True   True   True   True   True    1.000000
+Chemotherapy          True   True   True   True   True   True    1.000000
+Metastasis_status     True   True   True   True   True   True    1.000000
+MSI_status            True   True   True   True   True   True    1.000000
+PIK3CA                True   True   True   True   True   True    1.000000
+PTEN                  True   True   True   True   True   True    1.000000
+TP53                  True   True   True   True   True   True    1.000000
+KRAS                  True   True   True   True   True   True    1.000000
+NRAS                  True   True   True   True   True   True    1.000000
+BRAF                  True   True   True   True   True   True    1.000000
+MSH6                  True   True   True   True   True   True    1.000000
+MUTYH                 True   True   True   True   True   True    1.000000
+EPCAM                False   True  False  False  False  False    0.166667
+MET                  False   True  False  False  False  False    0.166667
+ERBB2                 True   True   True   True   True   True    1.000000
+APC                   True   True   True  False   True   True    0.833333
+POLE                  True   True   True   True   True   True    1.000000
+POLEEDM               True   True   True   True   True   True    1.000000
+POLD1                 True   True   True   True   True   True    1.000000
+POLD1EDM              True   True   True   True   True   True    1.000000
+BRCA1                 True   True   True   True   True   True    1.000000
+GALNT12               True   True   True   True   True   True    1.000000
+ATM                   True   True   True  False  False   True    0.666667
+KIT                   True   True   True   True   True   True    1.000000
+CDH1                  True   True   True   True   True   True    1.000000
+PMS1                  True   True   True   True   True   True    1.000000
+BRCA2                 True   True   True   True   True   True    1.000000
+BMPR1A                True   True   True   True   True   True    1.000000
+STK11                 True   True   True   True   True   True    1.000000
+MLH1                  True   True   True   True   True   True    1.000000
+PTCH1                 True   True   True  False  False   True    0.666667
+EGFR                 False   True  False  False  False  False    0.166667
+SMAD4                 True   True   True   True   True   True    1.000000
+PDGFRA                True   True   True   True   True   True    1.000000
+SDHD                  True   True   True   True   True   True    1.000000
+BLM                   True   True   True   True   True   True    1.000000
+AKT1                  True   True   True   True   True   True    1.000000
+HRAS                  True   True   True   True   True   True    1.000000
+MSH2                 False   True  False   True   True  False    0.500000
+CHEK2                 True   True   True   True   True   True    1.000000
+PMS2                  True   True   True   True   True   True    1.000000
+SDHB                  True   True   True   True   True   True    1.000000
+[2019-09-13 23:48:20] [INFO]: ---------------------------------------------
+[2019-09-13 23:48:25] [INFO]: ------------OS_Months: UnivarCoxPH-----------
+Feature values:
+                         coef  exp(coef)  se(coef)  coef lower 95%  coef upper 95%  exp(coef) lower 95%  exp(coef) upper 95%         z             p   -log2(p)  CI_score
+TU_CD8              -1.264478   0.282387  0.675158       -2.587763        0.058808             0.075188             1.060571 -1.872862  6.108743e-02   4.032981  0.595932
+TU_CD45RO           -0.499154   0.607044  0.302311       -1.091673        0.093366             0.335654             1.097864 -1.651123  9.871338e-02   3.340611  0.620997
+TU_CD3              -0.538132   0.583838  0.315319       -1.156145        0.079881             0.314697             1.083158 -1.706630  8.789079e-02   3.508144  0.627953
+TU_CD3+PD1+         -0.659985   0.516859  0.371099       -1.387326        0.067356             0.249742             1.069676 -1.778460  7.532835e-02   3.730663  0.564173
+TU_CD163            -1.018451   0.361154  0.430216       -1.861659       -0.175244             0.155415             0.839252 -2.367304  1.791821e-02   5.802430  0.666273
+TU_CD4              -1.128540   0.323505  0.553594       -2.213565       -0.043516             0.109310             0.957418 -2.038570  4.149300e-02   4.590988  0.604199
+TU_CD68+CD163+      -2.319970   0.098277  1.258050       -4.785702        0.145763             0.008348             1.156922 -1.844100  6.516858e-02   3.939680  0.587270
+TU_CD4+FOXP3+       -1.013742   0.362859  0.488906       -1.971980       -0.055503             0.139181             0.946009 -2.073490  3.812674e-02   4.713053  0.606299
+TU_CD68+CD163+PDL1- -1.460224   0.232184  0.800521       -3.029217        0.108769             0.048353             1.114905 -1.824091  6.813828e-02   3.875391  0.574803
+TO_PDL1+CD68+       -2.070774   0.126088  1.142956       -4.310926        0.169378             0.013421             1.184568 -1.811771  7.002155e-02   3.836057  0.555512
+TO_CD68+CD163+PDL1+ -3.441157   0.032028  1.849734       -7.066569        0.184255             0.000853             1.202323 -1.860352  6.283570e-02   3.992272  0.594094
+Age_65               0.808305   2.244102  0.180797        0.453950        1.162661             1.574519             3.198434  4.470789  7.793158e-06  16.969361  0.706955
+Differentiation     -0.553025   0.575207  0.155673       -0.858139       -0.247911             0.423950             0.780430 -3.552471  3.816318e-04  11.355531  0.618373
+T_stage              0.307251   1.359682  0.168258       -0.022528        0.637030             0.977724             1.890858  1.826074  6.783914e-02   3.881738  0.581102
+Vascular_invasion   -0.384258   0.680955  0.227676       -0.830494        0.061978             0.435834             1.063938 -1.687745  9.146010e-02   3.450714  0.556168
+Perineural_invasion -0.317350   0.728076  0.187776       -0.685385        0.050684             0.503896             1.051990 -1.690048  9.101878e-02   3.457692  0.579003
+Histologic_grade     0.419408   1.521060  0.148095        0.129147        0.709668             1.137858             2.033316  2.832024  4.625442e-03   7.756193  0.597769
+CEA                  0.157357   1.170413  0.092167       -0.023287        0.338001             0.976982             1.402143  1.707300  8.776627e-02   3.510190  0.668241
+Metastasis_status    1.266884   3.549773  0.212104        0.851168        1.682599             2.342381             5.379521  5.972945  2.330087e-09  28.676969  0.784646
+POLE                -0.622232   0.536745  0.338460       -1.285602        0.041138             0.276484             1.041995 -1.838421  6.600044e-02   3.921381  0.555906
+POLD1                0.338961   1.403489  0.123774        0.096368        0.581554             1.101165             1.788817  2.738547  6.171134e-03   7.340249  0.560236
+POLD1EDM             0.280447   1.323721  0.104326        0.075971        0.484922             1.078932             1.624048  2.688174  7.184398e-03   7.120917  0.531102
+[2019-09-13 23:48:25] [INFO]: ---------------------------------------------
+[2019-09-13 23:48:25] [INFO]: the CoxPH model use the CoxPH estimator for RFECV_S.
+[2019-09-13 23:48:28] [INFO]: RFECV: CoxPH -> CoxPH , split 0.15 
+[2019-09-13 23:48:30] [INFO]: RFECV: CoxPH -> CoxPH , split 0.16 
+[2019-09-13 23:48:33] [INFO]: RFECV: CoxPH -> CoxPH , split 0.17 
+[2019-09-13 23:48:35] [INFO]: RFECV: CoxPH -> CoxPH , split 0.18 
+[2019-09-13 23:48:37] [INFO]: RFECV: CoxPH -> CoxPH , split 0.19 
+[2019-09-13 23:48:38] [INFO]: You can check your progress in log file.

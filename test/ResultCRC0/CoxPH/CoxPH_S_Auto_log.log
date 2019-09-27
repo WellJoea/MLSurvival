@@ -1,0 +1,1247 @@
+***********************************************************
+* Author : Zhou Wei                                       *
+* Date   : Mon Sep 16 02:10:54 2019                       *
+* E-mail : welljoea@gmail.com                             *
+* You are using MLkit scripted by Zhou Wei.               *
+* If you find some bugs, please email to me.              *
+* Please let me know and acknowledge in your publication. *
+* Sincerely                                               *
+* Best wishes!                                            *
+***********************************************************
+***********The argument you have set as follows:***********
+**01|commands     : Auto
+**02|input        : /lustre/rde/user/zhouw/00software/MLSurvivalv0.01/test/CRC.133.traintest.txt
+**03|group        : /lustre/rde/user/zhouw/00software/MLSurvivalv0.01/test/CRC.188.group.txt
+**04|outdir       : /lustre/rde/user/zhouw/00software/MLSurvivalv0.01/test/Result/CoxPH/
+**05|model        : CoxPH
+**06|pool         : 20
+**07|SearchCV     : GSCV
+**08|n_iter       : 2500
+**09|MissRow      : 0.8
+**10|MissCol      : 0.8
+**11|MissValue    : median
+**12|FillValue    : None
+**13|PairPlot     : False
+**14|n_job        : -1
+**15|CVmodel      : SSS
+**16|CVfit        : SSA
+**17|scaler       : ['S']
+**18|QuantileRange: [10, 90]
+**19|pcathreshold : 0.95
+**20|ScorePoint   : [10, 90]
+**21|SelectB      : ['ANVF', 'MI', 'RS', 'MWU', 'TTI', 'PEAS', 'SPM', 'KDT', 'LR']
+**22|SelectK      : 0.8
+**23|SelectR      : 0.15
+**24|RFECV        : True
+**25|SFSCV        : False
+**26|specifM      : []
+**27|set          : parallel
+**28|SelectCV_rep : 1
+**29|RFE_rate     : 20
+**30|SFS_rate     : 0.3
+**31|k_features   : ['best']
+**32|testS        : 0.25
+**33|crossV       : 10
+**34|pca          : False
+**35|LRmode       : LRCV
+**36|predict      : /lustre/rde/user/zhouw/00software/MLSurvivalv0.01/test/CRC.55.validation.txt
+**37|predicthead  : None
+**38|pipeline     : None
+**39|MODEL        : ['Standard']
+**40|header       : /CoxPH_S_
+**41|output       : /lustre/rde/user/zhouw/00software/MLSurvivalv0.01/test/Result/CoxPH//CoxPH_S_
+***********************************************************
+[2019-09-16 02:10:54] [INFO]: *************Feature Engineering*************
+[2019-09-16 02:10:54] [INFO]: -----------Group Variable Category-----------
+[2019-09-16 02:10:54] [INFO]: The features numbers : 132
+[2019-09-16 02:10:54] [INFO]: The survival labels  : 
+             T          S
+S_1  OS_Months  OS_Status
+[2019-09-16 02:10:54] [INFO]: ---------------------------------------------
+[2019-09-16 02:10:54] [INFO]: ----------Missing Values Processing----------
+[2019-09-16 02:10:54] [INFO]: Primary Samples and Feauters numbers: 133 , 132
+[2019-09-16 02:10:54] [INFO]: Final   Samples and Feauters numbers: 133 , 132
+[2019-09-16 02:10:54] [INFO]: The Removed Samples : []
+[2019-09-16 02:10:54] [INFO]: The Removed Features: []
+SimpleImputer paramaters:
+SimpleImputer(add_indicator=False, copy=True, fill_value=None,
+              missing_values=nan, strategy='median', verbose=0)
+[2019-09-16 02:10:54] [INFO]: ---------------------------------------------
+[2019-09-16 02:10:54] [INFO]: ----------Standardization Pocessing----------
+Scale paramaters:
+DataFrameMapper(default=False, df_out=False,
+                features=[(['ST_CD8', 'ST_PDL1_1', 'ST_CD45RO', 'ST_PD1',
+                            'ST_CD3', 'ST_CD3+CD8+', 'ST_CD3+CD45RO+',
+                            'ST_CD8+CD45RO+', 'ST_CD3+PD1+', 'ST_CD8+PD1+',
+                            'ST_CD3+CD45RO+PD1+', 'ST_CD8+CD45RO+PD1+',
+                            'ST_FOXP3', 'ST_CD163', 'ST_CD68', 'ST_CD4',
+                            'ST_PDL1_2', 'ST_CD57', 'ST_CD68+CD163-',
+                            'ST_CD68+CD163+', 'ST_PDL1+CD68+', 'ST_PDL1+CD68-',
+                            'ST_CD4+FOXP3+', 'ST_CD68+CD163+PDL1+',
+                            'ST_CD68+CD163+PDL1-', 'ST_PDL1_A', 'TU_CD8',
+                            'TU_PDL1_1', 'TU_CD45RO', 'TU_PD1', ...],
+                           [StandardScaler(copy=True, with_mean=True,
+                                           with_std=True)])],
+                input_df=False, sparse=False)
+[2019-09-16 02:10:54] [INFO]: ---------------------------------------------
+[2019-09-16 02:11:39] [INFO]: ---------------------PCA---------------------
+[2019-09-16 02:11:39] [INFO]: PCA features length: 123
+[2019-09-16 02:11:39] [INFO]: PCA variance ratio : [1.73023724e-01 1.01242431e-01 7.34105283e-02 6.61644805e-02
+ 4.10708533e-02 3.36067344e-02 3.13856968e-02 2.69396751e-02
+ 2.47432843e-02 2.32439154e-02 2.04418166e-02 1.97220424e-02
+ 1.82583991e-02 1.72321496e-02 1.64490135e-02 1.59401095e-02
+ 1.53019335e-02 1.47784063e-02 1.40353249e-02 1.26382905e-02
+ 1.21084617e-02 1.12255762e-02 1.07816342e-02 1.02848885e-02
+ 9.99664416e-03 9.69799206e-03 9.21877129e-03 9.00200866e-03
+ 8.47305709e-03 8.26128018e-03 7.94066288e-03 7.43849095e-03
+ 7.29597808e-03 6.90313260e-03 6.26817518e-03 6.12814444e-03
+ 5.61195599e-03 5.47772303e-03 5.26832036e-03 5.18664143e-03
+ 4.84975956e-03 4.77319449e-03 4.55598696e-03 3.99590269e-03
+ 3.91612735e-03 3.72226380e-03 3.22951061e-03 3.06545313e-03
+ 2.98007923e-03 2.86580701e-03 2.68013340e-03 2.50632283e-03
+ 2.43118224e-03 2.36789317e-03 2.05375462e-03 2.01819011e-03
+ 1.90299757e-03 1.81956711e-03 1.75744358e-03 1.62364640e-03
+ 1.55547380e-03 1.42680969e-03 1.32861128e-03 1.16966788e-03
+ 1.10606138e-03 1.08554455e-03 1.01242272e-03 8.62252839e-04
+ 7.96508898e-04 7.64053509e-04 7.01779486e-04 6.57878512e-04
+ 5.93173325e-04 5.72405154e-04 5.42222696e-04 4.79430287e-04
+ 4.50961372e-04 3.96987417e-04 3.43793397e-04 3.21675585e-04
+ 3.02231035e-04 2.75597614e-04 2.52930493e-04 2.11270850e-04
+ 2.02450002e-04 1.76009738e-04 1.57789472e-04 1.29672140e-04
+ 1.04995082e-04 1.02045164e-04 8.86965753e-05 7.37018962e-05
+ 6.72498324e-05 6.21811041e-05 4.52519824e-05 4.14001498e-05
+ 3.61258465e-05 3.17913181e-05 2.67824484e-05 2.31545558e-05
+ 2.07550717e-05 1.80961552e-05 1.40835390e-05 1.18057790e-05
+ 1.07160596e-05 7.31917749e-06 5.62479498e-06 4.30138523e-06
+ 3.33340541e-06 2.65608416e-06 2.21348951e-06 1.78316207e-06
+ 1.29443464e-06 1.13054715e-06 6.48975898e-07 5.94552574e-07
+ 3.51265600e-07 2.49351041e-07 1.59084916e-07 1.34367693e-07
+ 6.87732149e-08 4.53508446e-08 3.06570755e-08]
+[2019-09-16 02:11:39] [INFO]: ---------------------------------------------
+[2019-09-16 02:12:07] [INFO]: **********Feature Engineering Finish*********
+[2019-09-16 02:12:07] [INFO]: *********OS_Months: Feature Selecting********
+[2019-09-16 02:12:07] [INFO]: -----------OS_Months: SelectKBest_R----------
+[2019-09-16 02:12:07] [INFO]: Raw   Feature: 132
+[2019-09-16 02:12:07] [INFO]: drop  Feature: 6
+['ST_CD8+PD1+', 'ST_CD3+CD8+', 'ST_PD1', 'ST_CD8+CD45RO+PD1+', 'ST_CD8', 'ST_CD3+PD1+']
+[2019-09-16 02:12:07] [INFO]: final Feature: ['ST_PDL1_1', 'ST_CD45RO', 'ST_CD3', 'ST_CD3+CD45RO+', 'ST_CD8+CD45RO+', 'ST_CD3+CD45RO+PD1+', 'ST_FOXP3', 'ST_CD163', 'ST_CD68', 'ST_CD4', 'ST_PDL1_2', 'ST_CD57', 'ST_CD68+CD163-', 'ST_CD68+CD163+', 'ST_PDL1+CD68+', 'ST_PDL1+CD68-', 'ST_CD4+FOXP3+', 'ST_CD68+CD163+PDL1+', 'ST_CD68+CD163+PDL1-', 'ST_PDL1_A', 'TU_CD8', 'TU_PDL1_1', 'TU_CD45RO', 'TU_PD1', 'TU_CD3', 'TU_CD3+CD8+', 'TU_CD3+CD45RO+', 'TU_CD8+CD45RO+', 'TU_CD3+PD1+', 'TU_CD8+PD1+', 'TU_CD3+CD45RO+PD1+', 'TU_CD8+CD45RO+PD1+', 'TU_FOXP3', 'TU_CD163', 'TU_CD68', 'TU_CD4', 'TU_PDL1_2', 'TU_CD57', 'TU_CD68+CD163-', 'TU_CD68+CD163+', 'TU_PDL1+CD68+', 'TU_PDL1+CD68-', 'TU_CD4+FOXP3+', 'TU_CD68+CD163+PDL1+', 'TU_CD68+CD163+PDL1-', 'TU_PDL1_A', 'TO_CD8', 'TO_PDL1_1', 'TO_CD45RO', 'TO_PD1', 'TO_CD3', 'TO_CD3+CD8+', 'TO_CD3+CD45RO+', 'TO_CD8+CD45RO+', 'TO_CD3+PD1+', 'TO_CD8+PD1+', 'TO_CD3+CD45RO+PD1+', 'TO_CD8+CD45RO+PD1+', 'TO_FOXP3', 'TO_CD163', 'TO_CD68', 'TO_CD4', 'TO_PDL1_2', 'TO_CD57', 'TO_CD68+CD163-', 'TO_CD68+CD163+', 'TO_PDL1+CD68+', 'TO_PDL1+CD68-', 'TO_CD4+FOXP3+', 'TO_CD68+CD163+PDL1+', 'TO_CD68+CD163+PDL1-', 'TO_PDL1_A', 'Gender', 'Age_65', 'Clinical_diagnosis', 'Tumor_site', 'Histological_type', 'Differentiation', 'T_stage', 'Vascular_invasion', 'Perineural_invasion', 'Histologic_grade', 'Clinical_risk', 'CEA', 'Radiotherapy', 'Chemotherapy', 'Metastasis_status', 'MSI_status', 'PIK3CA', 'PTEN', 'TP53', 'KRAS', 'NRAS', 'BRAF', 'MSH6', 'MUTYH', 'EPCAM', 'MET', 'ERBB2', 'APC', 'POLE', 'POLEEDM', 'POLD1', 'POLD1EDM', 'BRCA1', 'GALNT12', 'ATM', 'KIT', 'CDH1', 'PMS1', 'BRCA2', 'BMPR1A', 'STK11', 'MLH1', 'PTCH1', 'EGFR', 'SMAD4', 'PDGFRA', 'SDHD', 'BLM', 'AKT1', 'HRAS', 'MSH2', 'CHEK2', 'PMS2', 'SDHB']
+Feature bools:
+                      ANVF     MI   PEAS    SPM    KDT     LR  True_ratio
+ST_CD8               False  False  False  False  False  False    0.000000
+ST_PDL1_1            False   True  False  False  False  False    0.166667
+ST_CD45RO            False   True  False   True   True  False    0.500000
+ST_PD1               False  False  False  False  False  False    0.000000
+ST_CD3               False   True  False   True   True  False    0.500000
+ST_CD3+CD8+          False  False  False  False  False  False    0.000000
+ST_CD3+CD45RO+        True   True   True   True   True   True    1.000000
+ST_CD8+CD45RO+       False   True  False   True   True  False    0.500000
+ST_CD3+PD1+          False  False  False  False  False  False    0.000000
+ST_CD8+PD1+          False  False  False  False  False  False    0.000000
+ST_CD3+CD45RO+PD1+    True  False   True   True   True   True    0.833333
+ST_CD8+CD45RO+PD1+   False  False  False  False  False  False    0.000000
+ST_FOXP3              True   True   True   True   True   True    1.000000
+ST_CD163              True  False   True   True   True   True    0.833333
+ST_CD68               True   True   True   True   True   True    1.000000
+ST_CD4                True  False   True  False  False   True    0.500000
+ST_PDL1_2             True  False   True   True   True   True    0.833333
+ST_CD57              False   True  False   True   True  False    0.500000
+ST_CD68+CD163-        True   True   True   True   True   True    1.000000
+ST_CD68+CD163+        True   True   True   True   True   True    1.000000
+ST_PDL1+CD68+         True   True   True   True  False   True    0.833333
+ST_PDL1+CD68-         True  False   True   True   True   True    0.833333
+ST_CD4+FOXP3+         True   True   True   True   True   True    1.000000
+ST_CD68+CD163+PDL1+   True   True   True   True   True   True    1.000000
+ST_CD68+CD163+PDL1-   True   True   True   True   True   True    1.000000
+ST_PDL1_A             True   True   True  False  False   True    0.666667
+TU_CD8                True  False   True   True   True   True    0.833333
+TU_PDL1_1             True  False   True   True   True   True    0.833333
+TU_CD45RO            False   True  False  False   True  False    0.333333
+TU_PD1                True  False   True   True   True   True    0.833333
+TU_CD3                True   True   True   True   True   True    1.000000
+TU_CD3+CD8+          False   True  False   True   True  False    0.500000
+TU_CD3+CD45RO+       False   True  False   True  False  False    0.333333
+TU_CD8+CD45RO+        True   True   True   True   True   True    1.000000
+TU_CD3+PD1+           True   True   True   True   True   True    1.000000
+TU_CD8+PD1+           True  False   True   True   True   True    0.833333
+TU_CD3+CD45RO+PD1+    True   True   True  False  False   True    0.666667
+TU_CD8+CD45RO+PD1+    True   True   True   True   True   True    1.000000
+TU_FOXP3              True   True   True   True   True   True    1.000000
+TU_CD163              True   True   True   True   True   True    1.000000
+TU_CD68               True   True   True  False  False   True    0.666667
+TU_CD4                True  False   True   True   True   True    0.833333
+TU_PDL1_2             True   True   True   True   True   True    1.000000
+TU_CD57               True   True   True   True   True   True    1.000000
+TU_CD68+CD163-        True   True   True   True   True   True    1.000000
+TU_CD68+CD163+        True   True   True   True   True   True    1.000000
+TU_PDL1+CD68+         True   True   True   True   True   True    1.000000
+TU_PDL1+CD68-         True   True   True   True   True   True    1.000000
+TU_CD4+FOXP3+         True   True   True   True   True   True    1.000000
+TU_CD68+CD163+PDL1+  False   True  False   True   True  False    0.500000
+TU_CD68+CD163+PDL1-   True   True   True   True   True   True    1.000000
+TU_PDL1_A             True  False   True   True   True   True    0.833333
+TO_CD8               False  False  False   True   True  False    0.333333
+TO_PDL1_1             True  False   True  False  False   True    0.500000
+TO_CD45RO            False   True  False  False  False  False    0.166667
+TO_PD1                True  False   True  False  False   True    0.500000
+TO_CD3                True  False   True   True   True   True    0.833333
+TO_CD3+CD8+          False   True  False   True   True  False    0.500000
+TO_CD3+CD45RO+       False   True  False   True   True  False    0.500000
+TO_CD8+CD45RO+       False   True  False  False  False  False    0.166667
+TO_CD3+PD1+           True   True   True  False  False   True    0.666667
+TO_CD8+PD1+           True   True   True   True   True   True    1.000000
+TO_CD3+CD45RO+PD1+    True  False   True   True   True   True    0.833333
+TO_CD8+CD45RO+PD1+   False   True  False  False  False  False    0.166667
+TO_FOXP3              True   True   True   True   True   True    1.000000
+TO_CD163              True  False   True   True   True   True    0.833333
+TO_CD68               True  False   True   True   True   True    0.833333
+TO_CD4                True  False   True   True   True   True    0.833333
+TO_PDL1_2             True  False   True   True   True   True    0.833333
+TO_CD57               True   True   True   True   True   True    1.000000
+TO_CD68+CD163-        True   True   True   True   True   True    1.000000
+TO_CD68+CD163+        True   True   True   True   True   True    1.000000
+TO_PDL1+CD68+         True   True   True  False  False   True    0.666667
+TO_PDL1+CD68-         True   True   True   True   True   True    1.000000
+TO_CD4+FOXP3+         True   True   True   True   True   True    1.000000
+TO_CD68+CD163+PDL1+   True   True   True   True   True   True    1.000000
+TO_CD68+CD163+PDL1-   True   True   True   True   True   True    1.000000
+TO_PDL1_A             True   True   True   True   True   True    1.000000
+Gender                True   True   True   True   True   True    1.000000
+Age_65                True   True   True   True   True   True    1.000000
+Clinical_diagnosis    True   True   True   True   True   True    1.000000
+Tumor_site            True   True   True   True   True   True    1.000000
+Histological_type     True   True   True   True   True   True    1.000000
+Differentiation       True   True   True   True   True   True    1.000000
+T_stage               True   True   True   True   True   True    1.000000
+Vascular_invasion     True   True   True   True   True   True    1.000000
+Perineural_invasion   True   True   True   True   True   True    1.000000
+Histologic_grade      True   True   True   True   True   True    1.000000
+Clinical_risk        False   True  False  False  False  False    0.166667
+CEA                   True   True   True   True   True   True    1.000000
+Radiotherapy          True   True   True   True   True   True    1.000000
+Chemotherapy          True   True   True   True   True   True    1.000000
+Metastasis_status     True   True   True   True   True   True    1.000000
+MSI_status            True   True   True   True   True   True    1.000000
+PIK3CA                True   True   True   True   True   True    1.000000
+PTEN                  True   True   True   True   True   True    1.000000
+TP53                  True   True   True   True   True   True    1.000000
+KRAS                  True   True   True   True   True   True    1.000000
+NRAS                  True   True   True   True   True   True    1.000000
+BRAF                  True   True   True   True   True   True    1.000000
+MSH6                  True   True   True   True   True   True    1.000000
+MUTYH                 True   True   True   True   True   True    1.000000
+EPCAM                False   True  False  False  False  False    0.166667
+MET                  False   True  False  False  False  False    0.166667
+ERBB2                 True   True   True   True   True   True    1.000000
+APC                   True   True   True  False   True   True    0.833333
+POLE                  True   True   True   True   True   True    1.000000
+POLEEDM               True   True   True   True   True   True    1.000000
+POLD1                 True   True   True   True   True   True    1.000000
+POLD1EDM              True   True   True   True   True   True    1.000000
+BRCA1                 True   True   True   True   True   True    1.000000
+GALNT12               True   True   True   True   True   True    1.000000
+ATM                   True   True   True  False  False   True    0.666667
+KIT                   True   True   True   True   True   True    1.000000
+CDH1                  True   True   True   True   True   True    1.000000
+PMS1                  True   True   True   True   True   True    1.000000
+BRCA2                 True   True   True   True   True   True    1.000000
+BMPR1A                True   True   True   True   True   True    1.000000
+STK11                 True   True   True   True   True   True    1.000000
+MLH1                  True   True   True   True   True   True    1.000000
+PTCH1                 True   True   True  False  False   True    0.666667
+EGFR                 False   True  False  False  False  False    0.166667
+SMAD4                 True   True   True   True   True   True    1.000000
+PDGFRA                True   True   True   True   True   True    1.000000
+SDHD                  True   True   True   True   True   True    1.000000
+BLM                   True   True   True   True   True   True    1.000000
+AKT1                  True   True   True   True   True   True    1.000000
+HRAS                  True   True   True   True   True   True    1.000000
+MSH2                 False   True  False   True   True  False    0.500000
+CHEK2                 True   True   True   True   True   True    1.000000
+PMS2                  True   True   True   True   True   True    1.000000
+SDHB                  True   True   True   True   True   True    1.000000
+[2019-09-16 02:12:07] [INFO]: ---------------------------------------------
+[2019-09-16 02:12:15] [INFO]: ------------OS_Months: UnivarCoxPH-----------
+Feature values:
+                         coef  exp(coef)  se(coef)  coef lower 95%  coef upper 95%  exp(coef) lower 95%  exp(coef) upper 95%         z             p   -log2(p)  CI_score
+TU_CD8              -1.264478   0.282387  0.675158       -2.587763        0.058808             0.075188             1.060571 -1.872862  6.108743e-02   4.032981  0.595932
+TU_CD45RO           -0.499154   0.607044  0.302311       -1.091673        0.093366             0.335654             1.097864 -1.651123  9.871338e-02   3.340611  0.620997
+TU_CD3              -0.538132   0.583838  0.315319       -1.156145        0.079881             0.314697             1.083158 -1.706630  8.789079e-02   3.508144  0.627953
+TU_CD3+PD1+         -0.659985   0.516859  0.371099       -1.387326        0.067356             0.249742             1.069676 -1.778460  7.532835e-02   3.730663  0.564173
+TU_CD163            -1.018451   0.361154  0.430216       -1.861659       -0.175244             0.155415             0.839252 -2.367304  1.791821e-02   5.802430  0.666273
+TU_CD4              -1.128540   0.323505  0.553594       -2.213565       -0.043516             0.109310             0.957418 -2.038570  4.149300e-02   4.590988  0.604199
+TU_CD68+CD163+      -2.319970   0.098277  1.258050       -4.785702        0.145763             0.008348             1.156922 -1.844100  6.516858e-02   3.939680  0.587270
+TU_CD4+FOXP3+       -1.013742   0.362859  0.488906       -1.971980       -0.055503             0.139181             0.946009 -2.073490  3.812674e-02   4.713053  0.606299
+TU_CD68+CD163+PDL1- -1.460224   0.232184  0.800521       -3.029217        0.108769             0.048353             1.114905 -1.824091  6.813828e-02   3.875391  0.574803
+TO_PDL1+CD68+       -2.070774   0.126088  1.142956       -4.310926        0.169378             0.013421             1.184568 -1.811771  7.002155e-02   3.836057  0.555512
+TO_CD68+CD163+PDL1+ -3.441157   0.032028  1.849734       -7.066569        0.184255             0.000853             1.202323 -1.860352  6.283570e-02   3.992272  0.594094
+Age_65               0.808305   2.244102  0.180797        0.453950        1.162661             1.574519             3.198434  4.470789  7.793158e-06  16.969361  0.706955
+Differentiation     -0.553025   0.575207  0.155673       -0.858139       -0.247911             0.423950             0.780430 -3.552471  3.816318e-04  11.355531  0.618373
+T_stage              0.307251   1.359682  0.168258       -0.022528        0.637030             0.977724             1.890858  1.826074  6.783914e-02   3.881738  0.581102
+Vascular_invasion   -0.384258   0.680955  0.227676       -0.830494        0.061978             0.435834             1.063938 -1.687745  9.146010e-02   3.450714  0.556168
+Perineural_invasion -0.317350   0.728076  0.187776       -0.685385        0.050684             0.503896             1.051990 -1.690048  9.101878e-02   3.457692  0.579003
+Histologic_grade     0.419408   1.521060  0.148095        0.129147        0.709668             1.137858             2.033316  2.832024  4.625442e-03   7.756193  0.597769
+CEA                  0.157357   1.170413  0.092167       -0.023287        0.338001             0.976982             1.402143  1.707300  8.776627e-02   3.510190  0.668241
+Metastasis_status    1.266884   3.549773  0.212104        0.851168        1.682599             2.342381             5.379521  5.972945  2.330087e-09  28.676969  0.784646
+POLE                -0.622232   0.536745  0.338460       -1.285602        0.041138             0.276484             1.041995 -1.838421  6.600044e-02   3.921381  0.555906
+POLD1                0.338961   1.403489  0.123774        0.096368        0.581554             1.101165             1.788817  2.738547  6.171134e-03   7.340249  0.560236
+POLD1EDM             0.280447   1.323721  0.104326        0.075971        0.484922             1.078932             1.624048  2.688174  7.184398e-03   7.120917  0.531102
+[2019-09-16 02:12:15] [INFO]: ---------------------------------------------
+[2019-09-16 02:12:15] [INFO]: the CoxPH model use the CoxPH estimator for RFECV_S.
+[2019-09-16 02:12:27] [INFO]: RFECV: CoxPH -> CoxPH , split 0.15 
+[2019-09-16 02:12:30] [INFO]: RFECV: CoxPH -> CoxPH , split 0.16 
+[2019-09-16 02:12:33] [INFO]: RFECV: CoxPH -> CoxPH , split 0.17 
+[2019-09-16 02:12:36] [INFO]: RFECV: CoxPH -> CoxPH , split 0.18 
+[2019-09-16 02:12:40] [INFO]: RFECV: CoxPH -> CoxPH , split 0.19 
+[2019-09-16 02:12:43] [INFO]: RFECV: CoxPH -> CoxPH , split 0.20 
+[2019-09-16 02:12:46] [INFO]: RFECV: CoxPH -> CoxPH , split 0.21 
+[2019-09-16 02:12:49] [INFO]: RFECV: CoxPH -> CoxPH , split 0.22 
+[2019-09-16 02:12:52] [INFO]: RFECV: CoxPH -> CoxPH , split 0.23 
+[2019-09-16 02:12:55] [INFO]: RFECV: CoxPH -> CoxPH , split 0.24 
+[2019-09-16 02:12:59] [INFO]: RFECV: CoxPH -> CoxPH , split 0.25 
+[2019-09-16 02:13:02] [INFO]: RFECV: CoxPH -> CoxPH , split 0.26 
+[2019-09-16 02:13:04] [INFO]: RFECV: CoxPH -> CoxPH , split 0.27 
+[2019-09-16 02:13:07] [INFO]: RFECV: CoxPH -> CoxPH , split 0.28 
+[2019-09-16 02:13:09] [INFO]: RFECV: CoxPH -> CoxPH , split 0.29 
+[2019-09-16 02:13:13] [INFO]: RFECV: CoxPH -> CoxPH , split 0.30 
+[2019-09-16 02:13:16] [INFO]: RFECV: CoxPH -> CoxPH , split 0.31 
+[2019-09-16 02:13:19] [INFO]: RFECV: CoxPH -> CoxPH , split 0.32 
+[2019-09-16 02:13:22] [INFO]: RFECV: CoxPH -> CoxPH , split 0.33 
+[2019-09-16 02:13:25] [INFO]: RFECV: CoxPH -> CoxPH , split 0.34 
+[2019-09-16 02:13:25] [INFO]: ----------OS_Months: SelectUseModel----------
+[2019-09-16 02:13:25] [INFO]: RFECV_S drop 2 Features: ['TO_CD68+CD163+PDL1+', 'Vascular_invasion']
+[2019-09-16 02:13:25] [INFO]: RFECV_S keep 20 Features: ['TU_CD163', 'Age_65', 'Metastasis_status', 'TU_CD3+PD1+', 'CEA', 'Perineural_invasion', 'Histologic_grade', 'TU_CD68+CD163+PDL1-', 'TU_CD8', 'T_stage', 'POLD1', 'TU_CD4+FOXP3+', 'TU_CD3', 'TO_PDL1+CD68+', 'TU_CD68+CD163+', 'POLD1EDM', 'POLE', 'TU_CD4', 'TU_CD45RO', 'Differentiation']
+Features Selected: 
+                     CoxPH_0  CoxPH_1  CoxPH_2  CoxPH_3  CoxPH_4  CoxPH_5  CoxPH_6  CoxPH_7  CoxPH_8  CoxPH_9  CoxPH_10  CoxPH_11  CoxPH_12  CoxPH_13  CoxPH_14  CoxPH_15  CoxPH_16  CoxPH_17  CoxPH_18  CoxPH_19  SUM_Rank  SUM_Bool
+TU_CD163                   1        1        1        1        1        1        1        1        1        1         1         1         1         1         1         1         1         1         1         1        20        20
+Age_65                     1        1        1        1        1        1        1        1        1        1         1         1         1         1         1         1         1         1         1         1        20        20
+Metastasis_status          1        1        1        1        1        1        1        1        1        1         1         1         1         1         1         1         1         1         1         1        20        20
+TU_CD3+PD1+                1        1        1        1        1        1        1        1        1        1         1         1         1         1         1         2         1         1         1         1        21        19
+CEA                        1        2        1        1        2        1        2        1        1        1         2         1         1         1         1         3         1         1         1         1        26        15
+Perineural_invasion        1        3        1        1        3        1        3        1        1        1         3         1         1         1         1         4         1         1         2         1        32        14
+Histologic_grade           1        4        1        1        4        1        4        1        1        1         4         2         1         1         1         5         1         2         3         1        40        12
+TU_CD68+CD163+PDL1-        1        5        1        1        5        1        5        1        1        1         5         3         1         1         1         6         1         3         4         1        48        12
+TU_CD8                     1        6        1        1        6        1        6        1        1        1         6         4         1         1         1         7         1         4         5         2        57        11
+T_stage                    1        7        1        2        7        1        7        1        1        1         7         5         1         1         1         8         1         5         6         3        67        10
+POLD1                      1        8        1        3        8        1        8        1        1        1         8         6         1         1         1         9         1         6         7         4        77        10
+TU_CD4+FOXP3+              1        9        1        4        9        1        9        1        2        1         9         7         1         1         1        10         1         7         8         5        88         9
+TU_CD3                     1       10        1        5       10        1       10        1        3        1        10         8         1         1         1        11         1         8         9         6        99         9
+TO_PDL1+CD68+              1       11        1        6       11        1       11        2        4        2        11         9         1         1         1        12         1         9        10         7       112         7
+TU_CD68+CD163+             2       12        2        7       12        1       12        3        5        3        12        10         1         1         1        13         1        10        11         8       127         5
+POLD1EDM                   3       13        3        8       13        1       13        4        6        4        13        11         1         1         1        14         1        11        12         9       142         5
+POLE                       4       14        4        9       14        2       14        5        7        5        14        12         1         1         1        15         2        12        13        10       159         3
+TU_CD4                     5       15        5       10       15        3       15        6        8        6        15        13         1         1         1        16         3        13        14        11       176         3
+TU_CD45RO                  6       16        6       11       16        4       16        7        9        7        16        14         1         1         1        17         4        14        15        12       193         3
+Differentiation            7       17        7       12       17        5       17        8       10        8        17        15         1         1         1        18         5        15        16        13       210         3
+[2019-09-16 02:13:25] [INFO]: ---------------------------------------------
+[2019-09-16 02:13:33] [INFO]: ---------------------PCA---------------------
+[2019-09-16 02:13:33] [INFO]: PCA features length: 19
+[2019-09-16 02:13:33] [INFO]: PCA variance ratio : [0.20794351 0.12233874 0.09659112 0.08602065 0.07425164 0.05702221
+ 0.05592358 0.04691834 0.04058156 0.03366278 0.03227388 0.02756477
+ 0.02585592 0.02501547 0.020716   0.01519151 0.01226593 0.01024774
+ 0.00907784]
+[2019-09-16 02:13:33] [INFO]: ---------------------------------------------
+[2019-09-16 02:13:39] [INFO]: *****OS_Months: Feature Selecting Finish*****
+[2019-09-16 02:13:39] [INFO]: ********OS_Months: Supervised MODELing*******
+OS_Months Status Counts:
+0    95
+1    38
+[2019-09-16 02:13:49] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:13:49] [INFO]: CoxPH best parameters: 
+{'alpha': 1, 'n_iter': 300, 'ties': 'breslow', 'tol': 1e-09, 'verbose': 0}
+[2019-09-16 02:13:49] [INFO]: CoxPH best score: 0.8789967374366561
+[2019-09-16 02:13:49] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.136841   3.116908
+Age_65               0.646966   1.909737
+POLD1                0.550062   1.733361
+CEA                  0.362129   1.436384
+TU_CD45RO            0.356493   1.428311
+TU_CD8               0.306397   1.358522
+TO_PDL1+CD68+        0.182877   1.200667
+T_stage              0.144616   1.155596
+TU_CD68+CD163+      -0.114823   0.891524
+POLE                -0.234200   0.791204
+TU_CD3              -0.246269   0.781712
+POLD1EDM            -0.260225   0.770878
+Histologic_grade    -0.261166   0.770153
+TU_CD68+CD163+PDL1- -0.287181   0.750376
+Perineural_invasion -0.357165   0.699657
+TU_CD4              -0.378457   0.684917
+TU_CD4+FOXP3+       -0.601820   0.547814
+TU_CD163            -0.615859   0.540177
+Differentiation     -0.682772   0.505215
+TU_CD3+PD1+         -0.768369   0.463769
+[2019-09-16 02:13:49] [INFO]: CoxPH train mean   AUC: 0.9360478235869905
+[2019-09-16 02:13:49] [INFO]: CoxPH train CI_H score: 0.9167855444602948
+[2019-09-16 02:13:49] [INFO]: CoxPH train CI_U score: 0.9286593840595064
+[2019-09-16 02:13:49] [INFO]: CoxPH test  mean   AUC: 0.8521546843324873
+[2019-09-16 02:13:49] [INFO]: CoxPH test  CI_H score: 0.8170731707317073
+[2019-09-16 02:13:49] [INFO]: CoxPH test  CI_U score: 0.8755080938132385
+[2019-09-16 02:13:49] [INFO]: ---------------------------------------------
+[2019-09-16 02:13:58] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:13:58] [INFO]: CoxPH best parameters: 
+{'alpha': 1, 'n_iter': 300, 'ties': 'breslow', 'tol': 1e-09, 'verbose': 0}
+[2019-09-16 02:13:58] [INFO]: CoxPH best score: 0.8621091069024743
+[2019-09-16 02:13:58] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Age_65               1.005773   2.734020
+Metastasis_status    0.975339   2.652066
+POLD1                0.513432   1.671016
+T_stage              0.434025   1.543458
+TU_CD8               0.393235   1.481767
+CEA                  0.323873   1.382472
+Histologic_grade     0.264381   1.302624
+TO_PDL1+CD68+        0.122474   1.130290
+TU_CD68+CD163+      -0.066613   0.935557
+Perineural_invasion -0.077535   0.925394
+TU_CD68+CD163+PDL1- -0.080804   0.922374
+POLD1EDM            -0.203164   0.816145
+TU_CD45RO           -0.204381   0.815152
+Differentiation     -0.215878   0.805833
+TU_CD3              -0.243130   0.784170
+TU_CD4              -0.276563   0.758386
+TU_CD4+FOXP3+       -0.428989   0.651167
+TU_CD163            -0.528238   0.589643
+POLE                -0.602054   0.547686
+TU_CD3+PD1+         -0.845618   0.429292
+[2019-09-16 02:13:58] [INFO]: CoxPH train mean   AUC: 0.9272279291465076
+[2019-09-16 02:13:58] [INFO]: CoxPH train CI_H score: 0.9113545816733067
+[2019-09-16 02:13:58] [INFO]: CoxPH train CI_U score: 0.9191077661744622
+[2019-09-16 02:13:58] [INFO]: CoxPH test  mean   AUC: 0.8343389499500267
+[2019-09-16 02:13:58] [INFO]: CoxPH test  CI_H score: 0.8405797101449275
+[2019-09-16 02:13:58] [INFO]: CoxPH test  CI_U score: 0.836340772078284
+[2019-09-16 02:13:58] [INFO]: ---------------------------------------------
+[2019-09-16 02:14:07] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:14:07] [INFO]: CoxPH best parameters: 
+{'alpha': 1, 'n_iter': 300, 'ties': 'breslow', 'tol': 1e-09, 'verbose': 0}
+[2019-09-16 02:14:07] [INFO]: CoxPH best score: 0.83605321090956
+[2019-09-16 02:14:07] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.917742   2.503631
+Age_65               0.816542   2.262663
+Histologic_grade     0.463938   1.590325
+CEA                  0.355226   1.426503
+POLD1                0.292261   1.339453
+T_stage              0.282385   1.326289
+TU_CD45RO            0.248662   1.282309
+TU_CD8               0.148435   1.160017
+TO_PDL1+CD68+        0.139654   1.149875
+TU_CD68+CD163+      -0.076141   0.926686
+POLD1EDM            -0.099379   0.905399
+Differentiation     -0.140975   0.868511
+TU_CD68+CD163+PDL1- -0.151263   0.859621
+TU_CD4+FOXP3+       -0.290461   0.747919
+Perineural_invasion -0.324324   0.723016
+TU_CD3              -0.363355   0.695339
+TU_CD4              -0.389809   0.677186
+TU_CD163            -0.606754   0.545117
+TU_CD3+PD1+         -0.638226   0.528229
+POLE                -0.682208   0.505499
+[2019-09-16 02:14:07] [INFO]: CoxPH train mean   AUC: 0.9039218342946057
+[2019-09-16 02:14:07] [INFO]: CoxPH train CI_H score: 0.8908212560386474
+[2019-09-16 02:14:07] [INFO]: CoxPH train CI_U score: 0.9058075077155956
+[2019-09-16 02:14:07] [INFO]: CoxPH test  mean   AUC: 0.8694098233326357
+[2019-09-16 02:14:07] [INFO]: CoxPH test  CI_H score: 0.8918918918918919
+[2019-09-16 02:14:07] [INFO]: CoxPH test  CI_U score: 0.909532010212372
+[2019-09-16 02:14:07] [INFO]: ---------------------------------------------
+[2019-09-16 02:14:16] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:14:16] [INFO]: CoxPH best parameters: 
+{'alpha': 1, 'n_iter': 300, 'ties': 'breslow', 'tol': 1e-09, 'verbose': 0}
+[2019-09-16 02:14:16] [INFO]: CoxPH best score: 0.8723805287272882
+[2019-09-16 02:14:16] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.140368   3.127920
+POLD1                1.019405   2.771546
+Age_65               0.957050   2.604002
+CEA                  0.594217   1.811611
+TU_CD45RO            0.502241   1.652419
+POLE                 0.220658   1.246897
+T_stage              0.144859   1.155877
+Histologic_grade     0.003050   1.003054
+TO_PDL1+CD68+       -0.050486   0.950768
+TU_CD68+CD163+      -0.108751   0.896954
+TU_CD8              -0.149932   0.860766
+TU_CD68+CD163+PDL1- -0.171906   0.842058
+TU_CD3              -0.264685   0.767448
+TU_CD3+PD1+         -0.438534   0.644981
+TU_CD4              -0.447286   0.639361
+Differentiation     -0.490512   0.612313
+POLD1EDM            -0.635336   0.529757
+Perineural_invasion -0.786757   0.455319
+TU_CD4+FOXP3+       -0.852678   0.426272
+TU_CD163            -0.934384   0.392828
+[2019-09-16 02:14:16] [INFO]: CoxPH train mean   AUC: 0.9472217806107508
+[2019-09-16 02:14:16] [INFO]: CoxPH train CI_H score: 0.9273769708552317
+[2019-09-16 02:14:16] [INFO]: CoxPH train CI_U score: 0.9391201672420495
+[2019-09-16 02:14:16] [INFO]: CoxPH test  mean   AUC: 0.8156297818332287
+[2019-09-16 02:14:16] [INFO]: CoxPH test  CI_H score: 0.756
+[2019-09-16 02:14:16] [INFO]: CoxPH test  CI_U score: 0.7579032770764232
+[2019-09-16 02:14:16] [INFO]: ---------------------------------------------
+[2019-09-16 02:14:25] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:14:25] [INFO]: CoxPH best parameters: 
+{'alpha': 1, 'n_iter': 300, 'ties': 'breslow', 'tol': 1e-09, 'verbose': 0}
+[2019-09-16 02:14:25] [INFO]: CoxPH best score: 0.8710881519538678
+[2019-09-16 02:14:25] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.979316   2.662634
+Age_65               0.729288   2.073604
+POLD1EDM             0.671004   1.956201
+Histologic_grade     0.537930   1.712458
+POLD1                0.388839   1.475267
+CEA                  0.332537   1.394501
+TU_CD8               0.296106   1.344613
+TU_CD45RO            0.260393   1.297440
+T_stage              0.151527   1.163610
+TO_PDL1+CD68+        0.080721   1.084068
+TU_CD68+CD163+      -0.077004   0.925886
+Differentiation     -0.094908   0.909457
+TU_CD68+CD163+PDL1- -0.108906   0.896815
+TU_CD3              -0.188495   0.828205
+TU_CD4              -0.255549   0.774491
+TU_CD3+PD1+         -0.455286   0.634267
+POLE                -0.597709   0.550070
+Perineural_invasion -0.654714   0.519591
+TU_CD4+FOXP3+       -0.703786   0.494709
+TU_CD163            -1.071507   0.342492
+[2019-09-16 02:14:25] [INFO]: CoxPH train mean   AUC: 0.9411305251533354
+[2019-09-16 02:14:25] [INFO]: CoxPH train CI_H score: 0.9212635549269212
+[2019-09-16 02:14:25] [INFO]: CoxPH train CI_U score: 0.927422509138211
+[2019-09-16 02:14:25] [INFO]: CoxPH test  mean   AUC: 0.9230274481461778
+[2019-09-16 02:14:25] [INFO]: CoxPH test  CI_H score: 0.8847736625514403
+[2019-09-16 02:14:25] [INFO]: CoxPH test  CI_U score: 0.9121572764072616
+[2019-09-16 02:14:25] [INFO]: ---------------------------------------------
+[2019-09-16 02:14:32] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:14:32] [INFO]: CoxPH best parameters: 
+{'alpha': 1, 'n_iter': 300, 'ties': 'breslow', 'tol': 1e-09, 'verbose': 0}
+[2019-09-16 02:14:32] [INFO]: CoxPH best score: 0.8531227481942008
+[2019-09-16 02:14:32] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.321579   3.749337
+POLD1                0.603126   1.827823
+CEA                  0.311358   1.365278
+Age_65               0.307740   1.360347
+Histologic_grade     0.254574   1.289912
+TU_CD8               0.089416   1.093536
+TU_CD3               0.066556   1.068821
+T_stage              0.042783   1.043711
+TO_PDL1+CD68+        0.035737   1.036383
+Differentiation     -0.029515   0.970917
+TU_CD68+CD163+      -0.164432   0.848376
+POLE                -0.210823   0.809918
+TU_CD68+CD163+PDL1- -0.285923   0.751320
+TU_CD4              -0.292000   0.746768
+TU_CD45RO           -0.334160   0.715939
+Perineural_invasion -0.442788   0.642244
+POLD1EDM            -0.465872   0.627588
+TU_CD4+FOXP3+       -0.663697   0.514944
+TU_CD3+PD1+         -0.737620   0.478251
+TU_CD163            -1.209163   0.298447
+[2019-09-16 02:14:32] [INFO]: CoxPH train mean   AUC: 0.9305062053287029
+[2019-09-16 02:14:32] [INFO]: CoxPH train CI_H score: 0.9132093466857415
+[2019-09-16 02:14:32] [INFO]: CoxPH train CI_U score: 0.9277477755688494
+[2019-09-16 02:14:32] [INFO]: CoxPH test  mean   AUC: 0.8646601051819452
+[2019-09-16 02:14:32] [INFO]: CoxPH test  CI_H score: 0.8174603174603174
+[2019-09-16 02:14:32] [INFO]: CoxPH test  CI_U score: 0.7754402591241237
+[2019-09-16 02:14:32] [INFO]: ---------------------------------------------
+[2019-09-16 02:14:43] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:14:43] [INFO]: CoxPH best parameters: 
+{'alpha': 0.8, 'n_iter': 300, 'ties': 'breslow', 'tol': 1e-09, 'verbose': 0}
+[2019-09-16 02:14:43] [INFO]: CoxPH best score: 0.8349388355246128
+[2019-09-16 02:14:43] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.143862   3.138866
+Age_65               0.610307   1.840996
+TU_CD8               0.503156   1.653933
+POLD1                0.502402   1.652687
+Histologic_grade     0.466924   1.595081
+T_stage              0.345056   1.412070
+CEA                  0.326251   1.385764
+TU_CD45RO            0.282733   1.326751
+TU_CD68+CD163+      -0.063238   0.938720
+TU_CD4              -0.090159   0.913786
+TU_CD68+CD163+PDL1- -0.110713   0.895195
+TU_CD3              -0.140956   0.868528
+POLD1EDM            -0.169872   0.843772
+Differentiation     -0.224461   0.798947
+TO_PDL1+CD68+       -0.227888   0.796214
+POLE                -0.264260   0.767774
+TU_CD4+FOXP3+       -0.314970   0.729811
+Perineural_invasion -0.672862   0.510246
+TU_CD3+PD1+         -0.681805   0.505703
+TU_CD163            -0.897744   0.407488
+[2019-09-16 02:14:43] [INFO]: CoxPH train mean   AUC: 0.9174273826301158
+[2019-09-16 02:14:43] [INFO]: CoxPH train CI_H score: 0.9033511413307431
+[2019-09-16 02:14:43] [INFO]: CoxPH train CI_U score: 0.918112692562126
+[2019-09-16 02:14:43] [INFO]: CoxPH test  mean   AUC: 0.91229735963573
+[2019-09-16 02:14:43] [INFO]: CoxPH test  CI_H score: 0.8631178707224335
+[2019-09-16 02:14:43] [INFO]: CoxPH test  CI_U score: 0.8661059981916903
+[2019-09-16 02:14:43] [INFO]: ---------------------------------------------
+[2019-09-16 02:14:50] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:14:50] [INFO]: CoxPH best parameters: 
+{'alpha': 0.8, 'n_iter': 300, 'ties': 'breslow', 'tol': 1e-09, 'verbose': 0}
+[2019-09-16 02:14:50] [INFO]: CoxPH best score: 0.8879999465192243
+[2019-09-16 02:14:50] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.058433   2.881852
+Age_65               0.828069   2.288895
+Histologic_grade     0.819149   2.268570
+POLD1                0.705626   2.025114
+POLD1EDM             0.474380   1.607018
+TU_CD8               0.339039   1.403598
+CEA                  0.310286   1.363815
+T_stage              0.296659   1.345356
+Differentiation      0.274011   1.315229
+TU_CD45RO            0.060060   1.061900
+TU_CD3              -0.011685   0.988383
+TO_PDL1+CD68+       -0.024009   0.976277
+TU_CD4              -0.203567   0.815815
+TU_CD68+CD163+      -0.208324   0.811944
+TU_CD68+CD163+PDL1- -0.363415   0.695298
+POLE                -0.441409   0.643129
+Perineural_invasion -0.590935   0.553809
+TU_CD3+PD1+         -0.759741   0.467788
+TU_CD163            -0.841996   0.430849
+TU_CD4+FOXP3+       -0.984386   0.373669
+[2019-09-16 02:14:50] [INFO]: CoxPH train mean   AUC: 0.9437006303167648
+[2019-09-16 02:14:50] [INFO]: CoxPH train CI_H score: 0.9236381322957199
+[2019-09-16 02:14:50] [INFO]: CoxPH train CI_U score: 0.9267971406901975
+[2019-09-16 02:14:50] [INFO]: CoxPH test  mean   AUC: 0.8851825550168279
+[2019-09-16 02:14:50] [INFO]: CoxPH test  CI_H score: 0.8566037735849057
+[2019-09-16 02:14:50] [INFO]: CoxPH test  CI_U score: 0.8653737257480862
+[2019-09-16 02:14:50] [INFO]: ---------------------------------------------
+[2019-09-16 02:14:58] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:14:58] [INFO]: CoxPH best parameters: 
+{'alpha': 1, 'n_iter': 300, 'ties': 'breslow', 'tol': 1e-09, 'verbose': 0}
+[2019-09-16 02:14:58] [INFO]: CoxPH best score: 0.8217080300352776
+[2019-09-16 02:14:58] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.949013   2.583158
+Age_65               0.660149   1.935081
+POLD1                0.520699   1.683203
+CEA                  0.340734   1.405979
+Histologic_grade     0.306975   1.359307
+TU_CD4+FOXP3+        0.240533   1.271927
+T_stage              0.239637   1.270788
+TU_CD45RO            0.237572   1.268166
+TO_PDL1+CD68+        0.094647   1.099270
+TU_CD8               0.018916   1.019096
+Differentiation     -0.021980   0.978259
+TU_CD68+CD163+      -0.033516   0.967039
+TU_CD68+CD163+PDL1- -0.126340   0.881315
+POLD1EDM            -0.265338   0.766947
+Perineural_invasion -0.302508   0.738963
+TU_CD4              -0.314624   0.730063
+TU_CD3              -0.329404   0.719352
+TU_CD163            -0.554748   0.574217
+TU_CD3+PD1+         -0.670844   0.511277
+POLE                -0.784595   0.456304
+[2019-09-16 02:14:58] [INFO]: CoxPH train mean   AUC: 0.9145806097820104
+[2019-09-16 02:14:58] [INFO]: CoxPH train CI_H score: 0.8976415094339623
+[2019-09-16 02:14:58] [INFO]: CoxPH train CI_U score: 0.9064441140959671
+[2019-09-16 02:14:58] [INFO]: CoxPH test  mean   AUC: 0.8741770535633094
+[2019-09-16 02:14:58] [INFO]: CoxPH test  CI_H score: 0.8958333333333334
+[2019-09-16 02:14:58] [INFO]: CoxPH test  CI_U score: 0.8985180135787247
+[2019-09-16 02:14:58] [INFO]: ---------------------------------------------
+[2019-09-16 02:15:05] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:15:05] [INFO]: CoxPH best parameters: 
+{'alpha': 1, 'n_iter': 300, 'ties': 'breslow', 'tol': 1e-09, 'verbose': 0}
+[2019-09-16 02:15:05] [INFO]: CoxPH best score: 0.8693005975718413
+[2019-09-16 02:15:05] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.170304   3.222971
+Age_65               0.864985   2.374971
+Histologic_grade     0.591827   1.807288
+POLD1                0.545152   1.724870
+TU_CD45RO            0.461244   1.586045
+T_stage              0.433937   1.543321
+CEA                  0.217904   1.243467
+TO_PDL1+CD68+        0.116346   1.123384
+TU_CD4+FOXP3+        0.081487   1.084899
+TU_CD8               0.020386   1.020595
+Differentiation     -0.075782   0.927018
+TU_CD68+CD163+      -0.102028   0.903004
+TU_CD4              -0.136554   0.872359
+TU_CD68+CD163+PDL1- -0.152270   0.858757
+POLD1EDM            -0.178408   0.836601
+TU_CD3              -0.349108   0.705317
+TU_CD163            -0.466014   0.627498
+Perineural_invasion -0.555501   0.573785
+POLE                -0.749549   0.472580
+TU_CD3+PD1+         -0.888426   0.411303
+[2019-09-16 02:15:05] [INFO]: CoxPH train mean   AUC: 0.9227285002494351
+[2019-09-16 02:15:05] [INFO]: CoxPH train CI_H score: 0.911873840445269
+[2019-09-16 02:15:05] [INFO]: CoxPH train CI_U score: 0.9210452587327885
+[2019-09-16 02:15:05] [INFO]: CoxPH test  mean   AUC: 0.8154904538428679
+[2019-09-16 02:15:05] [INFO]: CoxPH test  CI_H score: 0.8333333333333334
+[2019-09-16 02:15:05] [INFO]: CoxPH test  CI_U score: 0.8377554651291237
+[2019-09-16 02:15:05] [INFO]: ---------------------------------------------
+[2019-09-16 02:15:14] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:15:14] [INFO]: CoxPH best parameters: 
+{'alpha': 1, 'n_iter': 300, 'ties': 'breslow', 'tol': 1e-09, 'verbose': 0}
+[2019-09-16 02:15:14] [INFO]: CoxPH best score: 0.8387214810875857
+[2019-09-16 02:15:14] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.192619   3.295700
+Age_65               0.749215   2.115339
+CEA                  0.454069   1.574706
+T_stage              0.297916   1.347049
+TU_CD45RO            0.273623   1.314719
+TO_PDL1+CD68+        0.176645   1.193207
+POLD1                0.113360   1.120035
+TU_CD8               0.109035   1.115201
+Histologic_grade     0.091737   1.096076
+POLD1EDM             0.033970   1.034554
+TU_CD68+CD163+PDL1- -0.043622   0.957316
+TU_CD4+FOXP3+       -0.054808   0.946667
+TU_CD68+CD163+      -0.100204   0.904653
+TU_CD3              -0.283130   0.753422
+TU_CD4              -0.344693   0.708438
+Differentiation     -0.348263   0.705913
+TU_CD3+PD1+         -0.368771   0.691583
+TU_CD163            -0.401119   0.669571
+Perineural_invasion -0.407750   0.665145
+POLE                -0.553898   0.574705
+[2019-09-16 02:15:14] [INFO]: CoxPH train mean   AUC: 0.921589673336906
+[2019-09-16 02:15:14] [INFO]: CoxPH train CI_H score: 0.8997277676950998
+[2019-09-16 02:15:14] [INFO]: CoxPH train CI_U score: 0.9108345435179471
+[2019-09-16 02:15:14] [INFO]: CoxPH test  mean   AUC: 0.8786238471206173
+[2019-09-16 02:15:14] [INFO]: CoxPH test  CI_H score: 0.896797153024911
+[2019-09-16 02:15:14] [INFO]: CoxPH test  CI_U score: 0.896797153024911
+[2019-09-16 02:15:14] [INFO]: ---------------------------------------------
+[2019-09-16 02:15:22] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:15:22] [INFO]: CoxPH best parameters: 
+{'alpha': 1, 'n_iter': 300, 'ties': 'breslow', 'tol': 1e-09, 'verbose': 0}
+[2019-09-16 02:15:22] [INFO]: CoxPH best score: 0.866098053474163
+[2019-09-16 02:15:22] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.931741   2.538925
+Age_65               0.831761   2.297360
+POLD1                0.650010   1.915560
+CEA                  0.384452   1.468809
+TU_CD45RO            0.246203   1.279159
+T_stage              0.241589   1.273270
+TU_CD8               0.159242   1.172621
+POLE                -0.000231   0.999769
+Histologic_grade    -0.009398   0.990646
+TO_PDL1+CD68+       -0.067393   0.934827
+TU_CD3              -0.073554   0.929086
+TU_CD4              -0.218944   0.803367
+POLD1EDM            -0.319193   0.726735
+TU_CD68+CD163+      -0.379736   0.684042
+Perineural_invasion -0.508775   0.601231
+Differentiation     -0.563374   0.569285
+TU_CD163            -0.593612   0.552329
+TU_CD68+CD163+PDL1- -0.628808   0.533227
+TU_CD3+PD1+         -0.707162   0.493041
+TU_CD4+FOXP3+       -0.835081   0.433839
+[2019-09-16 02:15:22] [INFO]: CoxPH train mean   AUC: 0.9405114619524689
+[2019-09-16 02:15:22] [INFO]: CoxPH train CI_H score: 0.9201388888888888
+[2019-09-16 02:15:22] [INFO]: CoxPH train CI_U score: 0.9299119829559109
+[2019-09-16 02:15:22] [INFO]: CoxPH test  mean   AUC: 0.8689444021687494
+[2019-09-16 02:15:22] [INFO]: CoxPH test  CI_H score: 0.8421052631578947
+[2019-09-16 02:15:22] [INFO]: CoxPH test  CI_U score: 0.8435152646957743
+[2019-09-16 02:15:22] [INFO]: ---------------------------------------------
+[2019-09-16 02:15:30] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:15:30] [INFO]: CoxPH best parameters: 
+{'alpha': 1, 'n_iter': 300, 'ties': 'breslow', 'tol': 1e-09, 'verbose': 0}
+[2019-09-16 02:15:30] [INFO]: CoxPH best score: 0.837744534761013
+[2019-09-16 02:15:30] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.447120   4.250854
+Age_65               0.758301   2.134647
+POLD1                0.495860   1.641909
+Histologic_grade     0.452167   1.571715
+TU_CD8               0.417259   1.517795
+CEA                  0.371242   1.449534
+T_stage              0.307391   1.359873
+TO_PDL1+CD68+        0.258615   1.295135
+Differentiation      0.007828   1.007859
+TU_CD45RO           -0.003916   0.996091
+POLE                -0.069059   0.933272
+TU_CD4              -0.112840   0.893294
+TU_CD68+CD163+      -0.126087   0.881538
+POLD1EDM            -0.157612   0.854181
+TU_CD3              -0.189180   0.827637
+TU_CD68+CD163+PDL1- -0.386749   0.679261
+Perineural_invasion -0.401186   0.669525
+TU_CD4+FOXP3+       -0.451521   0.636659
+TU_CD3+PD1+         -0.465158   0.628036
+TU_CD163            -0.504306   0.603924
+[2019-09-16 02:15:30] [INFO]: CoxPH train mean   AUC: 0.9302580269213951
+[2019-09-16 02:15:30] [INFO]: CoxPH train CI_H score: 0.9134799235181644
+[2019-09-16 02:15:30] [INFO]: CoxPH train CI_U score: 0.9326362397591912
+[2019-09-16 02:15:30] [INFO]: CoxPH test  mean   AUC: 0.944264447002476
+[2019-09-16 02:15:30] [INFO]: CoxPH test  CI_H score: 0.9047619047619048
+[2019-09-16 02:15:30] [INFO]: CoxPH test  CI_U score: 0.9040441565094162
+[2019-09-16 02:15:30] [INFO]: ---------------------------------------------
+[2019-09-16 02:15:39] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:15:39] [INFO]: CoxPH best parameters: 
+{'alpha': 1, 'n_iter': 300, 'ties': 'breslow', 'tol': 1e-09, 'verbose': 0}
+[2019-09-16 02:15:39] [INFO]: CoxPH best score: 0.8880292961937246
+[2019-09-16 02:15:39] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+POLD1                0.878926   2.408312
+Metastasis_status    0.863598   2.371679
+Histologic_grade     0.714181   2.042512
+Age_65               0.610246   1.840884
+CEA                  0.484892   1.624000
+TU_CD8               0.480944   1.617600
+Differentiation      0.268030   1.307386
+POLD1EDM             0.264593   1.302900
+T_stage              0.158320   1.171541
+TU_CD68+CD163+PDL1-  0.086947   1.090839
+TU_CD4+FOXP3+        0.061071   1.062975
+TU_CD68+CD163+       0.023662   1.023944
+TU_CD4              -0.125066   0.882438
+TO_PDL1+CD68+       -0.134924   0.873783
+TU_CD45RO           -0.234202   0.791202
+POLE                -0.463279   0.629217
+TU_CD3              -0.786868   0.455268
+Perineural_invasion -0.893297   0.409304
+TU_CD163            -0.921324   0.397992
+TU_CD3+PD1+         -1.143954   0.318557
+[2019-09-16 02:15:39] [INFO]: CoxPH train mean   AUC: 0.9282484346654675
+[2019-09-16 02:15:39] [INFO]: CoxPH train CI_H score: 0.9244406922752216
+[2019-09-16 02:15:39] [INFO]: CoxPH train CI_U score: 0.9252617690326841
+[2019-09-16 02:15:39] [INFO]: CoxPH test  mean   AUC: 0.6613449089951042
+[2019-09-16 02:15:39] [INFO]: CoxPH test  CI_H score: 0.7119341563786008
+[2019-09-16 02:15:39] [INFO]: CoxPH test  CI_U score: 0.7792392785051059
+[2019-09-16 02:15:39] [INFO]: ---------------------------------------------
+[2019-09-16 02:15:49] [INFO]: ****OS_Months: Supervised MODELing Finish****
+[2019-09-16 02:15:49] [INFO]: ************Supervisor Predicting************
+[2019-09-16 02:15:49] [INFO]: ----------Missing Values Processing----------
+[2019-09-16 02:15:49] [INFO]: Primary Samples and Feauters numbers: 133 , 132
+SimpleImputer paramaters:
+SimpleImputer(add_indicator=False, copy=True, fill_value=None,
+              missing_values=nan, strategy='median', verbose=0)
+[2019-09-16 02:15:49] [INFO]: ---------------------------------------------
+[2019-09-16 02:15:49] [INFO]: ----------Standardization Pocessing----------
+Scale paramaters:
+DataFrameMapper(default=False, df_out=False,
+                features=[(['ST_CD8', 'ST_PDL1_1', 'ST_CD45RO', 'ST_PD1',
+                            'ST_CD3', 'ST_CD3+CD8+', 'ST_CD3+CD45RO+',
+                            'ST_CD8+CD45RO+', 'ST_CD3+PD1+', 'ST_CD8+PD1+',
+                            'ST_CD3+CD45RO+PD1+', 'ST_CD8+CD45RO+PD1+',
+                            'ST_FOXP3', 'ST_CD163', 'ST_CD68', 'ST_CD4',
+                            'ST_PDL1_2', 'ST_CD57', 'ST_CD68+CD163-',
+                            'ST_CD68+CD163+', 'ST_PDL1+CD68+', 'ST_PDL1+CD68-',
+                            'ST_CD4+FOXP3+', 'ST_CD68+CD163+PDL1+',
+                            'ST_CD68+CD163+PDL1-', 'ST_PDL1_A', 'TU_CD8',
+                            'TU_PDL1_1', 'TU_CD45RO', 'TU_PD1', ...],
+                           [StandardScaler(copy=True, with_mean=True,
+                                           with_std=True)])],
+                input_df=False, sparse=False)
+[2019-09-16 02:15:49] [INFO]: ---------------------------------------------
+[2019-09-16 02:16:04] [INFO]: *******OS_Months: Supervised Predicting******
+[2019-09-16 02:16:04] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:16:04] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 02:16:04] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.136841   3.116908
+Age_65               0.646966   1.909737
+POLD1                0.550062   1.733361
+CEA                  0.362129   1.436384
+TU_CD45RO            0.356493   1.428311
+TU_CD8               0.306397   1.358522
+TO_PDL1+CD68+        0.182877   1.200667
+T_stage              0.144616   1.155596
+TU_CD68+CD163+      -0.114823   0.891524
+POLE                -0.234200   0.791204
+TU_CD3              -0.246269   0.781712
+POLD1EDM            -0.260225   0.770878
+Histologic_grade    -0.261166   0.770153
+TU_CD68+CD163+PDL1- -0.287181   0.750376
+Perineural_invasion -0.357165   0.699657
+TU_CD4              -0.378457   0.684917
+TU_CD4+FOXP3+       -0.601820   0.547814
+TU_CD163            -0.615859   0.540177
+Differentiation     -0.682772   0.505215
+TU_CD3+PD1+         -0.768369   0.463769
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  mean   AUC: 0.7309259978281307
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_H score: 0.6967741935483871
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_U score: 0.700118308156006
+[2019-09-16 02:16:04] [INFO]: ---------------------------------------------
+[2019-09-16 02:16:04] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:16:04] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 02:16:04] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Age_65               1.005773   2.734020
+Metastasis_status    0.975339   2.652066
+POLD1                0.513432   1.671016
+T_stage              0.434025   1.543458
+TU_CD8               0.393235   1.481767
+CEA                  0.323873   1.382472
+Histologic_grade     0.264381   1.302624
+TO_PDL1+CD68+        0.122474   1.130290
+TU_CD68+CD163+      -0.066613   0.935557
+Perineural_invasion -0.077535   0.925394
+TU_CD68+CD163+PDL1- -0.080804   0.922374
+POLD1EDM            -0.203164   0.816145
+TU_CD45RO           -0.204381   0.815152
+Differentiation     -0.215878   0.805833
+TU_CD3              -0.243130   0.784170
+TU_CD4              -0.276563   0.758386
+TU_CD4+FOXP3+       -0.428989   0.651167
+TU_CD163            -0.528238   0.589643
+POLE                -0.602054   0.547686
+TU_CD3+PD1+         -0.845618   0.429292
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  mean   AUC: 0.7608842569200477
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_H score: 0.7338709677419355
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_U score: 0.7415505643372329
+[2019-09-16 02:16:04] [INFO]: ---------------------------------------------
+[2019-09-16 02:16:04] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:16:04] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 02:16:04] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.917742   2.503631
+Age_65               0.816542   2.262663
+Histologic_grade     0.463938   1.590325
+CEA                  0.355226   1.426503
+POLD1                0.292261   1.339453
+T_stage              0.282385   1.326289
+TU_CD45RO            0.248662   1.282309
+TU_CD8               0.148435   1.160017
+TO_PDL1+CD68+        0.139654   1.149875
+TU_CD68+CD163+      -0.076141   0.926686
+POLD1EDM            -0.099379   0.905399
+Differentiation     -0.140975   0.868511
+TU_CD68+CD163+PDL1- -0.151263   0.859621
+TU_CD4+FOXP3+       -0.290461   0.747919
+Perineural_invasion -0.324324   0.723016
+TU_CD3              -0.363355   0.695339
+TU_CD4              -0.389809   0.677186
+TU_CD163            -0.606754   0.545117
+TU_CD3+PD1+         -0.638226   0.528229
+POLE                -0.682208   0.505499
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  mean   AUC: 0.783180147848031
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_H score: 0.7338709677419355
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_U score: 0.743034442197042
+[2019-09-16 02:16:04] [INFO]: ---------------------------------------------
+[2019-09-16 02:16:04] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:16:04] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 02:16:04] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.140368   3.127920
+POLD1                1.019405   2.771546
+Age_65               0.957050   2.604002
+CEA                  0.594217   1.811611
+TU_CD45RO            0.502241   1.652419
+POLE                 0.220658   1.246897
+T_stage              0.144859   1.155877
+Histologic_grade     0.003050   1.003054
+TO_PDL1+CD68+       -0.050486   0.950768
+TU_CD68+CD163+      -0.108751   0.896954
+TU_CD8              -0.149932   0.860766
+TU_CD68+CD163+PDL1- -0.171906   0.842058
+TU_CD3              -0.264685   0.767448
+TU_CD3+PD1+         -0.438534   0.644981
+TU_CD4              -0.447286   0.639361
+Differentiation     -0.490512   0.612313
+POLD1EDM            -0.635336   0.529757
+Perineural_invasion -0.786757   0.455319
+TU_CD4+FOXP3+       -0.852678   0.426272
+TU_CD163            -0.934384   0.392828
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  mean   AUC: 0.7268357445294021
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_H score: 0.6838709677419355
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_U score: 0.6589792705800126
+[2019-09-16 02:16:04] [INFO]: ---------------------------------------------
+[2019-09-16 02:16:04] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:16:04] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 02:16:04] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.979316   2.662634
+Age_65               0.729288   2.073604
+POLD1EDM             0.671004   1.956201
+Histologic_grade     0.537930   1.712458
+POLD1                0.388839   1.475267
+CEA                  0.332537   1.394501
+TU_CD8               0.296106   1.344613
+TU_CD45RO            0.260393   1.297440
+T_stage              0.151527   1.163610
+TO_PDL1+CD68+        0.080721   1.084068
+TU_CD68+CD163+      -0.077004   0.925886
+Differentiation     -0.094908   0.909457
+TU_CD68+CD163+PDL1- -0.108906   0.896815
+TU_CD3              -0.188495   0.828205
+TU_CD4              -0.255549   0.774491
+TU_CD3+PD1+         -0.455286   0.634267
+POLE                -0.597709   0.550070
+Perineural_invasion -0.654714   0.519591
+TU_CD4+FOXP3+       -0.703786   0.494709
+TU_CD163            -1.071507   0.342492
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  mean   AUC: 0.7523828424172658
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_H score: 0.7048387096774194
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_U score: 0.7279588332525522
+[2019-09-16 02:16:04] [INFO]: ---------------------------------------------
+[2019-09-16 02:16:04] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:16:04] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 02:16:04] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.321579   3.749337
+POLD1                0.603126   1.827823
+CEA                  0.311358   1.365278
+Age_65               0.307740   1.360347
+Histologic_grade     0.254574   1.289912
+TU_CD8               0.089416   1.093536
+TU_CD3               0.066556   1.068821
+T_stage              0.042783   1.043711
+TO_PDL1+CD68+        0.035737   1.036383
+Differentiation     -0.029515   0.970917
+TU_CD68+CD163+      -0.164432   0.848376
+POLE                -0.210823   0.809918
+TU_CD68+CD163+PDL1- -0.285923   0.751320
+TU_CD4              -0.292000   0.746768
+TU_CD45RO           -0.334160   0.715939
+Perineural_invasion -0.442788   0.642244
+POLD1EDM            -0.465872   0.627588
+TU_CD4+FOXP3+       -0.663697   0.514944
+TU_CD3+PD1+         -0.737620   0.478251
+TU_CD163            -1.209163   0.298447
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  mean   AUC: 0.6958083459231066
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_H score: 0.6838709677419355
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_U score: 0.7089412665379936
+[2019-09-16 02:16:04] [INFO]: ---------------------------------------------
+[2019-09-16 02:16:04] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:16:04] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=0.8, n_iter=300, ties='breslow', tol=1e-09,
+                      verbose=0)
+[2019-09-16 02:16:04] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.143862   3.138866
+Age_65               0.610307   1.840996
+TU_CD8               0.503156   1.653933
+POLD1                0.502402   1.652687
+Histologic_grade     0.466924   1.595081
+T_stage              0.345056   1.412070
+CEA                  0.326251   1.385764
+TU_CD45RO            0.282733   1.326751
+TU_CD68+CD163+      -0.063238   0.938720
+TU_CD4              -0.090159   0.913786
+TU_CD68+CD163+PDL1- -0.110713   0.895195
+TU_CD3              -0.140956   0.868528
+POLD1EDM            -0.169872   0.843772
+Differentiation     -0.224461   0.798947
+TO_PDL1+CD68+       -0.227888   0.796214
+POLE                -0.264260   0.767774
+TU_CD4+FOXP3+       -0.314970   0.729811
+Perineural_invasion -0.672862   0.510246
+TU_CD3+PD1+         -0.681805   0.505703
+TU_CD163            -0.897744   0.407488
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  mean   AUC: 0.7163200100754182
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_H score: 0.6903225806451613
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_U score: 0.6929698366163928
+[2019-09-16 02:16:04] [INFO]: ---------------------------------------------
+[2019-09-16 02:16:04] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:16:04] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=0.8, n_iter=300, ties='breslow', tol=1e-09,
+                      verbose=0)
+[2019-09-16 02:16:04] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.058433   2.881852
+Age_65               0.828069   2.288895
+Histologic_grade     0.819149   2.268570
+POLD1                0.705626   2.025114
+POLD1EDM             0.474380   1.607018
+TU_CD8               0.339039   1.403598
+CEA                  0.310286   1.363815
+T_stage              0.296659   1.345356
+Differentiation      0.274011   1.315229
+TU_CD45RO            0.060060   1.061900
+TU_CD3              -0.011685   0.988383
+TO_PDL1+CD68+       -0.024009   0.976277
+TU_CD4              -0.203567   0.815815
+TU_CD68+CD163+      -0.208324   0.811944
+TU_CD68+CD163+PDL1- -0.363415   0.695298
+POLE                -0.441409   0.643129
+Perineural_invasion -0.590935   0.553809
+TU_CD3+PD1+         -0.759741   0.467788
+TU_CD163            -0.841996   0.430849
+TU_CD4+FOXP3+       -0.984386   0.373669
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  mean   AUC: 0.6833810682495011
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_H score: 0.6516129032258065
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_U score: 0.6855420464764392
+[2019-09-16 02:16:04] [INFO]: ---------------------------------------------
+[2019-09-16 02:16:04] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:16:04] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 02:16:04] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.949013   2.583158
+Age_65               0.660149   1.935081
+POLD1                0.520699   1.683203
+CEA                  0.340734   1.405979
+Histologic_grade     0.306975   1.359307
+TU_CD4+FOXP3+        0.240533   1.271927
+T_stage              0.239637   1.270788
+TU_CD45RO            0.237572   1.268166
+TO_PDL1+CD68+        0.094647   1.099270
+TU_CD8               0.018916   1.019096
+Differentiation     -0.021980   0.978259
+TU_CD68+CD163+      -0.033516   0.967039
+TU_CD68+CD163+PDL1- -0.126340   0.881315
+POLD1EDM            -0.265338   0.766947
+Perineural_invasion -0.302508   0.738963
+TU_CD4              -0.314624   0.730063
+TU_CD3              -0.329404   0.719352
+TU_CD163            -0.554748   0.574217
+TU_CD3+PD1+         -0.670844   0.511277
+POLE                -0.784595   0.456304
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  mean   AUC: 0.7801107689095891
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_H score: 0.7403225806451613
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_U score: 0.7375742367485529
+[2019-09-16 02:16:04] [INFO]: ---------------------------------------------
+[2019-09-16 02:16:04] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:16:04] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 02:16:04] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.170304   3.222971
+Age_65               0.864985   2.374971
+Histologic_grade     0.591827   1.807288
+POLD1                0.545152   1.724870
+TU_CD45RO            0.461244   1.586045
+T_stage              0.433937   1.543321
+CEA                  0.217904   1.243467
+TO_PDL1+CD68+        0.116346   1.123384
+TU_CD4+FOXP3+        0.081487   1.084899
+TU_CD8               0.020386   1.020595
+Differentiation     -0.075782   0.927018
+TU_CD68+CD163+      -0.102028   0.903004
+TU_CD4              -0.136554   0.872359
+TU_CD68+CD163+PDL1- -0.152270   0.858757
+POLD1EDM            -0.178408   0.836601
+TU_CD3              -0.349108   0.705317
+TU_CD163            -0.466014   0.627498
+Perineural_invasion -0.555501   0.573785
+POLE                -0.749549   0.472580
+TU_CD3+PD1+         -0.888426   0.411303
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  mean   AUC: 0.7048425448997814
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_H score: 0.6806451612903226
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_U score: 0.6905433755728881
+[2019-09-16 02:16:04] [INFO]: ---------------------------------------------
+[2019-09-16 02:16:04] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:16:04] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 02:16:04] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.192619   3.295700
+Age_65               0.749215   2.115339
+CEA                  0.454069   1.574706
+T_stage              0.297916   1.347049
+TU_CD45RO            0.273623   1.314719
+TO_PDL1+CD68+        0.176645   1.193207
+POLD1                0.113360   1.120035
+TU_CD8               0.109035   1.115201
+Histologic_grade     0.091737   1.096076
+POLD1EDM             0.033970   1.034554
+TU_CD68+CD163+PDL1- -0.043622   0.957316
+TU_CD4+FOXP3+       -0.054808   0.946667
+TU_CD68+CD163+      -0.100204   0.904653
+TU_CD3              -0.283130   0.753422
+TU_CD4              -0.344693   0.708438
+Differentiation     -0.348263   0.705913
+TU_CD3+PD1+         -0.368771   0.691583
+TU_CD163            -0.401119   0.669571
+Perineural_invasion -0.407750   0.665145
+POLE                -0.553898   0.574705
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  mean   AUC: 0.770173683439124
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_H score: 0.7370967741935484
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_U score: 0.7359975483456358
+[2019-09-16 02:16:04] [INFO]: ---------------------------------------------
+[2019-09-16 02:16:04] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:16:04] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 02:16:04] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    0.931741   2.538925
+Age_65               0.831761   2.297360
+POLD1                0.650010   1.915560
+CEA                  0.384452   1.468809
+TU_CD45RO            0.246203   1.279159
+T_stage              0.241589   1.273270
+TU_CD8               0.159242   1.172621
+POLE                -0.000231   0.999769
+Histologic_grade    -0.009398   0.990646
+TO_PDL1+CD68+       -0.067393   0.934827
+TU_CD3              -0.073554   0.929086
+TU_CD4              -0.218944   0.803367
+POLD1EDM            -0.319193   0.726735
+TU_CD68+CD163+      -0.379736   0.684042
+Perineural_invasion -0.508775   0.601231
+Differentiation     -0.563374   0.569285
+TU_CD163            -0.593612   0.552329
+TU_CD68+CD163+PDL1- -0.628808   0.533227
+TU_CD3+PD1+         -0.707162   0.493041
+TU_CD4+FOXP3+       -0.835081   0.433839
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  mean   AUC: 0.6540512124451835
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_H score: 0.6016129032258064
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_U score: 0.621290348678888
+[2019-09-16 02:16:04] [INFO]: ---------------------------------------------
+[2019-09-16 02:16:04] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:16:04] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 02:16:04] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+Metastasis_status    1.447120   4.250854
+Age_65               0.758301   2.134647
+POLD1                0.495860   1.641909
+Histologic_grade     0.452167   1.571715
+TU_CD8               0.417259   1.517795
+CEA                  0.371242   1.449534
+T_stage              0.307391   1.359873
+TO_PDL1+CD68+        0.258615   1.295135
+Differentiation      0.007828   1.007859
+TU_CD45RO           -0.003916   0.996091
+POLE                -0.069059   0.933272
+TU_CD4              -0.112840   0.893294
+TU_CD68+CD163+      -0.126087   0.881538
+POLD1EDM            -0.157612   0.854181
+TU_CD3              -0.189180   0.827637
+TU_CD68+CD163+PDL1- -0.386749   0.679261
+Perineural_invasion -0.401186   0.669525
+TU_CD4+FOXP3+       -0.451521   0.636659
+TU_CD3+PD1+         -0.465158   0.628036
+TU_CD163            -0.504306   0.603924
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  mean   AUC: 0.7119146811562512
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_H score: 0.6919354838709677
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_U score: 0.7040115055515441
+[2019-09-16 02:16:04] [INFO]: ---------------------------------------------
+[2019-09-16 02:16:04] [INFO]: OS_Months CoxPH Model Fitting and hyperparametering
+[2019-09-16 02:16:04] [INFO]: CoxPH best parameters: 
+CoxPHSurvivalAnalysis(alpha=1, n_iter=300, ties='breslow', tol=1e-09, verbose=0)
+[2019-09-16 02:16:04] [INFO]: CoxPH best coefs: 
+                        coef_  exp_coef_
+POLD1                0.878926   2.408312
+Metastasis_status    0.863598   2.371679
+Histologic_grade     0.714181   2.042512
+Age_65               0.610246   1.840884
+CEA                  0.484892   1.624000
+TU_CD8               0.480944   1.617600
+Differentiation      0.268030   1.307386
+POLD1EDM             0.264593   1.302900
+T_stage              0.158320   1.171541
+TU_CD68+CD163+PDL1-  0.086947   1.090839
+TU_CD4+FOXP3+        0.061071   1.062975
+TU_CD68+CD163+       0.023662   1.023944
+TU_CD4              -0.125066   0.882438
+TO_PDL1+CD68+       -0.134924   0.873783
+TU_CD45RO           -0.234202   0.791202
+POLE                -0.463279   0.629217
+TU_CD3              -0.786868   0.455268
+Perineural_invasion -0.893297   0.409304
+TU_CD163            -0.921324   0.397992
+TU_CD3+PD1+         -1.143954   0.318557
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  mean   AUC: 0.7777670173272594
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_H score: 0.7516129032258064
+[2019-09-16 02:16:04] [INFO]: CoxPH predict  CI_U score: 0.712321251739501
+[2019-09-16 02:16:04] [INFO]: ---------------------------------------------
+[2019-09-16 02:16:12] [INFO]: ***OS_Months: Supervised Predicting Finish***
+[2019-09-16 02:16:12] [INFO]: *********Supervisor Predicting Finish********
+[2019-09-16 02:16:12] [INFO]: Success!!!
+[2019-09-16 02:16:12] [INFO]: You can check your progress in log file.
